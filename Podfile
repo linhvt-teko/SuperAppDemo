@@ -92,7 +92,6 @@ target 'MiniAppDemoSDK' do
 
   use_frameworks!
   pod 'MAPaymentKit', '~> 1.0.6', source: $TekoSpecs
-  pod 'HestiaIOS', '~> 2.5.1', source: $TekoSpecs
 
 end
 
