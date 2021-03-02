@@ -1,0 +1,11 @@
+framework module MAPaymentKit {
+  umbrella header "MAPaymentKit.h"
+
+  export *
+  module * { export * }
+}
+
+module MAPaymentKit.Swift {
+    header "MAPaymentKit-Swift.h"
+    requires objc
+}

@@ -1,0 +1,1045 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Minerva
+import CommonCrypto
+import CommonCrypto/*.CC_LONG*/
+import CommonCrypto/*.CC_MD5*/
+import CommonCrypto/*.CC_MD5_DIGEST_LENGTH*/
+import FirebaseCore
+import FirebaseFirestore
+import Foundation
+import Kingfisher
+@_exported import Minerva
+import SVProgressHUD
+import SnapKit
+import Swift
+import SwiftyJSON
+import TekCoreNetwork
+import TekCoreService
+import TerraInstancesManager
+import Toast_Swift
+import UIKit
+public enum PaymentError : Foundation.LocalizedError {
+  case timeOut
+  case missingPaymentConfig
+  case service(error: PaymentError.ServiceError)
+  case observe(error: PaymentObserveError)
+  case register(error: MethodRegisterError)
+  case unexpected
+  case cancel
+  public enum ServiceError : Foundation.LocalizedError {
+    case invalidChecksum
+    case invalidData
+    case invalidOrder
+    case invalidTransaction
+    case failedTransaction
+    case suspiciousTransaction
+    case cancelledByCustomer
+    case other
+    public init(code: Swift.Int)
+    public static func == (a: PaymentError.ServiceError, b: PaymentError.ServiceError) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+}
+public protocol IMethodRegisterResultInfo {
+  var type: PaymentMethodType { get }
+  var terminal: Swift.String { get }
+  var message: Swift.String? { get }
+  var error: MethodRegisterError? { get }
+  var isSuccess: Swift.Bool { get }
+}
+public protocol IMethodsRegisterResult {
+  var success: [IMethodRegisterResultInfo] { get }
+  var failure: [IMethodRegisterResultInfo] { get }
+  var message: Swift.String? { get }
+  var error: PaymentError? { get }
+}
+public enum IMethodRegisterResult {
+  case success
+  case failure(error: PaymentError, msg: Swift.String?)
+}
+extension IMethodsRegisterResult {
+  public func getInfo(method: PaymentMethodType) -> IMethodRegisterResult
+}
+public class SecretKey {
+  public init(rawValue: [Swift.String : Any])
+  @objc deinit
+}
+public class MerchantConfig {
+  public init(rawValue: [Swift.String : Any])
+  public init(code: Swift.String, terminalCode: Swift.String)
+  @objc deinit
+}
+public class PaymentServiceConfig {
+  public init(rawValue: [Swift.String : Any])
+  public init(merchantConfig: MerchantConfig, secretKey: SecretKey, baseUrl: Swift.String, expirationTime: Swift.Int = Config.expirationTime, firebaseConfig: FirebaseConfig)
+  @objc deinit
+}
+public class FirebaseConfig {
+  public init(rawValue: [Swift.String : Any])
+  public init(googleAppId: Swift.String, gcmSenderId: Swift.String, projectId: Swift.String, apiKey: Swift.String, databaseUrl: Swift.String, storageBucket: Swift.String)
+  @objc deinit
+}
+public protocol Interceptor {
+  associatedtype Input
+  func intercept(chain: InterceptorChain<Self.Input>, completion: @escaping (Self.Input) -> Swift.Void)
+}
+public class InterceptorChain<Input> {
+  public convenience init()
+  public init(interceptors: [AnyInterceptor<Input>], input: Input? = nil)
+  public var input: Input?
+  @discardableResult
+  public func add(interceptor: AnyInterceptor<Input>) -> InterceptorChain<Input>
+  public func proceed(object: Input? = nil, completion: @escaping (Input) -> Swift.Void)
+  @objc deinit
+}
+public struct AnyInterceptor<Input> : Interceptor {
+  public init<I>(base: I) where Input == I.Input, I : Interceptor
+  public func intercept(chain: InterceptorChain<Input>, completion: @escaping (Input) -> Swift.Void)
+}
+public enum Currency {
+  case vnd
+  case loyalty
+  public static func == (a: Currency, b: Currency) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public protocol IPaymentResult {
+  var isSuccess: Swift.Bool { get }
+  var error: PaymentError? { get }
+}
+public protocol AIOPaymentObservable {
+  associatedtype PaymentResult : IPaymentResult
+  func observe(code: Swift.String, completion: @escaping (Self.PaymentResult) -> Swift.Void) throws
+  func remove()
+}
+public protocol IAllowedPaymentMethod : PaymentMethodHoldable {
+  var displayName: Swift.String { get }
+  var displayText: Swift.String { get }
+  var displayIcon: Swift.String { get }
+  var partnerCode: Swift.String { get }
+}
+extension PaymentV2 {
+  public class AllowedPaymentMethod : Swift.Decodable, IAllowedPaymentMethod {
+    public var base: IPaymentMethod
+    public var displayName: Swift.String
+    public var displayText: Swift.String
+    public var displayIcon: Swift.String
+    public var partnerCode: Swift.String
+    required public init(from decoder: Swift.Decoder) throws
+    @objc deinit
+  }
+}
+extension PaymentV2 {
+  public class MethodRegisterResult : Swift.Decodable {
+    public var merchantCode: Swift.String
+    public var methodCode: Swift.String
+    public var terminalCode: Swift.String
+    public var merchantMethodCode: Swift.String?
+    public var errorCode: Swift.String?
+    public var errorMessage: Swift.String?
+    public init(merchantCode: Swift.String, methodCode: Swift.String, terminalCode: Swift.String, merchantMethodCode: Swift.String?, errorCode: Swift.String?, errorMessage: Swift.String?)
+    required public init(from decoder: Swift.Decoder) throws
+    @objc deinit
+  }
+}
+extension PaymentV2.MethodRegisterResult : IMethodRegisterResultInfo {
+  public var isSuccess: Swift.Bool {
+    get
+  }
+  public var terminal: Swift.String {
+    get
+  }
+  public var error: MethodRegisterError? {
+    get
+  }
+  public var message: Swift.String? {
+    get
+  }
+  public var type: PaymentMethodType {
+    get
+  }
+}
+public enum PaymentObserveError : Swift.Error {
+  case invalidRequestId
+  case invalidObservePath
+  case unexpected
+  public static func == (a: PaymentObserveError, b: PaymentObserveError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@_hasMissingDesignatedInitializers public class CodMethodRequest : CorePaymentRequest {
+  public typealias PaymentMethod = CodMethod
+  public typealias RequestExtraData = BasicPaymentRequestExtraData
+  public var method: CodMethod
+  public var amount: IPaymentAmount
+  public var extraData: BasicPaymentRequestExtraData
+  public var payload: [Swift.String : Any] {
+    get
+  }
+  @objc deinit
+}
+extension CodMethodRequest {
+  public convenience init(amount: Swift.Double)
+}
+@objc @_inheritsConvenienceInitializers public class QRScanViewController : PaymentBaseViewController {
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidLayoutSubviews()
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class VNPQrCodeMethod : BasePaymentMethod {
+  override public var type: PaymentMethodType {
+    get
+  }
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class PaymentBaseViewController : UIKit.UIViewController {
+  @objc override dynamic open func viewDidLoad()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public typealias UserInfoResponseHandler = (UserInfo?) -> Swift.Void
+@_inheritsConvenienceInitializers public class OAuthService : TekCoreService.BasicWorkerService {
+  public func getUserInfo(completion: @escaping UserInfoResponseHandler)
+  @objc deinit
+  override public init(url: Foundation.URL, credential: TekCoreService.ServicesCredential? = super, errorDelegate: TekCoreService.ServicesErrorDelegate? = super)
+}
+public protocol ITransactionInitResult {
+  var isSuccess: Swift.Bool { get }
+  var error: PaymentError? { get }
+}
+public typealias RegisterMerchantMethodsHandler = (IMethodsRegisterResult) -> Swift.Void
+public class BasicPaymentRequestExtraData : IPaymentRequestExtraData {
+  public var clientTransactionCode: Swift.String
+  public init()
+  @objc deinit
+}
+extension PaymentV2 {
+  public enum AIOPaymentResult : IPaymentResult {
+    case success(transactionResult: IObservedAIOTransaction)
+    case failure(error: PaymentError, transactionResult: IObservedAIOTransaction?)
+    public var isSuccess: Swift.Bool {
+      get
+    }
+    public var error: PaymentError? {
+      get
+    }
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class VNPSposMethod : BasePaymentMethod {
+  override public var type: PaymentMethodType {
+    get
+  }
+  @objc deinit
+}
+public struct PaymentTheme {
+}
+extension PaymentV2 {
+  public struct RegisterMerchantMethodsResult : IMethodsRegisterResult {
+    public var message: Swift.String?
+    public var error: PaymentError?
+    public var success: [IMethodRegisterResultInfo] {
+      get
+    }
+    public var failure: [IMethodRegisterResultInfo] {
+      get
+    }
+  }
+}
+public class PaymentV2 {
+  public var config: PaymentServiceConfig!
+  public var appName: Swift.String
+  public init(appName: Swift.String, config: PaymentServiceConfig)
+  @objc deinit
+}
+extension PaymentV2 : IPaymentV2 {
+  public func switchMerchantConfig(code: Swift.String, terminalCode: Swift.String)
+  public func getAllowedPaymentMethods(payload: PaymentV2.GetPaymentMethodsV3Payload, completion: @escaping (Swift.Result<IGetPaymentMethodsResponse, PaymentError>) -> Swift.Void)
+  public func registerMethods(_ methods: [PaymentMethodType], completion: @escaping RegisterMerchantMethodsHandler)
+  public func getQRReversalPaymentUI(order: PaymentOrder, delegate: PaymentUIDelegate) -> PaymentViewController
+  public func getPaymentUI(order: PaymentOrder = PaymentOrder(orderCode: nil, amount: 0.0, userId: nil), delegate: PaymentUIDelegate) -> PaymentViewController
+  public func initAIOTransaction(info: PaymentV2.AIOPaymentInfo, requests: [IPaymentRequest], completion: @escaping (PaymentV2.AIOInitResult) -> Swift.Void)
+  public func observePaymentResult(code: Swift.String, delegate: PaymentObserverDelegate)
+  public func cancelObservePaymentResult(code: Swift.String)
+}
+public protocol IDeposit {
+  var allowDeposit: Swift.Bool { get }
+  var payNowAmount: Swift.String? { get }
+  var applyDepositIds: [Swift.Int]? { get }
+}
+extension PaymentV2 {
+  public struct Deposit : Swift.Decodable, IDeposit {
+    public var allowDeposit: Swift.Bool
+    public var payNowAmount: Swift.String?
+    public var applyDepositIds: [Swift.Int]?
+    public init(from decoder: Swift.Decoder) throws
+  }
+}
+public protocol MethodRegisterError : Foundation.LocalizedError {
+}
+public enum CommonMethodRegisterError : MethodRegisterError {
+  case invalidMethod
+  case other
+  public static func == (a: CommonMethodRegisterError, b: CommonMethodRegisterError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public typealias UndefinedPaymentMethod = BasePaymentMethod
+@_hasMissingDesignatedInitializers public class BasePaymentMethod : IPaymentMethod {
+  public var groupType: PaymentMethodGroupType
+  public var type: PaymentMethodType {
+    get
+  }
+  public var merchantMethodCode: Swift.String
+  @objc deinit
+}
+extension PaymentV2 {
+  public enum VNPayMerchantMethodRegisterError : MethodRegisterError {
+    case inactiveTidMid
+    case invalidData
+    case invalidMethodCode
+    case other
+    public init(code: Swift.Int)
+    public static func == (a: PaymentV2.VNPayMerchantMethodRegisterError, b: PaymentV2.VNPayMerchantMethodRegisterError) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+}
+public protocol IAIOInitResponse {
+  var message: Swift.String? { get }
+  var orderCode: Swift.String? { get }
+  var payments: IInitialTransactionsList? { get }
+  var paymentRequestId: Swift.String { get }
+}
+extension PaymentV2 {
+  @_hasMissingDesignatedInitializers public class AIOInitResponse : TekCoreNetwork.BaseResponse<PaymentV2.PaymentCode> {
+    @objc deinit
+    override public init(code: PaymentV2.PaymentCode)
+  }
+}
+extension PaymentV2.AIOInitResponse : IAIOInitResponse {
+  public var orderCode: Swift.String? {
+    get
+  }
+  public var message: Swift.String? {
+    get
+  }
+  public var payments: IInitialTransactionsList? {
+    get
+  }
+  public var paymentRequestId: Swift.String {
+    get
+  }
+}
+public protocol IPaymentRequestExtraData {
+  var clientTransactionCode: Swift.String { get }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class LoyaltyMethod : BasePaymentMethod {
+  override public var type: PaymentMethodType {
+    get
+  }
+  @objc deinit
+}
+extension PaymentV2 {
+  public class PaymentCode : TekCoreNetwork.TekoCodeProtocol, Swift.Decodable {
+    public var successCode: Swift.String
+    public var code: Swift.String?
+    public var error: Swift.Error?
+    public var message: Swift.String?
+    public var details: [PaymentV2.PaymentDetailError]?
+    required public init(from decoder: Swift.Decoder) throws
+    @objc deinit
+    public typealias ValueType = Swift.String
+  }
+  @_hasMissingDesignatedInitializers public class PaymentDetailError : Swift.Decodable {
+    @objc deinit
+    required public init(from decoder: Swift.Decoder) throws
+  }
+  @_hasMissingDesignatedInitializers public class PaymentErrorMetaData : Swift.Decodable {
+    @objc deinit
+    required public init(from decoder: Swift.Decoder) throws
+  }
+}
+public protocol IPaymentAmount {
+  var currency: Currency { get }
+  var amount: Swift.Double { get }
+  var realAmount: Swift.Double { get }
+}
+public struct PaymentAmount : IPaymentAmount {
+  public var currency: Currency
+  public var amount: Swift.Double
+  public var realAmount: Swift.Double
+  public init(currency: Currency, amount: Swift.Double, conversationRate: Swift.Double? = nil)
+}
+public class Minerva {
+  public static var configName: Swift.String
+  public var config: PaymentServiceConfig!
+  public var appName: Swift.String
+  public init(appName: Swift.String, config: PaymentServiceConfig)
+  @objc deinit
+}
+extension Minerva {
+  public static func configure(app: TerraInstancesManager.ITerraApp) -> Minerva
+}
+public enum PaymentMethodGroupType : Swift.String {
+  case card
+  case credit
+  case loyalty
+  case qr
+  case undefined
+  public init(methodCode: Swift.String)
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension PaymentV2 {
+  public enum AIOInitResult {
+    case success(response: IAIOInitResponse)
+    case failure(error: PaymentError, response: IAIOInitResponse?)
+  }
+}
+extension PaymentV2.AIOInitResult : ITransactionInitResult {
+  public var isSuccess: Swift.Bool {
+    get
+  }
+  public var error: PaymentError? {
+    get
+  }
+}
+public protocol IInitialTransaction : AnyObject {
+  var clientTransactionCode: Swift.String { get }
+  var transactionCode: Swift.String { get }
+  var methodCode: Swift.String { get }
+  var responseCode: Swift.String? { get }
+  var responseMessage: Swift.String? { get }
+  var qrContent: Swift.String? { get }
+  var returnUrl: Swift.String? { get }
+  var traceId: Swift.String { get }
+  var merchantMethodCode: Swift.String { get set }
+  var amount: Swift.Int { get }
+  var paymentRequestId: Swift.String { get set }
+  var methodType: PaymentMethodType { get }
+  var error: PaymentError.ServiceError? { get }
+  var partnerError: Swift.Error? { get }
+}
+extension PaymentV2 {
+  public class InitialTransaction : Swift.Decodable, IInitialTransaction {
+    public var clientTransactionCode: Swift.String
+    public var transactionCode: Swift.String
+    public var methodCode: Swift.String
+    public var responseCode: Swift.String?
+    public var responseMessage: Swift.String?
+    public var qrContent: Swift.String?
+    public var returnUrl: Swift.String?
+    public var traceId: Swift.String
+    public var merchantMethodCode: Swift.String
+    public var merchantCode: Swift.String
+    public var amount: Swift.Int
+    public var paymentRequestId: Swift.String
+    public var partnerResponseCode: Swift.String
+    required public init(from decoder: Swift.Decoder) throws
+    public var isSuccess: Swift.Bool {
+      get
+    }
+    public var methodType: PaymentMethodType {
+      get
+    }
+    public var error: PaymentError.ServiceError? {
+      get
+    }
+    public var partnerError: Swift.Error? {
+      get
+    }
+    @objc deinit
+  }
+}
+extension PaymentV2 {
+  @_hasMissingDesignatedInitializers public class PaymentObserver {
+    public typealias PaymentResult = PaymentV2.AIOPaymentResult
+    public func observe(code: Swift.String, completion: @escaping (PaymentV2.AIOPaymentResult) -> Swift.Void) throws
+    public func remove()
+    @objc deinit
+  }
+}
+public enum VNPGatewaySubMethod {
+  case qr
+  case atm
+  case visa
+  case mobileBanking
+  public static func == (a: VNPGatewaySubMethod, b: VNPGatewaySubMethod) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@_hasMissingDesignatedInitializers public class VNPGatewayMethod : IPaymentMethod {
+  public var type: PaymentMethodType
+  public var groupType: PaymentMethodGroupType
+  public var merchantMethodCode: Swift.String
+  public var subMethod: VNPGatewaySubMethod
+  @objc deinit
+}
+public typealias IMinerva = IPaymentV2
+public typealias GetPaymentMethodsPayload = PaymentV2.GetPaymentMethodsV3Payload
+public typealias AIOInitResult = PaymentV2.AIOInitResult
+public typealias GetPaymentMethodsResponse = PaymentV2.GetPaymentMethodsResponse
+public typealias AIOPaymentInfo = PaymentV2.AIOPaymentInfo
+public typealias AIOPaymentResult = PaymentV2.AIOPaymentResult
+public typealias PaymentObserverDelegate = PaymentV2ObserverDelegate
+public typealias PaymentResultObservable = PaymentV2ResultObservable
+extension Minerva : IMinerva {
+  public func switchMerchantConfig(code: Swift.String, terminalCode: Swift.String)
+  public func getAllowedPaymentMethods(payload: GetPaymentMethodsPayload, completion: @escaping (Swift.Result<IGetPaymentMethodsResponse, PaymentError>) -> Swift.Void)
+  public func registerMethods(_ methods: [PaymentMethodType], completion: @escaping RegisterMerchantMethodsHandler)
+  public func getQRReversalPaymentUI(order: PaymentOrder, delegate: PaymentUIDelegate) -> PaymentViewController
+  public func getPaymentUI(order: PaymentOrder = PaymentOrder(orderCode: nil, amount: 0.0, userId: nil), delegate: PaymentUIDelegate) -> PaymentViewController
+  public func initAIOTransaction(info: AIOPaymentInfo, requests: [IPaymentRequest], completion: @escaping (AIOInitResult) -> Swift.Void)
+  public func observePaymentResult(code: Swift.String, delegate: PaymentObserverDelegate)
+  public func cancelObservePaymentResult(code: Swift.String)
+}
+@_hasMissingDesignatedInitializers public class GatewayRequestExtraData : BasicPaymentRequestExtraData {
+  @objc deinit
+  override public init()
+}
+@_hasMissingDesignatedInitializers public class QrCodeRequestExtraData : BasicPaymentRequestExtraData {
+  public enum QrImageType : Swift.Int {
+    case normal
+    case binary
+    case urlImage
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public struct QrSize {
+    public init(width: Swift.Int?, height: Swift.Int?)
+  }
+  @objc deinit
+  override public init()
+}
+public protocol IPaymentRequestInfo : UserIdHoldable {
+  var orderCode: Swift.String { get }
+  override var userId: Swift.String { get set }
+  var totalPaymentAmount: Swift.Int { get }
+}
+@_inheritsConvenienceInitializers public class OAuthConfigConverter : TekCoreService.BaseServiceConverter<OAuthConfig> {
+  override public func convertConfig(rawValue: [Swift.String : Any]) -> OAuthConfig
+  @objc deinit
+  required public init(input: [Swift.String : Any])
+}
+public protocol PaymentUIDelegate : AnyObject {
+  func onResult(_ result: AIOPaymentResult)
+  func onCancel()
+}
+public enum ObserveResult {
+  case success
+  case failure(PaymentObserveError)
+}
+public protocol ObserverDelegate : AnyObject {
+  func onObserveResult(code: Swift.String, result: ObserveResult)
+}
+extension ObserverDelegate {
+  public func onObserveResult(code: Swift.String, result: ObserveResult)
+}
+@objc @_inheritsConvenienceInitializers public class PaymentViewController : PaymentBaseViewController {
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+    @objc get
+  }
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+@_hasMissingDesignatedInitializers public class QrReversalMethodRequest : CorePaymentRequest {
+  public typealias PaymentMethod = VNPQrReversalMethod
+  public typealias RequestExtraData = QrReversalRequestExtraData
+  public var method: VNPQrReversalMethod
+  public var amount: IPaymentAmount
+  public var extraData: QrReversalRequestExtraData
+  public var payload: [Swift.String : Any] {
+    get
+  }
+  @objc deinit
+}
+extension QrReversalMethodRequest {
+  public convenience init(amount: Swift.Double, customerPhone: Swift.String, qrContent: Swift.String)
+}
+@_hasMissingDesignatedInitializers public class SposMethodRequest : CorePaymentRequest {
+  public typealias PaymentMethod = VNPSposMethod
+  public typealias RequestExtraData = BasicPaymentRequestExtraData
+  public var method: VNPSposMethod
+  public var amount: IPaymentAmount
+  public var extraData: BasicPaymentRequestExtraData
+  public var payload: [Swift.String : Any] {
+    get
+  }
+  @objc deinit
+}
+extension SposMethodRequest {
+  public convenience init(amount: Swift.Double)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class CodMethod : BasePaymentMethod {
+  override public var type: PaymentMethodType {
+    get
+  }
+  @objc deinit
+}
+public protocol IInitialTransactionsList {
+  var credit: IInitialTransaction? { get }
+  var loyalty: IInitialTransaction? { get }
+  var qr: IInitialTransaction? { get }
+  var card: IInitialTransaction? { get }
+}
+extension PaymentV2 {
+  public class InitialTransactionsList : Swift.Decodable {
+    required public init(from decoder: Swift.Decoder) throws
+    @objc deinit
+  }
+}
+extension PaymentV2.InitialTransactionsList : IInitialTransactionsList {
+  public var credit: IInitialTransaction? {
+    get
+  }
+  public var loyalty: IInitialTransaction? {
+    get
+  }
+  public var qr: IInitialTransaction? {
+    get
+  }
+  public var card: IInitialTransaction? {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class ImagesHelper {
+  public static func imageFor(name imageName: Swift.String) -> UIKit.UIImage?
+  public static func assestFor(name imageName: Swift.String) -> UIKit.UIImage?
+  @objc deinit
+}
+extension UIImage {
+  public convenience init?(color: UIKit.UIColor, size: CoreGraphics.CGSize = CGSize(width: 1, height: 1))
+}
+@_hasMissingDesignatedInitializers public class QrReversalRequestExtraData : BasicPaymentRequestExtraData {
+  @objc deinit
+  override public init()
+}
+public protocol IObservedAIOTransaction {
+  var requestId: Swift.String { get }
+  var amount: Swift.Double { get }
+  var status: Swift.String { get }
+  var message: Swift.String { get }
+  var createdTime: Swift.Int { get }
+  var terminalCode: Swift.String { get }
+  var merchantCode: Swift.String { get }
+  var orderCode: Swift.String { get }
+  var transactions: [IObservedTransaction] { get }
+  var error: PaymentError? { get }
+}
+extension PaymentV2 {
+  public struct ObservedAIOTransaction : IObservedAIOTransaction {
+    public var requestId: Swift.String
+    public var amount: Swift.Double
+    public var status: Swift.String
+    public var message: Swift.String
+    public var createdTime: Swift.Int
+    public var terminalCode: Swift.String
+    public var merchantCode: Swift.String
+    public var orderCode: Swift.String
+    public var transactions: [IObservedTransaction]
+    public var isSuccess: Swift.Bool {
+      get
+    }
+    public init(fromDict dict: [Swift.String : Any])
+    public var error: PaymentError? {
+      get
+    }
+  }
+}
+@_hasMissingDesignatedInitializers public class GatewayMethodRequest : CorePaymentRequest {
+  public typealias PaymentMethod = VNPGatewayMethod
+  public typealias RequestExtraData = GatewayRequestExtraData
+  public var method: VNPGatewayMethod
+  public var amount: IPaymentAmount
+  public var extraData: GatewayRequestExtraData
+  public var payload: [Swift.String : Any] {
+    get
+  }
+  @objc deinit
+}
+extension GatewayMethodRequest {
+  public convenience init(subMethod: VNPGatewaySubMethod, amount: Swift.Double, bankCode: Swift.String? = nil)
+}
+extension Encodable {
+  public var dictionary: [Swift.String : Any] {
+    get
+  }
+  public func stringify(withChecksum: Swift.Bool = false) -> Swift.String
+}
+public typealias MinervaConfig = PaymentServiceConfig
+public class MinervaGenerator : TerraInstancesManager.InstanceGeneratable {
+  public typealias InstanceType = Minerva
+  required public init()
+  public func generateInstance(app: TerraInstancesManager.ITerraApp) -> Minerva?
+  public func generateDefaultInstance(config: MinervaConfig) -> Minerva
+  public func generateDefaultInstance(config: [Swift.String : Any]) -> Minerva
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class MinervaSingleton : TerraInstancesManager.InstancesManageable {
+  public typealias Generator = MinervaGenerator
+  public static var shared: MinervaSingleton
+  public var instances: [Swift.String : Minerva]
+  public static var DEFAULT_VALUE: Swift.String
+  public var `default`: Minerva {
+    get
+  }
+  public func configureWith(config: MinervaConfig)
+  public func configureWith(config: [Swift.String : Any])
+  public func configureWith(app: TerraInstancesManager.ITerraApp)
+  @objc deinit
+}
+public var TerraPayment: MinervaSingleton
+extension PaymentV2 {
+  public enum LoyaltyError : PartnerError {
+    case notEnoughBalance
+    case other
+    public init(code: Swift.String)
+    public static func == (a: PaymentV2.LoyaltyError, b: PaymentV2.LoyaltyError) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+}
+public protocol IPaymentOrder : AnyObject {
+  var amount: Swift.Double { get set }
+  var orderCode: Swift.String? { get set }
+  var userId: Swift.String? { get set }
+}
+public class PaymentOrder : IPaymentOrder {
+  public var amount: Swift.Double
+  public var orderCode: Swift.String?
+  public var userId: Swift.String?
+  public var note: Swift.String?
+  public init(orderCode: Swift.String?, amount: Swift.Double, userId: Swift.String?, note: Swift.String? = nil)
+  @objc deinit
+}
+public protocol IPaymentRequest : AnyObject {
+  var methodType: PaymentMethodType { get }
+  var methodGroupType: PaymentMethodGroupType { get set }
+  var checksumString: Swift.String { get }
+  var payload: [Swift.String : Any] { get }
+  var merchantMethodCode: Swift.String { get set }
+}
+public protocol CorePaymentRequest : IPaymentRequest {
+  associatedtype PaymentMethod : IPaymentMethod
+  associatedtype RequestExtraData : IPaymentRequestExtraData
+  var method: Self.PaymentMethod { get set }
+  var amount: IPaymentAmount { get }
+  var extraData: Self.RequestExtraData { get }
+  override var checksumString: Swift.String { get }
+}
+extension CorePaymentRequest {
+  public var checksumString: Swift.String {
+    get
+  }
+  public var methodType: PaymentMethodType {
+    get
+  }
+  public var merchantMethodCode: Swift.String {
+    get
+    set(newValue)
+  }
+  public var methodGroupType: PaymentMethodGroupType {
+    get
+    set(newValue)
+  }
+}
+extension PaymentV2 {
+  @_hasMissingDesignatedInitializers public class GetPaymentMethodsV2Payload : Swift.Encodable {
+    public var userId: Swift.String
+    public var terminalCode: Swift.String
+    public var amount: Swift.Int
+    public convenience init(userId: Swift.String? = nil, amount: Swift.Int)
+    @objc deinit
+    public func encode(to encoder: Swift.Encoder) throws
+  }
+}
+@objc @_inheritsConvenienceInitializers @available(tvOS, unavailable)
+public class KeyboardLayoutConstraint : UIKit.NSLayoutConstraint {
+  @available(tvOS, unavailable)
+  @objc override dynamic public func awakeFromNib()
+  @objc deinit
+  @objc override dynamic public init()
+}
+public struct OAuthConfig {
+  public var url: Swift.String
+}
+extension Minerva {
+  public struct Config {
+    public static var expirationTime: Swift.Int
+  }
+  public struct NavigationBar {
+    public enum Theme {
+      case white
+      case primary
+      public static func == (a: NavigationBar.Theme, b: NavigationBar.Theme) -> Swift.Bool
+      public var hashValue: Swift.Int {
+        get
+      }
+      public func hash(into hasher: inout Swift.Hasher)
+    }
+    public static var height: CoreGraphics.CGFloat
+  }
+  public struct Images {
+    public static var backButton: UIKit.UIImage?
+    public static var backWhiteButton: UIKit.UIImage?
+    public static var sposIcon: UIKit.UIImage?
+    public static var qrIcon: UIKit.UIImage?
+    public static var cardIcon: UIKit.UIImage?
+  }
+}
+public protocol UserIdHoldable : AnyObject {
+  var userId: Swift.String { get set }
+}
+@_hasMissingDesignatedInitializers public class DateUtils {
+  public static func toString(date: Foundation.Date) -> Swift.String
+  @objc deinit
+}
+public protocol IPaymentMethod {
+  var type: PaymentMethodType { get }
+  var groupType: PaymentMethodGroupType { get set }
+  var merchantMethodCode: Swift.String { get set }
+  var methodCode: Swift.String { get }
+}
+extension IPaymentMethod {
+  public var methodCode: Swift.String {
+    get
+  }
+}
+extension Minerva {
+  public enum MiniAppEvent {
+    case startPayment
+    public var name: Swift.String {
+      get
+    }
+    public static func == (a: MiniAppEvent, b: MiniAppEvent) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+}
+public enum PaymentMethodType {
+  case vnPayGateway(sub: VNPGatewaySubMethod)
+  case vnPayQrCode
+  case vnPaySpos
+  case vnPayToken
+  case vnPayEWallet
+  case vnPayQrReversal
+  case alePayCredit
+  case loyalty
+  case cod
+  case undefined
+}
+extension PaymentMethodType : Swift.Equatable {
+}
+public func == (lhs: PaymentMethodType, rhs: PaymentMethodType) -> Swift.Bool
+@_hasMissingDesignatedInitializers public class CrypUtils {
+  public static func md5(text: Swift.String, secretKey: Swift.String) -> Swift.String
+  public static func sha256(text: Swift.String) -> Swift.String
+  @objc deinit
+}
+public protocol PaymentV2ObserverDelegate : ObserverDelegate {
+  func onPaymentResult(_ result: AIOPaymentResult)
+}
+public protocol PaymentV2ResultObservable {
+  func observePaymentResult(code: Swift.String, delegate: PaymentV2ObserverDelegate)
+  func cancelObservePaymentResult(code: Swift.String)
+}
+public protocol IPaymentV2 : PaymentV2ResultObservable {
+  func switchMerchantConfig(code: Swift.String, terminalCode: Swift.String)
+  func getAllowedPaymentMethods(payload: PaymentV2.GetPaymentMethodsV3Payload, completion: @escaping (Swift.Result<IGetPaymentMethodsResponse, PaymentError>) -> Swift.Void)
+  func registerMethods(_ methods: [PaymentMethodType], completion: @escaping RegisterMerchantMethodsHandler)
+  func initAIOTransaction(info: AIOPaymentInfo, requests: [IPaymentRequest], completion: @escaping (PaymentV2.AIOInitResult) -> Swift.Void)
+  func getPaymentUI(order: PaymentOrder, delegate: PaymentUIDelegate) -> PaymentViewController
+  func getQRReversalPaymentUI(order: PaymentOrder, delegate: PaymentUIDelegate) -> PaymentViewController
+}
+public class UserInfo : Swift.Decodable {
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+public protocol PartnerError : Foundation.LocalizedError {
+}
+public protocol PaymentMethodHoldable {
+  var base: IPaymentMethod { get }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class VNPQrReversalMethod : BasePaymentMethod {
+  override public var type: PaymentMethodType {
+    get
+  }
+  @objc deinit
+}
+public class OAuthServiceInstanceGenerator : TerraInstancesManager.ServiceInstanceGeneratable {
+  public typealias InstanceType = OAuthService
+  public typealias ServiceFactory = OAuthServiceFactory
+  required public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class TerraOAuthSingleton : TerraInstancesManager.InstancesManageable {
+  public typealias Generator = OAuthServiceInstanceGenerator
+  public static var shared: TerraOAuthSingleton
+  public var instances: [Swift.String : OAuthService]
+  @objc deinit
+}
+public var TerraOAuth: TerraOAuthSingleton
+public protocol IGetPaymentMethodsResponse {
+  var merchantCode: Swift.String { get }
+  var allowedPaymentMethods: [IAllowedPaymentMethod] { get }
+  var deposit: IDeposit? { get }
+  var message: Swift.String? { get }
+}
+extension PaymentV2 {
+  public class GetPaymentMethodsResponse : TekCoreNetwork.BaseResponse<PaymentV2.PaymentCode> {
+    public var merchantCode: Swift.String
+    public var _deposit: PaymentV2.Deposit?
+    public var message: Swift.String? {
+      get
+    }
+    required public init(from decoder: Swift.Decoder) throws
+    @objc deinit
+    override public init(code: PaymentV2.PaymentCode)
+  }
+}
+extension PaymentV2.GetPaymentMethodsResponse : IGetPaymentMethodsResponse {
+  public var allowedPaymentMethods: [IAllowedPaymentMethod] {
+    get
+  }
+  public var deposit: IDeposit? {
+    get
+  }
+}
+extension PaymentV2 {
+  @_hasMissingDesignatedInitializers public class GetPaymentMethodsV3Payload : PaymentV2.GetPaymentMethodsV2Payload {
+    public var merchantCode: Swift.String
+    public convenience init(userId: Swift.String? = nil, amount: Swift.Int)
+    override public func encode(to encoder: Swift.Encoder) throws
+    @objc deinit
+  }
+}
+@_hasMissingDesignatedInitializers public class LoyaltyMethodRequest : CorePaymentRequest {
+  public typealias PaymentMethod = LoyaltyMethod
+  public typealias RequestExtraData = BasicPaymentRequestExtraData
+  public var method: LoyaltyMethod
+  public var amount: IPaymentAmount
+  public var extraData: BasicPaymentRequestExtraData
+  public var payload: [Swift.String : Any] {
+    get
+  }
+  @objc deinit
+}
+extension LoyaltyMethodRequest {
+  public convenience init(points: Swift.Int, conversationRate: Swift.Double)
+}
+extension UIColor {
+  public convenience init(hex3: Swift.UInt16, alpha: CoreGraphics.CGFloat = 1)
+}
+public protocol IObservedTransaction {
+  var methodType: PaymentMethodType { get }
+  var amount: Swift.Double { get }
+  var message: Swift.String { get }
+  var ref: Swift.String { get }
+  var status: Swift.String { get }
+  var transactionCode: Swift.String { get }
+  var merchantCode: Swift.String { get }
+  var merchantMethodCode: Swift.String { get }
+  var methodCode: Swift.String { get }
+  var partnerStatus: Swift.String { get }
+  var error: PaymentError.ServiceError? { get }
+  var partnerError: Swift.Error? { get }
+}
+extension PaymentV2 {
+  public class ObservedTransaction : IObservedTransaction {
+    public var amount: Swift.Double
+    public var message: Swift.String
+    public var ref: Swift.String
+    public var status: Swift.String
+    public var transactionCode: Swift.String
+    public var partnerStatus: Swift.String
+    public var merchantCode: Swift.String
+    public var methodCode: Swift.String
+    public var merchantMethodCode: Swift.String
+    public var isSuccess: Swift.Bool {
+      get
+    }
+    public init(fromDict dict: [Swift.String : Any])
+    public var methodType: PaymentMethodType {
+      get
+    }
+    public var error: PaymentError.ServiceError? {
+      get
+    }
+    public var partnerError: Swift.Error? {
+      get
+    }
+    @objc deinit
+  }
+}
+extension PaymentV2 {
+  public class AIOPaymentInfo : IPaymentRequestInfo {
+    public var orderCode: Swift.String
+    public var userId: Swift.String
+    public var totalPaymentAmount: Swift.Int
+    public var expiredDate: Foundation.Date?
+    public var successUrl: Swift.String
+    public var cancelUrl: Swift.String
+    public init(userId: Swift.String? = nil, orderCode: Swift.String, totalPaymentAmount: Swift.Int, expiredDate: Foundation.Date? = nil, successUrl: Swift.String = "https://payment.teko.vn", cancelUrl: Swift.String = "https://payment.teko.vn")
+    @objc deinit
+  }
+}
+@_hasMissingDesignatedInitializers public class QrCodeMethodRequest : CorePaymentRequest {
+  public typealias PaymentMethod = VNPQrCodeMethod
+  public typealias RequestExtraData = QrCodeRequestExtraData
+  public var method: VNPQrCodeMethod
+  public var amount: IPaymentAmount
+  public var extraData: QrCodeRequestExtraData
+  public var payload: [Swift.String : Any] {
+    get
+  }
+  @objc deinit
+}
+extension QrCodeMethodRequest {
+  public convenience init(amount: Swift.Double, qrType: QrCodeRequestExtraData.QrImageType = .normal, qrSize: QrCodeRequestExtraData.QrSize? = nil)
+}
+public class OAuthServiceFactory : TekCoreService.ServiceBuildable, TekCoreService.ServiceConverterSupportable, TekCoreService.ServiceCredentialAttachable {
+  public typealias ServiceConverter = OAuthConfigConverter
+  public var credential: TekCoreService.ServicesCredential?
+  public var rawConfig: [Swift.String : Any]
+  public var serviceName: Swift.String
+  weak public var errorDelegate: TekCoreService.ServicesErrorDelegate?
+  required public init()
+  public func createService() throws -> TekCoreService.CoreService
+  public func withCredential(_ credential: TekCoreService.ServicesCredential)
+  @objc deinit
+}
+extension PaymentV2.PaymentObserver : AIOPaymentObservable {}
+extension PaymentV2.GetPaymentMethodsV2Payload : UserIdHoldable {}
+extension PaymentV2.GetPaymentMethodsV3Payload : UserIdHoldable {}

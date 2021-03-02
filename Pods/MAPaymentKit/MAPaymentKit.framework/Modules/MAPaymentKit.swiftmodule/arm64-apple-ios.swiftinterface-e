@@ -1,0 +1,64 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name MAPaymentKit
+import Foundation
+@_exported import MAPaymentKit
+import Swift
+import TerraInstancesManager
+import UIKit
+public protocol MAPaymentKitProtocol {
+  func pay(paymentRequest: MAPaymentKit.MAPaymentKit.PaymentRequest, completion: @escaping (MAPaymentKit.MAPaymentKit.PaymentResult) -> ())
+}
+@_hasMissingDesignatedInitializers public class MAPaymentKit : MAPaymentKit.MAPaymentKitProtocol {
+  public static var shared: MAPaymentKit.MAPaymentKit
+  public typealias ResultHandler = (MAPaymentKit.MAPaymentKit.PaymentResult) -> ()
+  public func pay(paymentRequest: MAPaymentKit.MAPaymentKit.PaymentRequest, completion: @escaping MAPaymentKit.MAPaymentKit.ResultHandler)
+  @objc deinit
+}
+extension MAPaymentKit {
+  public struct PaymentRequest : Swift.Encodable {
+    public var orderCode: Swift.String
+    public var amount: Swift.Double
+    public init(orderCode: Swift.String, amount: Swift.Double)
+    public func encode(to encoder: Swift.Encoder) throws
+  }
+}
+extension MAPaymentKit {
+  public enum PaymentError : Swift.Error {
+    case unexpected
+    case cancelled
+    case timeOut
+    case failure(info: MAPaymentKit.MAPaymentKit.PaymentInfo)
+  }
+}
+extension MAPaymentKit {
+  public class PaymentInfo : Swift.Decodable {
+    public var orderCode: Swift.String? {
+      get
+    }
+    public var paymentRequestId: Swift.String? {
+      get
+    }
+    public var transactionCode: Swift.String? {
+      get
+    }
+    public var amount: Swift.Double? {
+      get
+    }
+    public var traceId: Swift.String? {
+      get
+    }
+    public var status: Swift.String? {
+      get
+    }
+    public var message: Swift.String? {
+      get
+    }
+    public var code: Swift.String? {
+      get
+    }
+    required public init(from decoder: Swift.Decoder) throws
+    @objc deinit
+  }
+  public typealias PaymentResult = Swift.Result<MAPaymentKit.MAPaymentKit.PaymentInfo, MAPaymentKit.MAPaymentKit.PaymentError>
+}

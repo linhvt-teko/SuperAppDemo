@@ -1,0 +1,6 @@
+framework module Pods_SuperAppDemo_SuperAppDemoUITests {
+  umbrella header "Pods-SuperAppDemo-SuperAppDemoUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
