@@ -10,7 +10,7 @@ Demo for creating a MiniApp
 ### Installation
 
 #### CocoaPods
-Save `teko-gitlab-reader-token` into environment variable `GITHUB_USER_TOKEN` before execute pod command
+Save `teko-github-reader-token` into environment variable `GITHUB_USER_TOKEN` before execute pod command
 <br/>
 
 ```ruby
@@ -37,7 +37,7 @@ end
 
 ```
 
-Notes: Please contact Terra team (thanh.bm@teko.vn) to get `teko-gitlab-reader-token`
+Notes: Please contact Terra team (thanh.bm@teko.vn) to get `teko-github-reader-token`
 
 ## Project structure
 
