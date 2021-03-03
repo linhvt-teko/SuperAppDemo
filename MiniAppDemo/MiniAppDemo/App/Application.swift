@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import TerraInstancesManager
-import Terra
 
 class Application {
     static var shared = Application()
