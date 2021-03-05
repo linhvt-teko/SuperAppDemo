@@ -12,14 +12,11 @@ import Hestia
 import MiniAppDemoSDK
 
 public class MiniAppLauncher: IOSAppLauncherProtocol {
-    
-    public var launchData: AppLauncherData
-    
-    required public init(launchData: AppLauncherData) {
-        self.launchData = launchData
+    required public init() {
+        
     }
     
-    public func create(className: String, launcherData: AppLauncherData, completion: @escaping (UIViewController?) -> ()) {
+    public func create(launcherData: AppLauncherData, completion: @escaping (UIViewController?) -> ()) {
         dump(launcherData)
         
         var dict: [String : Any] = [:]

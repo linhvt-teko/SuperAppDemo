@@ -8,6 +8,7 @@
 
 import UIKit
 import MAPaymentKit
+import SVProgressHUD
 
 class MainViewController: UIViewController {
 
@@ -23,7 +24,9 @@ class MainViewController: UIViewController {
               let amount = Double(amountTextField.text ?? "") else {
             return
         }
-        MAPaymentKit.shared.pay(paymentRequest: .init(orderCode: orderCode, amount: amount)) { (result) in
+        SVProgressHUD.show()
+        PaymentKit.shared.pay(paymentRequest: .init(orderCode: orderCode, amount: amount)) { (result) in
+            SVProgressHUD.dismiss()
             switch result {
             case .success(let info):
                 self.showResult(info: info)
@@ -42,7 +45,61 @@ class MainViewController: UIViewController {
         }
     }
     
-    func showResult(info: MAPaymentKit.PaymentInfo) {
+    @IBAction func paymentQRCodeButtonWasTapped(_ sender: Any) {
+        guard let orderCode = orderCodeTextField.text,
+              let amount = Double(amountTextField.text ?? "") else {
+            return
+        }
+        SVProgressHUD.show()
+        PaymentKit.shared.payWithQRCode(paymentRequest: .init(orderCode: orderCode, amount: amount)) { (result) in
+            SVProgressHUD.dismiss()
+            switch result {
+            case .success(let info):
+                self.showResult(info: info)
+            case .failure(let error):
+                switch error {
+                case .timeOut:
+                    self.show(warning: "Time out")
+                case .cancelled: ()
+                //                    self.show(warning: "Cancelled")
+                case .unexpected:
+                    self.show(warning: "Unexpected error")
+                case .failure(let info):
+                    self.showResult(info: info)
+                }
+            }
+        }
+    }
+
+    
+    @IBAction func paymentQRReversalButtonWasTapped(_ sender: Any) {
+        guard let orderCode = orderCodeTextField.text,
+              let amount = Double(amountTextField.text ?? "") else {
+            return
+        }
+        SVProgressHUD.show()
+        PaymentKit.shared.payWithQRReversal(paymentRequest: .init(orderCode: orderCode, amount: amount)) { (result) in
+            SVProgressHUD.dismiss()
+            switch result {
+            case .success(let info):
+                self.showResult(info: info)
+            case .failure(let error):
+                switch error {
+                case .timeOut:
+                    self.show(warning: "Time out")
+                case .cancelled: ()
+                //                    self.show(warning: "Cancelled")
+                case .unexpected:
+                    self.show(warning: "Unexpected error")
+                case .failure(let info):
+                    self.showResult(info: info)
+                }
+            }
+        }
+    }
+
+    
+    func showResult(info: PaymentKit.PaymentInfo) {
         self.show(
             warning:"""
 Payment \(info.code == "SUCCESS" ? "successful" : "fail" ) with info:
@@ -65,6 +122,8 @@ extension UIViewController {
     func show(warning: String) {
         let alert = UIAlertController(title: NSLocalizedString("Result", comment: ""), message: warning, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }

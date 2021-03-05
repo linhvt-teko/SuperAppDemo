@@ -61,7 +61,7 @@ target 'SuperAppDemo' do
 
   # Pods for SuperAppDemo
   pod 'Terra', '~> 2.5.2'
-  pod 'Minerva', '~> 3.5.3'
+  pod 'Minerva', '~> 3.5.4'
 
   pod 'HestiaIOS', '~> 2.5.1'
   
@@ -84,6 +84,7 @@ target 'MiniAppDemo' do
 
   use_frameworks!
   pod 'MAPaymentKit', '~> 1.0.6', source: $TekoSpecs
+  pod 'SVProgressHUD'
 
 end
 
@@ -91,6 +92,7 @@ target 'MiniAppDemoSDK' do
   project 'MiniAppDemo/MiniAppDemo.xcodeproj'
 
   use_frameworks!
+  pod 'SVProgressHUD'
   pod 'MAPaymentKit', '~> 1.0.6', source: $TekoSpecs
 
 end
@@ -99,6 +101,7 @@ target 'MiniAppDemoConnectorSDK' do
   project 'MiniAppDemo/MiniAppDemo.xcodeproj'
 
   use_frameworks!
+  pod 'SVProgressHUD'
   pod 'MAPaymentKit', '~> 1.0.6', source: $TekoSpecs
   pod 'HestiaIOS', '~> 2.5.1', source: $TekoSpecs
 
