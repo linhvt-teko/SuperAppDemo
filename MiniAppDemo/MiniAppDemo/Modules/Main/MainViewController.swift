@@ -8,7 +8,6 @@
 
 import UIKit
 import MAPaymentKit
-import SVProgressHUD
 
 class MainViewController: UIViewController {
 
@@ -24,9 +23,7 @@ class MainViewController: UIViewController {
               let amount = Double(amountTextField.text ?? "") else {
             return
         }
-        SVProgressHUD.show()
         PaymentKit.shared.pay(paymentRequest: .init(orderCode: orderCode, amount: amount)) { (result) in
-            SVProgressHUD.dismiss()
             switch result {
             case .success(let info):
                 self.showResult(info: info)
@@ -50,9 +47,7 @@ class MainViewController: UIViewController {
               let amount = Double(amountTextField.text ?? "") else {
             return
         }
-        SVProgressHUD.show()
         PaymentKit.shared.payWithQRCode(paymentRequest: .init(orderCode: orderCode, amount: amount)) { (result) in
-            SVProgressHUD.dismiss()
             switch result {
             case .success(let info):
                 self.showResult(info: info)
@@ -77,9 +72,7 @@ class MainViewController: UIViewController {
               let amount = Double(amountTextField.text ?? "") else {
             return
         }
-        SVProgressHUD.show()
         PaymentKit.shared.payWithQRReversal(paymentRequest: .init(orderCode: orderCode, amount: amount)) { (result) in
-            SVProgressHUD.dismiss()
             switch result {
             case .success(let info):
                 self.showResult(info: info)
