@@ -19,7 +19,7 @@ class SplashViewController: UIViewController {
                 let vc = LoginModule.build()
                 let window = AppDelegate.shared.window
                 window?.rootViewController = UINavigationController(rootViewController: vc)
-                
+                window?.makeKeyAndVisible()
 //                self?.navigationController?.pushViewController(vc, animated: false)
             } else {
                 

@@ -63,7 +63,8 @@ target 'SuperAppDemo' do
   pod 'Terra', '~> 2.5.2'
   pod 'Minerva', '~> 3.5.5'
 
-  pod 'HestiaIOS', '~> 2.5.1'
+  pod 'HestiaIOS', '~> 2.5.3'
+  pod 'JanusUI', '~> 3'
   
   # pods of mini-apps
   pod 'FirebaseCore', '~> 6.7.0'

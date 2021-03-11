@@ -7,6 +7,7 @@
 
 import Foundation
 import AuthenticationServices
+import JanusUI
 import Janus
 
 protocol JanusLoginHelperDelegate: class {
