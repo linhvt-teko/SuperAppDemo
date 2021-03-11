@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
               let amount = Double(amountTextField.text ?? "") else {
             return
         }
-        PaymentKit.shared.pay(paymentRequest: .init(orderCode: orderCode, amount: amount)) { (result) in
+        PaymentKit.shared.pay(paymentRequest: .init(orderCode: orderCode, amount: amount, merchantCode: "TRIPI", shouldShowResultPage: false)) { result in
             switch result {
             case .success(let info):
                 self.showResult(info: info)
@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
                 case .timeOut:
                     self.show(warning: "Time out")
                 case .cancelled: ()
-//                    self.show(warning: "Cancelled")
+                //                    self.show(warning: "Cancelled")
                 case .unexpected:
                     self.show(warning: "Unexpected error")
                 case .failure(let info):
@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
               let amount = Double(amountTextField.text ?? "") else {
             return
         }
-        PaymentKit.shared.payWithQRCode(paymentRequest: .init(orderCode: orderCode, amount: amount)) { (result) in
+        PaymentKit.shared.payWithQRCode(paymentRequest: .init(orderCode: orderCode, amount: amount, merchantCode: "TRIPI", shouldShowResultPage: false)) { result in
             switch result {
             case .success(let info):
                 self.showResult(info: info)
@@ -72,7 +72,7 @@ class MainViewController: UIViewController {
               let amount = Double(amountTextField.text ?? "") else {
             return
         }
-        PaymentKit.shared.payWithQRReversal(paymentRequest: .init(orderCode: orderCode, amount: amount)) { (result) in
+        PaymentKit.shared.payWithQRReversal(paymentRequest: .init(orderCode: orderCode, amount: amount, merchantCode: "TRIPI", shouldShowResultPage: false)) { result in
             switch result {
             case .success(let info):
                 self.showResult(info: info)
