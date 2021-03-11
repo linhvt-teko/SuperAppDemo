@@ -17,7 +17,10 @@ class SplashViewController: UIViewController {
         Application.shared.loadTerra { [weak self] (isSuccess) in
             if isSuccess {
                 let vc = LoginModule.build()
-                self?.navigationController?.pushViewController(vc, animated: false)
+                let window = AppDelegate.shared.window
+                window?.rootViewController = UINavigationController(rootViewController: vc)
+                
+//                self?.navigationController?.pushViewController(vc, animated: false)
             } else {
                 
             }

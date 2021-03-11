@@ -66,7 +66,25 @@ target 'SuperAppDemo' do
   pod 'HestiaIOS', '~> 2.5.1'
   
   # pods of mini-apps
+  pod 'FirebaseCore', '~> 6.7.0'
   pod 'MAPaymentKit', '~> 1.0.7', source: $TekoSpecs
+  
+  # Tripi Pods
+  pod 'Cosmos', '18.0'
+  pod 'SVProgressHUD', '1.1.3'
+  pod 'IQKeyboardManagerSwift', '6.5.0'
+  pod "UPCarouselFlowLayout"
+  pod 'Toast-Swift'
+  pod 'SDWebImage', '5.1.1'
+  pod 'JVFloatLabeledTextField', '1.1.1'
+  pod 'MarqueeLabel', '3.2.0'
+  pod 'Moya/RxSwift', '~> 14.0'
+  pod 'RxCocoa', '5.1.0'
+  pod 'RxSwift', '5.1.1'
+  pod 'Alamofire', '5.3.0'
+  pod 'SkeletonView', '1.11.0'
+  pod 'UPCarouselFlowLayout', '1.1.2'
+  pod 'RealmSwift', '10.1.4'
   
   target 'SuperAppDemoTests' do
     inherit! :search_paths

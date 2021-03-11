@@ -12,6 +12,7 @@ import UIKit
 import Hestia
 import Janus
 import MiniAppDemoConnectorSDK
+import MAPaymentKit
 
 class AppListViewController: UIViewController {
     
