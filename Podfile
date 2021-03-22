@@ -61,7 +61,7 @@ target 'SuperAppDemo' do
 
   # Pods for SuperAppDemo
   pod 'Terra', '~> 2.5.2'
-  pod 'Minerva', '~> 3.5.7'
+  pod 'Minerva', '~> 3.6.0'
 
   pod 'HestiaIOS', '~> 2.5.3'
   pod 'JanusUI', '~> 3'
