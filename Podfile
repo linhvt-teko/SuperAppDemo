@@ -10,6 +10,11 @@ source $TekoSpecs
 project 'SuperAppDemo.xcodeproj'
 project 'MiniAppDemo/MiniAppDemo.xcodeproj'
 
+#$non_distribution_frameworks = [
+#  "TripiFlightKit",
+#  "TripiHotelKit"
+#]
+
 # bitcode enable
 post_install do |installer|
   installer.pods_project.targets.each do |target|
@@ -29,10 +34,11 @@ post_install do |installer|
       
       config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
 
-      # Xcode12 have to exclude arm64 for simulator architecture
-      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
-
-      config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+#      if $non_distribution_frameworks.include?(target.name)
+#        config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'NO'
+#        else
+        config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+#      end
 
       if config.name == 'Release' || config.name == 'Pro'
         config.build_settings['BITCODE_GENERATION_MODE'] = 'bitcode'
@@ -64,28 +70,21 @@ target 'SuperAppDemo' do
   pod 'Minerva', '~> 3.6.0'
 
   pod 'HestiaIOS', '~> 2.5.3'
-  pod 'JanusUI', '~> 3'
+  pod 'JanusUI', '~> 3.0.3'
+  pod 'Janus', '3.0.3'
   
   # pods of mini-apps
   pod 'FirebaseCore', '~> 6.7.0'
   pod 'MAPaymentKit', '~> 1.0.8', source: $TekoSpecs
   
   # Tripi Pods
-  pod 'Cosmos', '18.0'
-  pod 'SVProgressHUD', '1.1.3'
+  pod 'TripiFlightKitStage', '1.0.0'
+  pod 'TripiFlightConnector', '1.0.0'
+  
+  pod 'TripiHotelKitStage', '1.0.0'
+  pod 'TripiHotelConnector', '1.0.0'
+  
   pod 'IQKeyboardManagerSwift', '6.5.0'
-  pod "UPCarouselFlowLayout"
-  pod 'Toast-Swift'
-  pod 'SDWebImage', '5.1.1'
-  pod 'JVFloatLabeledTextField', '1.1.1'
-  pod 'MarqueeLabel', '3.2.0'
-  pod 'Moya/RxSwift', '~> 14.0'
-  pod 'RxCocoa', '5.1.0'
-  pod 'RxSwift', '5.1.1'
-  pod 'Alamofire', '5.3.0'
-  pod 'SkeletonView', '1.11.0'
-  pod 'UPCarouselFlowLayout', '1.1.2'
-  pod 'RealmSwift', '10.1.4'
   
   target 'SuperAppDemoTests' do
     inherit! :search_paths

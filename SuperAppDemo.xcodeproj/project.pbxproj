@@ -8,22 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1A1B4BC025F622BC0048BB80 /* TripiFlightLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B4BBF25F622BC0048BB80 /* TripiFlightLauncher.swift */; };
-		1A9900E725F9FA04005C23D2 /* CallAppSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9900E025F9F9FF005C23D2 /* CallAppSDK.framework */; };
-		1A9900E825F9FA04005C23D2 /* CallAppSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9900E025F9F9FF005C23D2 /* CallAppSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A9900E925F9FA05005C23D2 /* Pods_SuperAppDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38ED2A3859E44D688AF78C1E /* Pods_SuperAppDemo.framework */; };
 		1A9900EA25F9FA05005C23D2 /* Pods_SuperAppDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38ED2A3859E44D688AF78C1E /* Pods_SuperAppDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1A9900EB25F9FA06005C23D2 /* TripiCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9900DE25F9F9FF005C23D2 /* TripiCommon.framework */; };
-		1A9900EC25F9FA06005C23D2 /* TripiCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9900DE25F9F9FF005C23D2 /* TripiCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1A9900ED25F9FA07005C23D2 /* TripiFlightKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9900DF25F9F9FF005C23D2 /* TripiFlightKit.framework */; };
-		1A9900EE25F9FA07005C23D2 /* TripiFlightKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9900DF25F9F9FF005C23D2 /* TripiFlightKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1A9900EF25F9FA08005C23D2 /* TripiFlightPaymentKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9900DD25F9F9FF005C23D2 /* TripiFlightPaymentKit.framework */; };
-		1A9900F025F9FA09005C23D2 /* TripiFlightPaymentKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9900DD25F9F9FF005C23D2 /* TripiFlightPaymentKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1AC3A31426085A240078E8DB /* TripiHotelKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC3A2C5260858310078E8DB /* TripiHotelKit.framework */; };
-		1AC3A31526085A240078E8DB /* TripiHotelKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC3A2C5260858310078E8DB /* TripiHotelKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1AC3A31826085A270078E8DB /* TripiHotelPaymentKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC3A2C7260858310078E8DB /* TripiHotelPaymentKit.framework */; };
-		1AC3A31926085A270078E8DB /* TripiHotelPaymentKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC3A2C7260858310078E8DB /* TripiHotelPaymentKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1AC3A3CF260871AF0078E8DB /* TripiHotelConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC3A3CD260871AB0078E8DB /* TripiHotelConnector.framework */; };
-		1AC3A3D0260871AF0078E8DB /* TripiHotelConnector.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC3A3CD260871AB0078E8DB /* TripiHotelConnector.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94D52D012DFE5BB8AFD0A753 /* Pods_SuperAppDemo_SuperAppDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1302268653E63FA5CC7B607D /* Pods_SuperAppDemo_SuperAppDemoUITests.framework */; };
 		B5B1E5A46103A6B1307D215B /* Pods_SuperAppDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5425F7BCA9A50E0DDA40771 /* Pods_SuperAppDemoTests.framework */; };
 		CA7F2A7125EDF4B4001987A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2A7025EDF4B4001987A7 /* AppDelegate.swift */; };
@@ -79,16 +65,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1AC3A31926085A270078E8DB /* TripiHotelPaymentKit.framework in Embed Frameworks */,
 				CA7F2C5725EE26FD001987A7 /* MiniAppDemoSDK.framework in Embed Frameworks */,
 				1A9900EA25F9FA05005C23D2 /* Pods_SuperAppDemo.framework in Embed Frameworks */,
-				1A9900EE25F9FA07005C23D2 /* TripiFlightKit.framework in Embed Frameworks */,
-				1AC3A3D0260871AF0078E8DB /* TripiHotelConnector.framework in Embed Frameworks */,
-				1A9900E825F9FA04005C23D2 /* CallAppSDK.framework in Embed Frameworks */,
 				CA7F2DD125EE3082001987A7 /* MiniAppDemoConnectorSDK.framework in Embed Frameworks */,
-				1A9900F025F9FA09005C23D2 /* TripiFlightPaymentKit.framework in Embed Frameworks */,
-				1A9900EC25F9FA06005C23D2 /* TripiCommon.framework in Embed Frameworks */,
-				1AC3A31526085A240078E8DB /* TripiHotelKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,16 +131,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AC3A31826085A270078E8DB /* TripiHotelPaymentKit.framework in Frameworks */,
-				1A9900ED25F9FA07005C23D2 /* TripiFlightKit.framework in Frameworks */,
-				1A9900E725F9FA04005C23D2 /* CallAppSDK.framework in Frameworks */,
 				CA7F2DD025EE3082001987A7 /* MiniAppDemoConnectorSDK.framework in Frameworks */,
-				1AC3A3CF260871AF0078E8DB /* TripiHotelConnector.framework in Frameworks */,
 				CA7F2C5625EE26FD001987A7 /* MiniAppDemoSDK.framework in Frameworks */,
 				1A9900E925F9FA05005C23D2 /* Pods_SuperAppDemo.framework in Frameworks */,
-				1AC3A31426085A240078E8DB /* TripiHotelKit.framework in Frameworks */,
-				1A9900EF25F9FA08005C23D2 /* TripiFlightPaymentKit.framework in Frameworks */,
-				1A9900EB25F9FA06005C23D2 /* TripiCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
