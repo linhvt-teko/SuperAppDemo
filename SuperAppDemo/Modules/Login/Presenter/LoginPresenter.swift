@@ -9,26 +9,28 @@
 //
 
 import Foundation
+import Janus
 
 class LoginPresenter: LoginPresenterProtocol {
-
+    
     weak private var view: LoginViewProtocol?
-
+    
     init(view: LoginViewProtocol) {
         self.view = view
     }
     
-
+    
 }
 
 // MARK: - JanusLoginHelperDelegate
-extension LoginPresenter: JanusLoginHelperDelegate {
-    func janusHasLoggedIn(isSuccess: Bool) {
-        if isSuccess {
-            view?.openAppsList()
-        } else {
-            view?.showAlert(message: "authenticate error")
-        }
+extension LoginPresenter: JanusLoginDelegate {
+    func janusHasLoginFail(error: JanusError?) {
+        view?.showAlert(message: error?.localizedDescription)
+    }
+    
+    
+    func janusHasLoginSuccess(authCredential: JanusAuthCredential) {
+        view?.openAppsList()
     }
     
 }

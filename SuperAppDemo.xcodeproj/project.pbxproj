@@ -35,7 +35,6 @@
 		CA7F2ECF25EE3CEC001987A7 /* LoginModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2ECA25EE3CEC001987A7 /* LoginModule.swift */; };
 		CA7F2ED225EE3CED001987A7 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2ECD25EE3CEC001987A7 /* LoginProtocols.swift */; };
 		CA7F2ED325EE3CED001987A7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7F2ECE25EE3CEC001987A7 /* LoginViewController.xib */; };
-		CA7F2EDB25EE3E36001987A7 /* JanusHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2EDA25EE3E36001987A7 /* JanusHelper.swift */; };
 		CA7F2EDF25EE3ED2001987A7 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2EDE25EE3ED2001987A7 /* UIViewController+.swift */; };
 		CA7F2EE425EE3F40001987A7 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2ECB25EE3CEC001987A7 /* LoginPresenter.swift */; };
 		CA7F2EE925EE3FD8001987A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2ECC25EE3CEC001987A7 /* LoginViewController.swift */; };
@@ -661,7 +660,6 @@
 				CA7F2A7125EDF4B4001987A7 /* AppDelegate.swift in Sources */,
 				CA7F2B7A25EE153B001987A7 /* AppListPresenter.swift in Sources */,
 				CA7F2B7825EE153B001987A7 /* AppListModule.swift in Sources */,
-				CA7F2EDB25EE3E36001987A7 /* JanusHelper.swift in Sources */,
 				CA7F2B7625EE153B001987A7 /* SplashViewController.swift in Sources */,
 				CA7F2ED225EE3CED001987A7 /* LoginProtocols.swift in Sources */,
 				CA7F2B8D25EE1961001987A7 /* TerraInstanceCenter.swift in Sources */,

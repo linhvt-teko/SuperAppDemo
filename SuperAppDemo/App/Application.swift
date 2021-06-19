@@ -48,7 +48,8 @@ extension Application {
             if isSuccess {
                 TerraHestia.configureWith(app: terraApp)
                 TerraPayment.configureWith(app: terraApp)
-                TerraJanus.configureWith(app: terraApp, for: self.application, launchOptions: self.launchOptions)
+                TerraAuth.configureWith(app: terraApp)
+                TerraAuth.getInstance(by: terraApp)?.registerGoogle()
             }
             completion(isSuccess)
         }

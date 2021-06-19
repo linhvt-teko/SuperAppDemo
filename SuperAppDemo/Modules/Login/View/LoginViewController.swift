@@ -10,6 +10,8 @@
 
 import UIKit
 import Janus
+import JanusGoogle
+import JanusFacebook
 
 class LoginViewController: UIViewController {
 
@@ -20,11 +22,11 @@ class LoginViewController: UIViewController {
     
     // MARK: - actions
     @IBAction func facebookButtonWasTapped(_ sender: Any) {
-        JanusHelper.shared.loginFacebook(presentVC: self, delegate: presenter as? JanusLoginHelperDelegate)
+        TerraAuth.getInstance(by: terraApp)?.loginWithFacebook(presentViewController: self, delegate: presenter as? JanusLoginDelegate)
     }
     
     @IBAction func googlePlusButtonWasTapped(_ sender: Any) {
-        JanusHelper.shared.loginGooglePlus(presentVC: self, delegate: presenter as? JanusLoginHelperDelegate)
+        TerraAuth.getInstance(by: terraApp)?.loginWithGoogle(presentViewController: self, delegate: presenter as? JanusLoginDelegate)
     }
 
     // MARK: - life cycle

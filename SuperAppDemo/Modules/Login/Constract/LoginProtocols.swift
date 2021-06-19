@@ -11,17 +11,17 @@
 import Foundation
 
 // MARK: - Builder
-protocol LoginBuilderProtocol: class {
+protocol LoginBuilderProtocol: AnyObject {
 
 }
 
 // MARK: - Presenter
-protocol LoginPresenterProtocol: class {
+protocol LoginPresenterProtocol: AnyObject {
 
 }
 
 // MARK: - View
-protocol LoginViewProtocol: class {
+protocol LoginViewProtocol: AnyObject {
     var presenter: LoginPresenterProtocol? { get }
     
     func showAlert(message: String?)
