@@ -7,7 +7,6 @@
 
 import Foundation
 import AuthenticationServices
-import JanusUI
 import Janus
 
 protocol JanusLoginHelperDelegate: class {
@@ -23,6 +22,7 @@ class JanusHelper {
     func loginFacebook(presentVC: UIViewController, delegate: JanusLoginHelperDelegate?) {
         self.delegate = delegate
         do {
+            
             try TerraLoginManager.getInstances(by: terraApp)?.login(FacebookLoginUI(presentViewController: presentVC, delegate: self))
         } catch {
             print(error)
