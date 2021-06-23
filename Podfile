@@ -64,11 +64,12 @@ def terraPods
 end
 
 def paymentPods
-  pod 'Minerva', '~> 3.9.5'
+  pod 'Apollo', '~> 1.0.10'
+  pod 'MinervaUI', '~> 3.9.7'
 end
 
 def hestiaPods
-  pod 'HestiaIOS', '~> 2.6.2'
+  pod 'HestiaIOS', '~> 2.6.3'
 end
 
 def authPods
@@ -77,11 +78,11 @@ def authPods
 end
 
 def tripiPods
-  pod 'TripiFlightKitStage', '1.1.0'
-  pod 'TripiFlightConnector', '1.1.0'
+  pod 'TripiFlightKitStage', '1.1.1'
+  pod 'TripiFlightConnector', '1.1.3'
   
-  pod 'TripiHotelKitStage', '1.1.0'
-  pod 'TripiHotelConnector', '1.1.0'
+  pod 'TripiHotelKitStage', '1.1.1'
+  pod 'TripiHotelConnector', '1.1.3'
   
 end
 

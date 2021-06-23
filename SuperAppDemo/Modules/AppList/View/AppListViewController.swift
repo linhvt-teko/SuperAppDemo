@@ -30,7 +30,7 @@ class AppListViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
 
         let appList = MiniAppList(collectionViewLayout: UICollectionViewFlowLayout())
-        appList.appName = terraApp.identity
+        appList.terraAppName = terraApp.identity
         appList.delegate = self
         displayViewController(appList, in: self.containerView)
     }

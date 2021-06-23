@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Janus
 
 class SplashViewController: UIViewController {
 
@@ -16,11 +17,25 @@ class SplashViewController: UIViewController {
 
         Application.shared.loadTerra { [weak self] (isSuccess) in
             if isSuccess {
-                let vc = LoginModule.build()
                 let window = AppDelegate.shared.window
-                window?.rootViewController = UINavigationController(rootViewController: vc)
-                window?.makeKeyAndVisible()
-//                self?.navigationController?.pushViewController(vc, animated: false)
+
+                TerraAuth.auth(app: terraApp).refreshToken { isSuccess, credential, error in
+                    guard !isSuccess else {
+                        let vc = AppListModule.build()
+                        window?.rootViewController = UINavigationController(rootViewController: vc)
+                        window?.makeKeyAndVisible()
+
+                        return
+                    }
+                    
+                    let vc = LoginModule.build()
+                    window?.rootViewController = UINavigationController(rootViewController: vc)
+                    window?.makeKeyAndVisible()
+
+                }
+                
+                
+                
             } else {
                 
             }

@@ -213,6 +213,14 @@ PODS:
     - abseil/base/config
     - abseil/meta/type_traits
   - Alamofire (5.3.0)
+  - Apollo (1.0.10):
+    - Kingfisher (~> 6.0)
+  - ApolloTheme (0.2.5):
+    - Apollo (~> 1.0.0)
+    - Kingfisher (~> 6.0)
+    - Logging
+    - TekCoreService (~> 1.2.11)
+    - TerraInstancesManager (~> 1.2.17)
   - AppAuth (1.4.0):
     - AppAuth/Core (= 1.4.0)
     - AppAuth/ExternalUserAgent (= 1.4.0)
@@ -229,6 +237,7 @@ PODS:
   - Codextended (0.3.0)
   - Cosmos (18.0.1)
   - CryptoSwift (1.3.8)
+  - DeviceKit (4.4.0)
   - FacebookCore (0.9.0):
     - FBSDKCoreKit (~> 5.0)
   - FacebookLogin (0.9.0):
@@ -274,6 +283,7 @@ PODS:
     - "gRPC-C++ (~> 1.28.0)"
     - leveldb-library (~> 1.22)
     - nanopb (~> 2.30908.0)
+  - FittedSheets (1.4.6)
   - GoogleDataTransport (9.0.1):
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
@@ -319,13 +329,13 @@ PODS:
     - AppAuth/Core (~> 1.4)
     - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.5.0)
-  - Hestia (2.6.2):
+  - Hestia (2.6.3):
     - CryptoSwift (~> 1.3.8)
     - Kingfisher
     - SwiftyJSON (~> 4.0)
     - TerraInstancesManager (~> 1.2.17)
-  - HestiaIOS (2.6.2):
-    - Hestia (~> 2.6.2)
+  - HestiaIOS (2.6.3):
+    - Hestia (~> 2.6.3)
     - Janus (~> 3.2.6)
   - IQKeyboardManagerSwift (6.5.0)
   - Janus (3.2.6):
@@ -345,18 +355,39 @@ PODS:
   - Kingfisher (6.3.0)
   - leveldb-library (1.22.1)
   - Logging (1.4.0)
-  - MAPaymentKit (1.0.8):
-    - TerraInstancesManager (~> 1.2.12)
+  - LoyaltyComponent (0.3.1):
+    - Apollo (~> 1.0.0)
+    - ApolloTheme (~> 0.2.0)
+    - FittedSheets
+    - Kingfisher
+    - LoyaltyModel (~> 0.1.15)
+    - TerraInstancesManager
+  - LoyaltyModel (0.1.23):
+    - TekCoreNetwork
+  - MAPaymentKit (1.0.10):
+    - TerraInstancesManager (~> 1.2.17)
   - MarqueeLabel (3.2.1):
     - MarqueeLabel/ObjC (= 3.2.1)
   - MarqueeLabel/ObjC (3.2.1)
-  - Minerva (3.9.5):
+  - Minerva (3.9.7):
     - BerTlv
     - FirebaseFirestore (~> 8.1.0)
     - Logging
     - SwiftyJSON (~> 4.0)
     - TekCoreService (~> 1.2.11)
+    - TekoTracker (~> 0.10.11)
     - TerraInstancesManager (~> 1.2.17)
+  - MinervaUI (3.9.7):
+    - Apollo (~> 1.0.0)
+    - ApolloTheme (~> 0.2.0)
+    - FittedSheets
+    - Kingfisher (~> 6.0)
+    - LoyaltyComponent (~> 0.3.0)
+    - Minerva (~> 3.9.7)
+    - SnapKit
+    - SVProgressHUD
+    - Toast-Swift (~> 5.0.0)
+    - VnpayWalletSDK (~> 1.0.2)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (14.0.0):
@@ -368,11 +399,12 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (1.2.12)
-  - Realm (10.8.0):
-    - Realm/Headers (= 10.8.0)
-  - Realm/Headers (10.8.0)
-  - RealmSwift (10.8.0):
-    - Realm (= 10.8.0)
+  - ReachabilitySwift (5.0.0)
+  - Realm (10.8.1):
+    - Realm/Headers (= 10.8.1)
+  - Realm/Headers (10.8.1)
+  - RealmSwift (10.8.1):
+    - Realm (= 10.8.1)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -382,13 +414,27 @@ PODS:
   - SDWebImage (5.1.1):
     - SDWebImage/Core (= 5.1.1)
   - SDWebImage/Core (5.1.1)
-  - SkeletonView (1.17.2)
-  - SVProgressHUD (1.1.3)
+  - SkeletonView (1.18.0)
+  - SnapKit (5.0.1)
+  - SVProgressHUD (2.2.5)
+  - SwiftFootprint (1.3.1):
+    - TekoSwiftGRPC (~> 0.11.2)
+  - SwiftProtobuf (1.7.0)
   - SwiftyJSON (4.3.0)
   - TekCoreNetwork (1.2.27):
     - Alamofire (~> 5.3.0)
   - TekCoreService (1.2.11):
     - TekCoreNetwork (~> 1.2.27)
+  - TekoSwiftGRPC (0.11.2):
+    - gRPC-Core (~> 1.28.0)
+    - SwiftProtobuf (~> 1.7.0)
+  - TekoTracker (0.10.11):
+    - Alamofire (~> 5.3.0)
+    - DeviceKit
+    - ReachabilitySwift
+    - RxSwift (~> 5.0)
+    - SwiftFootprint (~> 1.3.1)
+    - TerraInstancesManager (~> 1.2.17)
   - Terra (2.5.3):
     - Codextended
     - CryptoSwift (~> 1.3.2)
@@ -398,21 +444,21 @@ PODS:
     - Logging
     - TekCoreService (~> 1.2.2)
   - Toast-Swift (5.0.1)
-  - TripiCommon (1.1.0):
+  - TripiCommon (1.1.1):
     - Alamofire (~> 5.3.0)
     - CallAppSDK
     - Moya/RxSwift (~> 14.0)
     - RxCocoa (~> 5.1.0)
     - RxSwift (~> 5.1.1)
-  - TripiFlightConnector (1.1.0):
-    - HestiaIOS (~> 2.6.2)
-    - TripiFlightPaymentKit (~> 1.1.0)
-  - TripiFlightKitStage (1.1.0):
+  - TripiFlightConnector (1.1.3):
+    - HestiaIOS (~> 2.6.3)
+    - TripiFlightPaymentKit (~> 1.1.2)
+  - TripiFlightKitStage (1.1.1):
     - Alamofire (~> 5.3.0)
     - Cosmos (~> 18.0)
     - IQKeyboardManagerSwift (~> 6.5.0)
     - JVFloatLabeledTextField (~> 1.1.1)
-    - MAPaymentKit (~> 1.0.8)
+    - MAPaymentKit (~> 1.0.9)
     - MarqueeLabel (~> 3.2.0)
     - Moya/RxSwift (~> 14.0)
     - RealmSwift
@@ -421,20 +467,21 @@ PODS:
     - SkeletonView
     - SVProgressHUD
     - Toast-Swift
-    - TripiCommon (~> 1.1.0)
+    - TripiCommon (~> 1.1.1)
     - UPCarouselFlowLayout
-  - TripiFlightPaymentKit (1.1.0):
-    - TripiCommon (~> 1.1.0)
-  - TripiHotelConnector (1.1.0):
-    - HestiaIOS (~> 2.6.2)
-    - TripiHotelPaymentKit (~> 1.1.0)
-  - TripiHotelKitStage (1.1.0):
+  - TripiFlightPaymentKit (1.1.2):
+    - MAPaymentKit (~> 1.0.10)
+    - TripiCommon (~> 1.1.1)
+  - TripiHotelConnector (1.1.3):
+    - HestiaIOS (~> 2.6.3)
+    - TripiHotelPaymentKit (~> 1.1.2)
+  - TripiHotelKitStage (1.1.1):
     - Alamofire (~> 5.3.0)
     - Cosmos (~> 18.0)
     - GoogleMaps
     - IQKeyboardManagerSwift (~> 6.5.0)
     - JVFloatLabeledTextField (~> 1.1.1)
-    - MAPaymentKit (~> 1.0.8)
+    - MAPaymentKit (~> 1.0.9)
     - MarqueeLabel (~> 3.2.0)
     - Moya/RxSwift (~> 14.0)
     - RealmSwift
@@ -443,39 +490,54 @@ PODS:
     - SkeletonView
     - SVProgressHUD
     - Toast-Swift
-    - TripiCommon (~> 1.1.0)
+    - TripiCommon (~> 1.1.1)
     - UPCarouselFlowLayout
-  - TripiHotelPaymentKit (1.1.0):
-    - TripiCommon (~> 1.1.0)
+  - TripiHotelPaymentKit (1.1.2):
+    - MAPaymentKit (~> 1.0.10)
+    - TripiCommon (~> 1.1.1)
   - UPCarouselFlowLayout (1.1.2)
+  - VNPayCore (1.0.0)
+  - VNPAYKitLib (1.0.0)
+  - VnpayWalletSDK (1.0.2):
+    - VNPayCore
+    - VNPAYKitLib
 
 DEPENDENCIES:
+  - Apollo (~> 1.0.10)
   - HestiaIOS (~> 2.6.2)
-  - HestiaIOS (~> 2.6.2)
+  - HestiaIOS (~> 2.6.3)
   - IQKeyboardManagerSwift (= 6.5.0)
   - JanusFacebook (~> 3.2.7)
   - JanusGoogle (~> 3.2.6)
   - MAPaymentKit (~> 1.0.8)
-  - Minerva (~> 3.9.5)
+  - MinervaUI (~> 3.9.7)
   - SVProgressHUD
   - Terra (~> 2.5.3)
-  - TripiFlightConnector (= 1.1.0)
-  - TripiFlightKitStage (= 1.1.0)
-  - TripiHotelConnector (= 1.1.0)
-  - TripiHotelKitStage (= 1.1.0)
+  - TripiFlightConnector (= 1.1.3)
+  - TripiFlightKitStage (= 1.1.1)
+  - TripiHotelConnector (= 1.1.3)
+  - TripiHotelKitStage (= 1.1.1)
 
 SPEC REPOS:
-  "https://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@github.com/teko-vn/Specs-ios.git":
+  "https://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@github.com/teko-vn/Specs-ios.git":
+    - Apollo
+    - ApolloTheme
     - CallAppSDK
     - Hestia
     - HestiaIOS
     - Janus
     - JanusFacebook
     - JanusGoogle
+    - LoyaltyComponent
+    - LoyaltyModel
     - MAPaymentKit
     - Minerva
+    - MinervaUI
+    - SwiftFootprint
     - TekCoreNetwork
     - TekCoreService
+    - TekoSwiftGRPC
+    - TekoTracker
     - Terra
     - TerraInstancesManager
     - TripiCommon
@@ -485,6 +547,9 @@ SPEC REPOS:
     - TripiHotelConnector
     - TripiHotelKitStage
     - TripiHotelPaymentKit
+    - VNPayCore
+    - VNPAYKitLib
+    - VnpayWalletSDK
   https://github.com/CocoaPods/Specs.git:
     - abseil
     - Alamofire
@@ -494,6 +559,7 @@ SPEC REPOS:
     - Codextended
     - Cosmos
     - CryptoSwift
+    - DeviceKit
     - FacebookCore
     - FacebookLogin
     - FacebookShare
@@ -503,6 +569,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseFirestore
+    - FittedSheets
     - GoogleDataTransport
     - GoogleMaps
     - GoogleSignIn
@@ -520,6 +587,7 @@ SPEC REPOS:
     - Moya
     - nanopb
     - PromisesObjC
+    - ReachabilitySwift
     - Realm
     - RealmSwift
     - RxCocoa
@@ -527,7 +595,9 @@ SPEC REPOS:
     - RxSwift
     - SDWebImage
     - SkeletonView
+    - SnapKit
     - SVProgressHUD
+    - SwiftProtobuf
     - SwiftyJSON
     - Toast-Swift
     - UPCarouselFlowLayout
@@ -535,6 +605,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   Alamofire: 2c792affbdc2f18016e08fdbcacd60aebe1ba593
+  Apollo: f942143e24aecc85c39e7ac0d582519d8d062d54
+  ApolloTheme: 7a3fe3fedfb5fe925ce45e0b815cfd06ca684fb4
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   BerTlv: c94b89a7b93bf8c1881691a8d105ec87a4a10759
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
@@ -542,6 +614,7 @@ SPEC CHECKSUMS:
   Codextended: f384271b8694376ad766ddbf2a011efbfdcee905
   Cosmos: 7dfaa3f52584ca5f94ab74b5c2e264019cc9f7f5
   CryptoSwift: 01b0f0cba1d5c212e5a335ff6c054fb75a204f00
+  DeviceKit: 2c5d7485a2fa10b65c0091b2952d30843a6ba06d
   FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
   FacebookLogin: 6cee9fd6e1fe976fe8f7eec199e27b28b14f5d63
   FacebookShare: 85968ad1b1606c4944fb154924e425fd29184ea5
@@ -551,6 +624,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 389c4ce9a7cce4a7e25eb22326b4bee0050557b2
   FirebaseCoreDiagnostics: 3e249cee3de5c5f9cfd6cc2a19997231286fec11
   FirebaseFirestore: c4be8314e9fa156f44b54025f7a98ecbff6971a6
+  FittedSheets: 7f37fee2567d15dcde391f31eccbffb660ddebf0
   GoogleDataTransport: 04c3e9a480bbcaa2ec3f5d27f1cdeb6a92f20c8d
   GoogleMaps: eb03e327edfd70b06de1e6e321653f73712df7ad
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
@@ -559,8 +633,8 @@ SPEC CHECKSUMS:
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
-  Hestia: 357a6985e6f8e89eb7ffa67159fa871a89979719
-  HestiaIOS: a7a4457c34ed3b27488457c20ff5bfaa8f848315
+  Hestia: c2f183677bccf83374f74c918306dca7822befee
+  HestiaIOS: 34b9d4b76eb11d4c3101720c741767d4a37564a9
   IQKeyboardManagerSwift: 6cd19976c6e871907c4ed9127c2d3affdd4defc2
   Janus: 372eaff73fc4e890fc64d932fbb7b35087f9fd51
   JanusFacebook: b5aeab286e88a6857598213039a7f2f64273b169
@@ -569,35 +643,47 @@ SPEC CHECKSUMS:
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
-  MAPaymentKit: 4264022189fc0e40eb1896025f5a9cf84738e7f8
+  LoyaltyComponent: f52f5b7f19de627752d389c56acb465d527cec21
+  LoyaltyModel: 57e31fbe01472692b2f788707526fe45b334672b
+  MAPaymentKit: d11eb14c018553d277db2266901243f11d10ba6e
   MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
-  Minerva: 9c9d8a6b60293a702db240acd8bb78d60b54e980
+  Minerva: 95aa6e18db82ccb8ec2d4a678059974543208aee
+  MinervaUI: a45b68b1fb60a572e152b9914f99c5f9344532ec
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  Realm: ad3c5cd762e5a5bc02080fc55aa04a0e43f98575
-  RealmSwift: 316e450478fb01e06ece4438dda42f407c5f51d2
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  Realm: a2db54d9dcceddeba936b429f5b3d6610a109686
+  RealmSwift: 2a3c75ecbf5a3b04080ff5f6f0554cf6337b4764
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
   SDWebImage: 96d7f03415ccb28d299d765f93557ff8a617abd8
-  SkeletonView: 7aba21d10df8d0530189379ebe02e02a192d8132
-  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  SkeletonView: e82f42a15c931248ef3f05899aaecb2549883bea
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftFootprint: f6871676e44b935776afadfadb8a70201f88f2d8
+  SwiftProtobuf: 4fd9645e69b72cbae6ec8da5be0cdd20ca6565dd
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   TekCoreNetwork: 2001cb5abeb1d40e3051ae993bd8fe8f6b475ed2
   TekCoreService: ccc87195789e0ec4b0bddaba3f570ff10663e36f
+  TekoSwiftGRPC: 0e07633a7a1f1a8e071ca8934391a3fd425bf1a7
+  TekoTracker: 3e60b858f3868ee23b3ad07fcf9c1b93b14a0fe5
   Terra: 128a11da3ac725d1e4af3b050c49df226666225b
   TerraInstancesManager: 33f4e678c2ec0408654053100eedaa663be79114
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
-  TripiCommon: 2d0875a0c47d6394039b068c59f27eb895b47285
-  TripiFlightConnector: 27a3983b9bd2fea5fcc5bd1264770324cf48cf95
-  TripiFlightKitStage: d8fbc0ae87ae53a02920f6a068dd9c01db647bb0
-  TripiFlightPaymentKit: 578539384500e6c065f4f65273290dcb35419e69
-  TripiHotelConnector: da49397eb734722119949b933fd972bb11bb90b8
-  TripiHotelKitStage: eb82e2903dff43c611ffba1288372dd71dd98ed2
-  TripiHotelPaymentKit: c86c64fc2718b25e7853bb181d248de54114322e
+  TripiCommon: 0d6265f4be376e43953518627d688e28106da77a
+  TripiFlightConnector: 7f1e0e77a5dfeb71b537c7f6586feef052d2eddf
+  TripiFlightKitStage: 89d6b8620eab91933b9c9a9c456dd84f3e2abfd0
+  TripiFlightPaymentKit: a0711d56a06b1fc891aa2300831dc9165f94994a
+  TripiHotelConnector: 87f3c2a957c162b382d57839e9b3dec50ae96c49
+  TripiHotelKitStage: c2a66817b5f86d370fe355f1d0849d08a76808ac
+  TripiHotelPaymentKit: a32e0437f86d3194322feb4e1c693b715033650a
   UPCarouselFlowLayout: 4c7d2c43a10ebb1597bde502a53699d378341dad
+  VNPayCore: a10fd10ea772a210867d820a0708ac95b1ce2516
+  VNPAYKitLib: 606b4dec63afc924aefa7630d66ca0387a018fec
+  VnpayWalletSDK: 5b65cbaef8cbde8285cec618f59bd91c68fb19bf
 
-PODFILE CHECKSUM: 308da62c2f939a67d42951e711be21e37bfb2b76
+PODFILE CHECKSUM: 02592fdfeb17a6552810b1bf23f28475b527a13c
 
 COCOAPODS: 1.10.0

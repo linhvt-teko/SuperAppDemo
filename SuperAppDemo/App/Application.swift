@@ -10,8 +10,10 @@ import UIKit
 import TerraInstancesManager
 import Terra
 import Hestia
-import Minerva
+import MinervaUI
 import Janus
+import Apollo
+import ApolloTheme
 
 class Application {
     static var shared = Application()
@@ -23,6 +25,7 @@ class Application {
     func attachWindow(_ window: UIWindow) {
         self.window = window
         self.window.backgroundColor = .black
+        buildRootViewController()
     }
     
     func buildRootViewController() {
@@ -47,9 +50,10 @@ extension Application {
         TerraInstanceCenter.shared.loadTerra { (isSuccess) in
             if isSuccess {
                 TerraHestia.configureWith(app: terraApp)
-                TerraPayment.configureWith(app: terraApp)
+                TerraPaymentUI.configureWith(app: terraApp)
                 TerraAuth.configureWith(app: terraApp)
                 TerraAuth.getInstance(by: terraApp)?.registerGoogle()
+                TerraTheme.configureWith(app: terraApp)
             }
             completion(isSuccess)
         }
