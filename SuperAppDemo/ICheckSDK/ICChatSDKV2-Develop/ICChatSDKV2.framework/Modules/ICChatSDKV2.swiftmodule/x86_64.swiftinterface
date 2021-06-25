@@ -1,0 +1,957 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name ICChatSDKV2
+import AVKit
+import Alamofire
+import AsyncDisplayKit
+import FirebaseAuth
+import FirebaseDatabase
+import Foundation
+@_exported import ICChatSDKV2
+import ICheckBaseUI
+import ICheckCore
+import Malert
+import ObjectMapper
+import Photos
+import RxCocoa
+import RxOptional
+import RxSwift
+import SVPullToRefresh
+import SnapKit
+import Swift
+import SystemConfiguration
+import TLPhotoPicker
+import UIKit
+import URLEmbeddedView
+extension Date {
+  public static func timeString(from date: Foundation.Date?, format: Swift.String = "dd/MM/yyyy") -> Swift.String?
+  public static func timeString(from timestamp: Swift.Int?, format: Swift.String = "dd/MM/yyyy") -> Swift.String?
+  public static func timeString(miniseconds timestamp: Swift.Int?, format: Swift.String = "dd/MM/yyyy") -> Swift.String?
+  public static func dateString(from date: Foundation.Date?, format: Swift.String? = nil, showTime: Swift.Bool = false) -> Swift.String?
+  public static func futureString(from date: Foundation.Date?) -> Swift.String?
+  public static func dateString(from timeStamp: Swift.Int?, format: Swift.String? = nil, showTime: Swift.Bool = false) -> Swift.String?
+  public static func from(_ string: Swift.String?, format: Swift.String? = nil, showTime: Swift.Bool = false) -> Foundation.Date?
+  public static func begin(ofDate date: Foundation.Date) -> Foundation.Date
+  public static func today() -> Foundation.Date?
+  public static func yesterday() -> Foundation.Date?
+  public static func firstDayOfWeek() -> Foundation.Date?
+  public static func sevenDaysAgo() -> Foundation.Date?
+  public static func thirtyDaysAgo() -> Foundation.Date?
+  public static func firstDayOfMonth() -> Foundation.Date?
+  public static func firstDayOfLastMonth() -> Foundation.Date?
+  public static func lastDayOfLastMonth() -> Foundation.Date?
+  public static func firstDayOfLastWeek() -> Foundation.Date?
+  public static func lastDayOfLastWeek() -> Foundation.Date?
+  public static func diffDays(startDate: Foundation.Date, endDate: Foundation.Date) -> Swift.Int?
+  public func isEqualToDateIgnoringTime(_ date: Foundation.Date) -> Swift.Bool
+  public func compareTime(_ date: Foundation.Date) -> Swift.String
+}
+extension Date {
+  public var millisecondsSince1970: Swift.Int64 {
+    get
+  }
+  public init(milliseconds: Swift.Int64)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ICActivityIndicatorNode : ICheckBaseUI.ICUDisplayNode {
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICBlockedNode : ICheckBaseUI.ICUDisplayNode {
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol ICChatAttachmentViewModel : ICChatSDKV2.ICChatBaseViewModel {
+  var medias: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatMedia]> { get }
+  var index: Swift.Int? { get }
+}
+@_hasMissingDesignatedInitializers public class ICChatAttachmentViewModelObject : ICChatSDKV2.ICChatBaseViewModelObject, ICChatSDKV2.ICChatAttachmentViewModel {
+  public var medias: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatMedia]>
+  public var index: Swift.Int?
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ICChatBaseViewController<T> : ICChatSDKV2.ISChatBaseViewController {
+  public var viewModel: T? {
+    get
+    set(value)
+  }
+  @objc override dynamic open func viewDidLoad()
+  open func fillUI()
+  open func bindUI()
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class ISChatBaseViewController : UIKit.UIViewController {
+  public var keyboardHeight: CoreGraphics.CGFloat
+  public var isAnimation: Swift.Bool
+  public var hideNavigationBar: Swift.Bool {
+    get
+    set(value)
+  }
+  @objc dynamic public init()
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidLoad()
+  @objc deinit
+  public func prepareNavigationBar()
+  public func initRootNode() -> AsyncDisplayKit.ASDisplayNode
+  public func initContainer() -> AsyncDisplayKit.ASDisplayNode
+  @objc override dynamic public func viewWillLayoutSubviews()
+  open func startLoading()
+  open func startLoading(forView view: UIKit.UIView?)
+  open func stopLoading()
+  open func showSnackError(message: Swift.String)
+  open func showSnackAlertSuccess(message: Swift.String)
+  open func showPopupError(message: Swift.String?, handler: (() -> Swift.Void)?)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+public protocol ICChatBaseViewModel {
+  var disposeBag: RxSwift.DisposeBag { get }
+  var onLoading: RxRelay.BehaviorRelay<Swift.Bool?> { get }
+  var onShowError: RxRelay.BehaviorRelay<Swift.String?> { get }
+  var onShowAlertSuccess: RxRelay.BehaviorRelay<Swift.String?> { get }
+}
+@_hasMissingDesignatedInitializers public class ICChatBaseViewModelObject : ICChatSDKV2.ICChatBaseViewModel {
+  public var disposeBag: RxSwift.DisposeBag
+  public var onLoading: RxRelay.BehaviorRelay<Swift.Bool?>
+  public var onShowError: RxRelay.BehaviorRelay<Swift.String?>
+  public var onShowAlertSuccess: RxRelay.BehaviorRelay<Swift.String?>
+  @objc deinit
+}
+public struct ICChatConfigurations {
+  public var userId: Swift.Int?
+  public var token: Swift.String?
+  public var tokenFirebase: Swift.String?
+  public init(userId: Swift.Int? = nil, token: Swift.String? = nil, firebaseToken: Swift.String? = nil)
+}
+@objc @_inheritsConvenienceInitializers public class ICChatColorsConfig : ObjectiveC.NSObject {
+  public static var shared: ICChatSDKV2.ICChatColorsConfig
+  public var primaryColor: UIKit.UIColor?
+  public var secondaryColor: UIKit.UIColor?
+  public var normalTextColor: UIKit.UIColor?
+  public var secondTextColor: UIKit.UIColor?
+  public var disableTextColor: UIKit.UIColor?
+  public var lineColor: UIKit.UIColor?
+  public var appBackgroundColor: UIKit.UIColor?
+  public var popupBackgroundColor: UIKit.UIColor?
+  public func settingColors(primaryColor: UIKit.UIColor, secondaryColor: UIKit.UIColor, normalTextColor: UIKit.UIColor, secondTextColor: UIKit.UIColor, disableTextColor: UIKit.UIColor, lineColor: UIKit.UIColor, appBackgroundColor: UIKit.UIColor, popupBackgroundColor: UIKit.UIColor)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICChatDetail : ICheckCore.ICBaseModel {
+  @objc open var message: ICChatSDKV2.ICContentMessage?
+  @objc open var senderId: Swift.String?
+  open var time: Swift.Int?
+  open var userId: Swift.Int?
+  open var memberRole: ICChatSDKV2.ICMemberRole?
+  open var sendState: ICChatSDKV2.ICSendState?
+  @objc open var messageId: Swift.String?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public enum ICMemberRole {
+  case admin
+  case member
+  public static func == (a: ICChatSDKV2.ICMemberRole, b: ICChatSDKV2.ICMemberRole) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum ICSendState {
+  case sending
+  case done
+  case error
+  public static func == (a: ICChatSDKV2.ICSendState, b: ICChatSDKV2.ICSendState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class ICChatEmptyNode : ICheckBaseUI.ICUDisplayNode {
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ICChatLazyImageNode : ICheckBaseUI.ICUCellNode, AsyncDisplayKit.ASMultiplexImageNodeDataSource, AsyncDisplayKit.ASMultiplexImageNodeDelegate {
+  @objc override dynamic public var contentMode: UIKit.UIView.ContentMode {
+    @objc get
+    @objc set(value)
+  }
+  @objc override dynamic public var cornerRadius: CoreGraphics.CGFloat {
+    @objc get
+    @objc set(value)
+  }
+  public var defaultImage: UIKit.UIImage? {
+    get
+    set(value)
+  }
+  public var topImage: UIKit.UIImage? {
+    get
+    set(value)
+  }
+  public var onClicked: ((ICChatSDKV2.ICChatLazyImageNode) -> Swift.Void)? {
+    get
+    set(value)
+  }
+  @objc deinit
+  public func setImages(_ images: [Swift.String?]?)
+  public func setImage(_ imageId: Swift.String?, size: ICheckBaseUI.ICUImageSize)
+  @objc public func multiplexImageNode(_ imageNode: AsyncDisplayKit.ASMultiplexImageNode, urlForImageIdentifier imageIdentifier: AsyncDisplayKit.ASImageIdentifier) -> Foundation.URL?
+  @objc public func multiplexImageNode(_ imageNode: AsyncDisplayKit.ASMultiplexImageNode, imageForImageIdentifier imageIdentifier: AsyncDisplayKit.ASImageIdentifier) -> UIKit.UIImage?
+  @objc public func multiplexImageNode(_ imageNode: AsyncDisplayKit.ASMultiplexImageNode, didFinishDownloadingImageWithIdentifier imageIdentifier: AsyncDisplayKit.ASImageIdentifier, error: Swift.Error?)
+}
+extension ICChatLazyImageNode {
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+}
+@_inheritsConvenienceInitializers open class ICChatListResponse<T> : ICheckCore.ICBaseModel where T : ObjectMapper.Mappable {
+  @objc open var count: Swift.Int
+  open var items: [T]
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc public protocol ICChatManagerDelegate {
+  @objc optional func unReadCountOfAll(count: Swift.Int)
+  @objc optional func scandit(scanBarCodeSuccess: @escaping (ICChatSDKV2.ICChatProduct) -> Swift.Void, scanQRCodeSuccess: @escaping (Swift.String) -> Swift.Void)
+  @objc optional func showPageDetail(id: Swift.Int)
+  @objc optional func showMemberProfile(id: Swift.Int)
+  @objc optional func productDetail(barcode: Swift.String)
+  @objc optional func shopDetail(idShop: Swift.Int)
+  @objc optional func campaignDetail(idCampaign: Swift.String)
+  @objc optional func clickLink(url: Foundation.URL)
+  @objc optional func block()
+  @objc optional func unblock()
+  @objc optional func downloadMedia(status: Swift.Int)
+  @objc optional func isLoading(loading: Swift.Bool)
+  @objc optional func showError(error: Swift.String)
+  @objc optional func showAlertSuccess(message: Swift.String)
+}
+@objc @_inheritsConvenienceInitializers public class ICChatManager : ObjectiveC.NSObject {
+  public static var manager: ICChatSDKV2.ICChatManager
+  public var userId: RxRelay.BehaviorRelay<Swift.Int?>
+  public var token: RxRelay.BehaviorRelay<Swift.String?>
+  public var unreadCountOfAll: RxRelay.BehaviorRelay<Swift.Int?>
+  public var delegate: ICChatSDKV2.ICChatManagerDelegate?
+  public func config(_ config: ICChatSDKV2.ICChatConfigurations)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICChatMedia : ICheckCore.ICBaseModel {
+  @objc open var content: Swift.String?
+  @objc open var type: Swift.String?
+  @objc open var messageId: Swift.String?
+  open var time: Swift.Int?
+  @objc open var asset: Photos.PHAsset?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ICChatNavigationNode : AsyncDisplayKit.ASDisplayNode {
+  @objc override dynamic public func didLoad()
+  @objc override dynamic public func layoutDidFinish()
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public func point(inside point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ICChatOperator {
+  public static var shared: ICChatSDKV2.ICChatOperator
+  public var sessionManager: Alamofire.Session
+  public var userId: Swift.Int?
+  public var mySenderId: Swift.String? {
+    get
+  }
+  @objc deinit
+}
+extension ICChatOperator {
+  public func markRead(roomId: Swift.String) -> RxSwift.Observable<ICChatSDKV2.ICResult<ICChatSDKV2.ICChatResponse>>
+  public func block(roomId: Swift.String, from userType: ICChatSDKV2.ICChatSenderType, toId: Swift.Int, toType: ICChatSDKV2.ICChatSenderType) -> RxSwift.Observable<ICChatSDKV2.ICResult<ICChatSDKV2.ICChatResponse>>
+  public func unBlock(roomId: Swift.String, from userType: ICChatSDKV2.ICChatSenderType, toId: Swift.Int, toType: ICChatSDKV2.ICChatSenderType) -> RxSwift.Observable<ICChatSDKV2.ICResult<ICChatSDKV2.ICChatResponse>>
+  public func subcribe(roomId: Swift.String, userType: ICChatSDKV2.ICChatSenderType) -> RxSwift.Observable<ICChatSDKV2.ICResult<ICChatSDKV2.ICChatResponse>>
+  public func unSubcribe(roomId: Swift.String, userType: ICChatSDKV2.ICChatSenderType) -> RxSwift.Observable<ICChatSDKV2.ICResult<ICChatSDKV2.ICChatResponse>>
+  public func deleteConversation(roomId: Swift.String, userType: ICChatSDKV2.ICChatSenderType) -> RxSwift.Observable<ICChatSDKV2.ICResult<ICChatSDKV2.ICChatResponse>>
+  public func getRoomInfo(roomId: Swift.String, userType: ICChatSDKV2.ICChatSenderType) -> RxSwift.Observable<ICChatSDKV2.ICResult<ICChatSDKV2.ICChatResponseObject<ICChatSDKV2.ICRoomChat>>>
+  public func createRoom(adminType: ICChatSDKV2.ICChatSenderType, memberId: Swift.Int, memberType: ICChatSDKV2.ICChatSenderType) -> RxSwift.Observable<ICChatSDKV2.ICResult<ICChatSDKV2.ICChatResponseObject<ICChatSDKV2.ICRoomChat>>>
+  public func getListStickerPackages(limit: Swift.Int = 50, offset: Swift.Int = 0) -> RxSwift.Observable<ICChatSDKV2.ICResult<ICChatSDKV2.ICChatListResponse<ICChatSDKV2.ICChatSticker>>>
+  public func getListStickers(idPackage: Swift.Int, limit: Swift.Int = 50, offset: Swift.Int = 0) -> RxSwift.Observable<ICChatSDKV2.ICResult<ICChatSDKV2.ICChatListResponse<ICChatSDKV2.ICChatSticker>>>
+  public func sendMessage(idMessage: Swift.String, roomId: Swift.String, message: ICChatSDKV2.ICContentMessage, userType: ICChatSDKV2.ICChatSenderType) -> RxSwift.Observable<ICChatSDKV2.ICResult<ICChatSDKV2.ICChatResponse>>
+}
+public enum ICResult<T> {
+  case success(T)
+  case error(ICChatSDKV2.ICChatResponse)
+  public var value: T? {
+    get
+  }
+  public var error: ICChatSDKV2.ICChatResponse? {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers final public class ICChatPlayerView : UIKit.UIView {
+  @objc override final public var frame: CoreGraphics.CGRect {
+    @objc get
+    @objc set(value)
+  }
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICChatProduct : ICheckCore.ICBaseModel {
+  @objc open var barcode: Swift.String?
+  @objc open var image: Swift.String?
+  @objc open var name: Swift.String?
+  open var price: Swift.Int?
+  open var productId: Swift.Int?
+  @objc open var state: Swift.String?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public struct ICChatResponseCode {
+  public static var success: Swift.String
+}
+@objc @_inheritsConvenienceInitializers public class ICChatResponseValidation : ICheckCore.ICBaseModel {
+  @objc public var property: Swift.String?
+  @objc public var constraints: [Swift.String]?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICChatResponse : ICheckCore.ICBaseModel {
+  @objc open var statusCode: Swift.String?
+  @objc open var messages: [Swift.String]?
+  @objc open var error: Swift.Error?
+  @objc open var unknownData: Any?
+  @objc open var validationErrors: [ICChatSDKV2.ICChatResponseValidation]?
+  @objc open var message: Swift.String? {
+    @objc get
+  }
+  @objc open var messageWithError: Swift.String? {
+    @objc get
+  }
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class ICChatResponseObject<T> : ICChatSDKV2.ICChatResponse where T : ICheckCore.ICBaseModel {
+  open var data: T?
+  open var dataArray: [T]?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICChatSearchNode : ICheckBaseUI.ICUCellNode {
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ICChatSearchViewController : ICChatSDKV2.ICChatBaseViewController<ICChatSDKV2.ICChatSearchViewModel> {
+  @objc override dynamic public func viewDidLoad()
+  override public func initRootNode() -> AsyncDisplayKit.ASDisplayNode
+  override public func fillUI()
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension ICChatSearchViewController : AsyncDisplayKit.ASCollectionDelegate, AsyncDisplayKit.ASCollectionDataSource, AsyncDisplayKit.ASCollectionDelegateFlowLayout {
+  @objc dynamic public func numberOfSections(in collectionNode: AsyncDisplayKit.ASCollectionNode) -> Swift.Int
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, nodeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASCellNode
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, constrainedSizeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASSizeRange
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, sizeRangeForHeaderInSection section: Swift.Int) -> AsyncDisplayKit.ASSizeRange
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, nodeForSupplementaryElementOfKind kind: Swift.String, at indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASCellNode
+}
+public protocol ICChatSearchViewModel : ICChatSDKV2.ICChatBaseViewModel {
+  var listViewModels: [ICChatSDKV2.ICConversationCellViewModel]? { get }
+  var listSenders: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatSender]> { get }
+  func searchSenders(key: Swift.String)
+}
+@_hasMissingDesignatedInitializers public class ICChatSearchViewModelObject : ICChatSDKV2.ICChatBaseViewModelObject, ICChatSDKV2.ICChatSearchViewModel {
+  public var listViewModels: [ICChatSDKV2.ICConversationCellViewModel]?
+  public var listSenders: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatSender]>
+  public init(listViewModels: [ICChatSDKV2.ICConversationCellViewModel])
+  public func searchSenders(key: Swift.String)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICChatSender : ICheckCore.ICBaseModel {
+  open var id: Swift.Int?
+  @objc open var name: Swift.String?
+  @objc open var image: Swift.String?
+  open var isOnline: Swift.Bool?
+  open var isVerify: Swift.Bool?
+  @objc open var senderId: Swift.String?
+  open var senderType: ICChatSDKV2.ICChatSenderType?
+  open var kycStatus: ICChatSDKV2.ICSenderKYCStatus?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public enum ICSenderKYCStatus : Swift.Int, Swift.Codable {
+  case notVerify
+  case pending
+  case verify
+  case error
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class ICChatSenderCell : ICheckBaseUI.ICUCellNode {
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ICChatSettingsViewController : ICChatSDKV2.ICChatBaseViewController<ICChatSDKV2.ICChatSettingsViewModel> {
+  @objc override dynamic public func viewDidLoad()
+  override public func initRootNode() -> AsyncDisplayKit.ASDisplayNode
+  override public func fillUI()
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension ICChatSettingsViewController : AsyncDisplayKit.ASCollectionDelegate, AsyncDisplayKit.ASCollectionDataSource, AsyncDisplayKit.ASCollectionDelegateFlowLayout {
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, nodeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASCellNode
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, constrainedSizeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASSizeRange
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, didSelectItemAt indexPath: Foundation.IndexPath)
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, willDisplayItemWith node: AsyncDisplayKit.ASCellNode)
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, sizeRangeForHeaderInSection section: Swift.Int) -> AsyncDisplayKit.ASSizeRange
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, nodeForSupplementaryElementOfKind kind: Swift.String, at indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASCellNode
+}
+public protocol ICChatSettingsViewModel : ICChatSDKV2.ICChatBaseViewModel {
+  var roomId: Swift.String? { get }
+  var listMedias: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatMedia]> { get }
+  func getLibrary(deletedAt: Swift.Int?, timeLine: Swift.Int, limit: Swift.Int)
+  var notiEnabled: RxRelay.BehaviorRelay<Swift.Bool?> { get }
+  var members: RxRelay.BehaviorRelay<[ICChatSDKV2.ICMemberChat]> { get }
+  var listSenders: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatSender]> { get }
+  func getRoomInfo()
+  func block(complete: @escaping () -> Swift.Void)
+  func subcribe(complete: @escaping () -> Swift.Void)
+  func unSubcribe(complete: @escaping () -> Swift.Void)
+  func deleteConversation(complete: @escaping () -> Swift.Void)
+}
+@_hasMissingDesignatedInitializers public class ICChatSettingsViewModelObject : ICChatSDKV2.ICChatBaseViewModelObject, ICChatSDKV2.ICChatSettingsViewModel {
+  public var roomId: Swift.String?
+  public var listMedias: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatMedia]>
+  public var notiEnabled: RxRelay.BehaviorRelay<Swift.Bool?>
+  public var listSenders: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatSender]>
+  public var members: RxRelay.BehaviorRelay<[ICChatSDKV2.ICMemberChat]>
+  public init(roomId: Swift.String)
+  public func getLibrary(deletedAt: Swift.Int?, timeLine: Swift.Int, limit: Swift.Int)
+  public func getRoomInfo()
+  public func deleteConversation(complete: @escaping () -> Swift.Void)
+  public func subcribe(complete: @escaping () -> Swift.Void)
+  public func unSubcribe(complete: @escaping () -> Swift.Void)
+  public func block(complete: @escaping () -> Swift.Void)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICChatSticker : ICChatSDKV2.ICChatMedia {
+  open var id: Swift.Int?
+  @objc open var key: Swift.String?
+  @objc open var thumbnail: Swift.String?
+  open var packageId: Swift.Int?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICChatTextViewNode : AsyncDisplayKit.ASEditableTextNode {
+  open var rxTextAttributes: [Foundation.NSAttributedString.Key : Any] {
+    get
+    set(value)
+  }
+  open var text: Swift.String? {
+    get
+    set(newValue)
+  }
+  @objc override dynamic open func layoutDidFinish()
+  @objc override dynamic public init()
+  @objc override dynamic public init(textKitComponents: AsyncDisplayKit.ASTextKitComponents, placeholderTextKitComponents: AsyncDisplayKit.ASTextKitComponents)
+  @objc deinit
+}
+extension Reactive where Base : ICChatSDKV2.ICChatTextViewNode {
+  public var text: RxCocoa.ControlProperty<Swift.String?> {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class ICChatTitleHeaderNode : ICheckBaseUI.ICUCellNode {
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICChatUploader : ObjectiveC.NSObject {
+  public static var client: ICChatSDKV2.ICChatUploader
+  public func uploadImageData(data: Foundation.Data, completion: ((Swift.String?, Swift.Error?) -> Swift.Void)?)
+  public func upload(asset: Photos.PHAsset, completion: ((Swift.String?, Swift.Error?) -> Swift.Void)?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ICChatUtils {
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICChatVideoNode : ICheckBaseUI.ICUCellNode {
+  public var videoURL: Foundation.URL? {
+    get
+    set(value)
+  }
+  @objc override dynamic public init()
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  public func play()
+  public func pause()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICConversationActivity : ICheckCore.ICBaseModel {
+  @objc open var content: Swift.String?
+  open var time: Swift.Int?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICConversation : ICheckCore.ICBaseModel {
+  @objc open var roomId: Swift.String?
+  @objc open var enableAlert: Swift.Bool
+  @objc open var unreadCount: Swift.Int
+  @objc open var lastActivity: ICChatSDKV2.ICConversationActivity?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICConversationCellNode : ICheckBaseUI.ICUCellNode {
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol ICConversationCellViewModel : ICChatSDKV2.ICChatBaseViewModel {
+  var roomId: Swift.String? { get }
+  var listSenders: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatSender]> { get }
+  var name: Swift.String? { get }
+  var mess: RxRelay.BehaviorRelay<Swift.String?> { get }
+  var time: RxRelay.BehaviorRelay<Swift.Int?> { get }
+  var date: RxRelay.BehaviorRelay<Foundation.Date?> { get }
+  var notiEnabled: RxRelay.BehaviorRelay<Swift.Bool?> { get }
+  var notiUnreadCount: RxRelay.BehaviorRelay<Swift.Int> { get }
+  var roomType: RxRelay.BehaviorRelay<ICChatSDKV2.ICChatRoomType?> { get }
+}
+@_hasMissingDesignatedInitializers public class ICConversationCellViewModelObject : ICChatSDKV2.ICChatBaseViewModelObject, ICChatSDKV2.ICConversationCellViewModel {
+  public var roomId: Swift.String?
+  public var listSenders: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatSender]>
+  public var name: Swift.String?
+  public var logo: RxRelay.BehaviorRelay<Swift.String?>
+  public var mess: RxRelay.BehaviorRelay<Swift.String?>
+  public var time: RxRelay.BehaviorRelay<Swift.Int?>
+  public var date: RxRelay.BehaviorRelay<Foundation.Date?>
+  public var notiEnabled: RxRelay.BehaviorRelay<Swift.Bool?>
+  public var notiUnreadCount: RxRelay.BehaviorRelay<Swift.Int>
+  public var roomType: RxRelay.BehaviorRelay<ICChatSDKV2.ICChatRoomType?>
+  public init(conversation: ICChatSDKV2.ICConversation)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ICDetailConversationController : ICChatSDKV2.ICChatBaseViewController<ICChatSDKV2.ICDetailConversationViewModel> {
+  override public var viewModel: ICChatSDKV2.ICDetailConversationViewModel? {
+    get
+    set(value)
+  }
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @objc deinit
+  override public func initContainer() -> AsyncDisplayKit.ASDisplayNode
+  override public func fillUI()
+  @objc override dynamic public init()
+}
+extension ICDetailConversationController : AsyncDisplayKit.ASCollectionDelegate, AsyncDisplayKit.ASCollectionDataSource, AsyncDisplayKit.ASCollectionDelegateFlowLayout {
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, nodeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASCellNode
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, constrainedSizeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASSizeRange
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, willDisplayItemWith node: AsyncDisplayKit.ASCellNode)
+  @objc dynamic public func shouldBatchFetch(for collectionNode: AsyncDisplayKit.ASCollectionNode) -> Swift.Bool
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, willBeginBatchFetchWith context: AsyncDisplayKit.ASBatchContext)
+}
+extension ICDetailConversationController {
+  @objc dynamic public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+  @objc dynamic public func scrollViewShouldScrollToTop(_ scrollView: UIKit.UIScrollView) -> Swift.Bool
+  @objc dynamic public func scrollViewWillBeginDragging(_ scrollView: UIKit.UIScrollView)
+}
+extension ICDetailConversationController : AsyncDisplayKit.ASEditableTextNodeDelegate {
+  @objc dynamic public func editableTextNodeDidUpdateText(_ editableTextNode: AsyncDisplayKit.ASEditableTextNode)
+  @objc dynamic public func editableTextNode(_ editableTextNode: AsyncDisplayKit.ASEditableTextNode, shouldChangeTextIn range: Foundation.NSRange, replacementText text: Swift.String) -> Swift.Bool
+  @objc dynamic public func editableTextNodeDidBeginEditing(_ editableTextNode: AsyncDisplayKit.ASEditableTextNode)
+  @objc dynamic public func editableTextNodeDidFinishEditing(_ editableTextNode: AsyncDisplayKit.ASEditableTextNode)
+}
+public protocol ICDetailConversationViewModel : ICChatSDKV2.ICChatBaseViewModel {
+  var roomId: Swift.String? { get }
+  var memberType: ICChatSDKV2.ICChatSenderType? { get }
+  var deletedAt: Swift.Int? { get }
+  var listChatDetail: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatDetail]> { get }
+  func getChatDetail(deletedAt: Swift.Int?, timeLine: Swift.Int, limit: Swift.Int, complete: @escaping () -> Swift.Void)
+  var newMessage: RxRelay.BehaviorRelay<ICChatSDKV2.ICChatDetail?> { get }
+  func getNewMessage(timeLine: Swift.Int)
+  var senders: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatSender]> { get }
+  var roomInfo: RxRelay.BehaviorRelay<ICChatSDKV2.ICRoomChat?> { get }
+  var isBlock: RxRelay.BehaviorRelay<ICChatSDKV2.ICBlockState?> { get }
+  func getRoomInfo()
+  func sendMessage(idMessage: Swift.String, message: Swift.String?, product: ICChatSDKV2.ICChatProduct?, media: [ICChatSDKV2.ICChatMedia], complete: @escaping (ICChatSDKV2.ICSendState) -> Swift.Void)
+  func sendSticker(idMessage: Swift.String, sticker: ICChatSDKV2.ICChatSticker, complete: @escaping (ICChatSDKV2.ICSendState) -> Swift.Void)
+  func unBlock(complete: @escaping () -> Swift.Void)
+  func listeningBlockState()
+  func markRead(roomId: Swift.String)
+}
+@_hasMissingDesignatedInitializers public class ICDetailConversationViewModelObject : ICChatSDKV2.ICChatBaseViewModelObject, ICChatSDKV2.ICDetailConversationViewModel {
+  public var roomId: Swift.String?
+  public var deletedAt: Swift.Int?
+  public var memberId: Swift.Int?
+  public var memberType: ICChatSDKV2.ICChatSenderType?
+  public var listChatDetail: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatDetail]>
+  public var newMessage: RxRelay.BehaviorRelay<ICChatSDKV2.ICChatDetail?>
+  public var roomInfo: RxRelay.BehaviorRelay<ICChatSDKV2.ICRoomChat?>
+  public var senders: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatSender]>
+  public var members: RxRelay.BehaviorRelay<[ICChatSDKV2.ICMemberChat]>
+  public var isBlock: RxRelay.BehaviorRelay<ICChatSDKV2.ICBlockState?>
+  public init(roomId: Swift.String? = nil, memberId: Swift.Int? = nil, memberType: ICChatSDKV2.ICChatSenderType? = nil)
+  public func getChatDetail(deletedAt: Swift.Int?, timeLine: Swift.Int, limit: Swift.Int, complete: @escaping () -> Swift.Void)
+  public func getNewMessage(timeLine: Swift.Int)
+  public func getRoomInfo()
+  public func createRoom(memberId: Swift.Int, memberType: ICChatSDKV2.ICChatSenderType)
+  public func unBlock(complete: @escaping () -> Swift.Void)
+  public func sendMessage(idMessage: Swift.String, message: Swift.String? = nil, product: ICChatSDKV2.ICChatProduct? = nil, media: [ICChatSDKV2.ICChatMedia], complete: @escaping (ICChatSDKV2.ICSendState) -> Swift.Void)
+  public func sendSticker(idMessage: Swift.String, sticker: ICChatSDKV2.ICChatSticker, complete: @escaping (ICChatSDKV2.ICSendState) -> Swift.Void)
+  public func listeningBlockState()
+  public func markRead(roomId: Swift.String)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICDetailStickerNode : ICheckBaseUI.ICUCellNode {
+  @objc override dynamic public func didLoad()
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension ICDetailStickerNode : AsyncDisplayKit.ASCollectionDelegate, AsyncDisplayKit.ASCollectionDataSource, AsyncDisplayKit.ASCollectionDelegateFlowLayout {
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, nodeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASCellNode
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, constrainedSizeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASSizeRange
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, didSelectItemAt indexPath: Foundation.IndexPath)
+}
+public protocol ICDetailStickerViewModel : ICChatSDKV2.ICChatBaseViewModel {
+  var stickers: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatSticker]> { get }
+  var packageId: Swift.Int? { get }
+}
+@_hasMissingDesignatedInitializers public class ICDetailStickerViewModelObject : ICChatSDKV2.ICChatBaseViewModelObject, ICChatSDKV2.ICDetailStickerViewModel {
+  public var stickers: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatSticker]>
+  public var packageId: Swift.Int?
+  public func getListStickers(idPackage: Swift.Int, limit: Swift.Int, offset: Swift.Int)
+  @objc deinit
+}
+public enum ICChatSenderType : Swift.String {
+  case user
+  case page
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class ICFirebaseChatUtils : ObjectiveC.NSObject {
+  public static var client: ICChatSDKV2.ICFirebaseChatUtils
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICLinkPreviewNode : ICheckBaseUI.ICUDisplayNode {
+  @objc override dynamic public func didLoad()
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ICListConversationsController : ICChatSDKV2.ICChatBaseViewController<ICChatSDKV2.ICListConversationsViewModel> {
+  override public var viewModel: ICChatSDKV2.ICListConversationsViewModel? {
+    get
+    set(value)
+  }
+  override public func initRootNode() -> AsyncDisplayKit.ASDisplayNode
+  @objc override dynamic public func viewDidLoad()
+  override public func fillUI()
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension ICListConversationsController : AsyncDisplayKit.ASCollectionDelegate, AsyncDisplayKit.ASCollectionDataSource, AsyncDisplayKit.ASCollectionDelegateFlowLayout {
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, nodeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASCellNode
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, constrainedSizeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASSizeRange
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, willDisplayItemWith node: AsyncDisplayKit.ASCellNode)
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, sizeRangeForHeaderInSection section: Swift.Int) -> AsyncDisplayKit.ASSizeRange
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, nodeForSupplementaryElementOfKind kind: Swift.String, at indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASCellNode
+}
+public protocol ICListConversationsViewModel : ICChatSDKV2.ICChatBaseViewModel {
+  var listCellViewModels: RxRelay.BehaviorRelay<[ICChatSDKV2.ICConversationCellViewModel]> { get }
+  var empty: RxRelay.BehaviorRelay<Swift.Bool?> { get }
+  var conversationDidChange: RxRelay.BehaviorRelay<ICChatSDKV2.ICConversation?> { get }
+  var conversationDidRemove: RxRelay.BehaviorRelay<ICChatSDKV2.ICConversation?> { get }
+  func getListConversations(timeLine: Swift.Int, limit: Swift.Int)
+  func listenNewConversation(timestamp: Swift.Int)
+  func updateConversations(timestamp: Swift.Int)
+  func removeConversation(timestamp: Swift.Int)
+  func updateFistTime(time: Swift.Int)
+}
+@_inheritsConvenienceInitializers public class ICListConversationsViewModelObject : ICChatSDKV2.ICChatBaseViewModelObject, ICChatSDKV2.ICListConversationsViewModel {
+  public var listCellViewModels: RxRelay.BehaviorRelay<[ICChatSDKV2.ICConversationCellViewModel]>
+  public var empty: RxRelay.BehaviorRelay<Swift.Bool?>
+  public var conversationDidChange: RxRelay.BehaviorRelay<ICChatSDKV2.ICConversation?>
+  public var conversationDidRemove: RxRelay.BehaviorRelay<ICChatSDKV2.ICConversation?>
+  public init()
+  public func getListConversations(timeLine: Swift.Int, limit: Swift.Int)
+  public func listenNewConversation(timestamp: Swift.Int)
+  public func updateConversations(timestamp: Swift.Int)
+  public func removeConversation(timestamp: Swift.Int)
+  public func updateFistTime(time: Swift.Int)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICMediaCell : ICheckBaseUI.ICUCellNode {
+  public var isVideo: Swift.Bool?
+  public var count: Swift.Int? {
+    get
+    set(value)
+  }
+  public var media: ICChatSDKV2.ICChatMedia? {
+    get
+    set(value)
+  }
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICMediaNode : ICheckBaseUI.ICUDisplayNode {
+  @objc override dynamic public func didLoad()
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension ICMediaNode : AsyncDisplayKit.ASCollectionDelegate, AsyncDisplayKit.ASCollectionDataSource, AsyncDisplayKit.ASCollectionDelegateFlowLayout {
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, nodeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASCellNode
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, constrainedSizeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASSizeRange
+}
+@objc @_inheritsConvenienceInitializers public class ICMemberChat : ICheckCore.ICBaseModel {
+  @objc open var id: Swift.String?
+  open var sourceId: Swift.Int?
+  open var isSubcribe: Swift.Bool?
+  open var deletedAt: Swift.Int?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICContentMessage : ICheckCore.ICBaseModel {
+  @objc open var text: Swift.String?
+  @objc open var product: ICChatSDKV2.ICChatProduct?
+  @objc open var media: [ICChatSDKV2.ICChatMedia]?
+  @objc open var link: Swift.String?
+  @objc open var sticker: ICChatSDKV2.ICChatSticker?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICMessageCell : ICheckBaseUI.ICUCellNode {
+  public var stickerNode: ICheckBaseUI.ICUNetworkImageNode
+  public var mediaNode: ICChatSDKV2.ICMediaNode
+  public var productNode: ICChatSDKV2.ICProductNode
+  public var retryButton: ICheckBaseUI.ICUButtonNode
+  @objc override dynamic public func didLoad()
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension ICMessageCell : UIKit.UITextViewDelegate {
+  @objc dynamic public func textView(_ textView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange) -> Swift.Bool
+  @objc override dynamic public func resignFirstResponder() -> Swift.Bool
+}
+public protocol ICMessageViewModel : ICChatSDKV2.ICChatBaseViewModel {
+  var sender: RxRelay.BehaviorRelay<ICChatSDKV2.ICChatSender?> { get }
+  var detailChat: RxRelay.BehaviorRelay<ICChatSDKV2.ICChatDetail?> { get }
+}
+@_hasMissingDesignatedInitializers public class ICMessageViewModelObject : ICChatSDKV2.ICChatBaseViewModelObject, ICChatSDKV2.ICMessageViewModel {
+  public var sender: RxRelay.BehaviorRelay<ICChatSDKV2.ICChatSender?>
+  public var detailChat: RxRelay.BehaviorRelay<ICChatSDKV2.ICChatDetail?>
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICOptionSetingNode : ICheckBaseUI.ICUDisplayNode {
+  @objc public var titleString: Swift.String? {
+    @objc get
+    @objc set(value)
+  }
+  @objc public var titleColor: UIKit.UIColor? {
+    @objc get
+    @objc set(value)
+  }
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICPreViewMediaCell : ICheckBaseUI.ICUCellNode {
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICPreviewMediaNode : ICheckBaseUI.ICUDisplayNode {
+  @objc override dynamic public func didLoad()
+  @objc override dynamic public func layoutDidFinish()
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension ICPreviewMediaNode : AsyncDisplayKit.ASCollectionDelegate, AsyncDisplayKit.ASCollectionDataSource, AsyncDisplayKit.ASCollectionDelegateFlowLayout {
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, nodeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASCellNode
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, constrainedSizeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASSizeRange
+}
+@objc @_inheritsConvenienceInitializers public class ICProductNode : ICheckBaseUI.ICUDisplayNode {
+  @objc override dynamic public func didLoad()
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICProductPreviewNode : ICheckBaseUI.ICUDisplayNode {
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICRoomChat : ICheckCore.ICBaseModel {
+  @objc open var image: Swift.String?
+  @objc open var roomName: Swift.String?
+  @objc open var roomId: Swift.String?
+  @objc open var members: [ICChatSDKV2.ICMemberChat]?
+  open var roomType: ICChatSDKV2.ICChatRoomType?
+  @objc open var blocker: ICChatSDKV2.ICChatBlocker?
+  @objc open var createAt: Swift.String?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public enum ICChatRoomType : Swift.Int {
+  case single
+  case multi
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class ICChatBlocker : ICheckCore.ICBaseModel {
+  open var status: Swift.Int?
+  @objc open var fromId: Swift.String?
+  @objc open var toId: Swift.String?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public enum ICBlockState {
+  case normal
+  case blocked
+  case block
+  public static func == (a: ICChatSDKV2.ICBlockState, b: ICChatSDKV2.ICBlockState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class ICStickerCell : ICheckBaseUI.ICUCellNode {
+  public var imageNode: ICheckBaseUI.ICUNetworkImageNode
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICStickersNode : ICheckBaseUI.ICUCellNode {
+  @objc override dynamic public func didLoad()
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension ICStickersNode : AsyncDisplayKit.ASCollectionDelegate, AsyncDisplayKit.ASCollectionDataSource, AsyncDisplayKit.ASCollectionDelegateFlowLayout {
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, nodeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASCellNode
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, constrainedSizeForItemAt indexPath: Foundation.IndexPath) -> AsyncDisplayKit.ASSizeRange
+  @objc dynamic public func collectionNode(_ collectionNode: AsyncDisplayKit.ASCollectionNode, didSelectItemAt indexPath: Foundation.IndexPath)
+  @objc dynamic public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+}
+public protocol ICStickersViewModel : ICChatSDKV2.ICChatBaseViewModel {
+  var packages: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatSticker]> { get }
+  var packageId: Swift.Int? { get }
+  func getListPackage(limit: Swift.Int, offset: Swift.Int)
+  func changeStickerPackages(idPackage: Swift.Int)
+}
+@_hasMissingDesignatedInitializers public class ICStickersViewModelObject : ICChatSDKV2.ICChatBaseViewModelObject, ICChatSDKV2.ICStickersViewModel {
+  public var packages: RxRelay.BehaviorRelay<[ICChatSDKV2.ICChatSticker]>
+  public var packageId: Swift.Int?
+  public func getListPackage(limit: Swift.Int, offset: Swift.Int)
+  public func changeStickerPackages(idPackage: Swift.Int)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICUnBlockNode : ICheckBaseUI.ICUDisplayNode {
+  @objc override dynamic public func layoutSpecThatFits(_ constrainedSize: AsyncDisplayKit.ASSizeRange) -> AsyncDisplayKit.ASLayoutSpec
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Int {
+  public var currency: Swift.String? {
+    get
+  }
+  public func secondsToDaysHoursMinutesSeconds(seconds: Swift.Int) -> (Swift.Int, Swift.Int, Swift.Int, Swift.Int)
+}
+extension Float {
+  public func formatFloat() -> Swift.String
+}
+extension Double {
+  public func formatDouble(round: Swift.Int = 2) -> Swift.String
+}
+extension Int {
+  public var toString: Swift.String {
+    get
+  }
+}
+extension Int {
+  public var toDouble: Swift.Double {
+    get
+  }
+}
+extension PHAsset {
+  public func photoSize(options: Photos.PHImageRequestOptions? = nil, completion: @escaping ((Swift.Int) -> Swift.Void), livePhotoVideoSize: Swift.Bool = false)
+  public func videoSize(options: Photos.PHVideoRequestOptions? = nil, completion: @escaping ((Swift.Int) -> Swift.Void))
+}
+extension UIScrollView {
+  public static var refreshColor: UIKit.UIColor?
+  public func addRefreshView(handler: (() -> Swift.Void)?)
+  public func startRefreshAnimation()
+  public func stopRefreshAnimation()
+  public func removeRefreshView()
+  public func addLoadmoreIndicator(handler: (() -> Swift.Void)?)
+  public func startLoadmoreAnimation()
+  public func stopLoadmoreAnimateion()
+  public func removeLoadmoreIndicator()
+  public func setContentAndIndicatorInsets(top: CoreGraphics.CGFloat? = nil, left: CoreGraphics.CGFloat? = nil, bottom: CoreGraphics.CGFloat? = nil, right: CoreGraphics.CGFloat? = nil)
+}

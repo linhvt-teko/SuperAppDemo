@@ -65,7 +65,7 @@ end
 
 def paymentPods
   pod 'Apollo', '~> 1.0.10'
-  pod 'MinervaUI', '~> 3.9.7'
+  pod 'MinervaUI', '~> 3.9.8'
 end
 
 def hestiaPods
@@ -86,6 +86,53 @@ def tripiPods
   
 end
 
+def icheckPods
+  pod 'AnimatedCollectionViewLayout'
+  pod 'BCryptSwift'
+  pod 'CHIPageControl/Aji'
+  pod 'Cosmos'
+  pod 'CropViewController'
+  pod 'EZCustomNavigation'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Database'
+  pod 'Firebase/DynamicLinks'
+  pod 'Firebase/InAppMessaging'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Performance'
+  pod 'FittedSheets'
+  pod 'GoogleUtilities'
+  pod 'InsiderMobile'
+  pod 'InsiderMobileAdvancedNotification'
+  pod 'lottie-ios'
+  pod 'Malert'
+  pod 'Map4dMap'
+  pod 'RxCocoa'
+  pod 'RxSwift'
+  pod 'ScanditBarcodeCapture'
+  pod 'SideMenu'
+  pod 'Texture'
+  pod 'TLPhotoPicker'
+  pod 'VKPinCodeView'
+  pod 'YLProgressBar'
+  pod 'ObjectMapper'
+  pod 'Differentiator'
+  pod 'DropDown'
+  pod 'Material'
+  pod 'Then'
+  pod 'RxOptional'
+  pod 'SVPullToRefresh'
+  pod 'URLEmbeddedView'
+  pod 'NVActivityIndicatorView'
+  pod 'SwiftMessages'
+  pod 'YouTubePlayer'
+  
+end
+
 target 'SuperAppDemo' do
   project 'SuperAppDemo.xcodeproj'
   
@@ -97,6 +144,7 @@ target 'SuperAppDemo' do
   paymentPods
   hestiaPods
   authPods
+  icheckPods
   
   # pods of mini-apps
   pod 'MAPaymentKit', '~> 1.0.8', source: $TekoSpecs
@@ -143,4 +191,13 @@ target 'MiniAppDemoConnectorSDK' do
   pod 'MAPaymentKit', '~> 1.0.8', source: $TekoSpecs
   pod 'HestiaIOS', '~> 2.6.2', source: $TekoSpecs
 
+end
+
+target 'LoyaltySDK' do
+  project 'LoyaltySDK/LoyaltySDK.xcodeproj'
+  
+  use_frameworks!
+  icheckPods
+  pod 'Alamofire'
+  
 end

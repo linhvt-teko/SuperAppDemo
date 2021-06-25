@@ -1,0 +1,11 @@
+framework module ICheckSDK {
+  umbrella header "ICheckSDK-Develop-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module ICheckSDK.Swift {
+    header "ICheckSDK-Swift.h"
+    requires objc
+}

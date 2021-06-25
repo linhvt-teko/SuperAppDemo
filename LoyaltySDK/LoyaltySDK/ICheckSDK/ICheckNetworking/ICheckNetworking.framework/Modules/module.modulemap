@@ -1,0 +1,11 @@
+framework module ICheckNetworking {
+  umbrella header "ICheckNetworking-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module ICheckNetworking.Swift {
+    header "ICheckNetworking-Swift.h"
+    requires objc
+}

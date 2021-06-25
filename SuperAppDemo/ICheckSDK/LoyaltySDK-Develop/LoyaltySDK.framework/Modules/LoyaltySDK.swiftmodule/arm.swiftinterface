@@ -1,0 +1,642 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-module-flags: -target armv7-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name LoyaltySDK
+import Alamofire
+import Foundation
+import ICheckCore
+import ICheckNetworking
+import ICheckSDK
+@_exported import LoyaltySDK
+import ObjectMapper
+import Swift
+import UIKit
+@objc @_inheritsConvenienceInitializers public class ICLoyaltyOperator : ObjectiveC.NSObject {
+  public static func getLoyaltyCampaign(id: Swift.String, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyCampaign>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func markUsed(code: Swift.String, customer: LoyaltySDK.ICLoyCustomer, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyGift>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func voucherScanInfo(code: Swift.String, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyGift>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func detailCampaign(idCampaign: Swift.Int, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyCampaign>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func campaignDetail(id: Swift.Int, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyCampaign>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func checkExistCampaign(target: Swift.String, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyCampaign>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func checkCodeGetGift(target: Swift.String? = nil, customer: LoyaltySDK.ICLoyCustomer?, campaignId: Swift.Int? = nil, code: Swift.String? = nil, campaignCode: Swift.String? = nil, giftCode: Swift.String? = nil, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyGiftResponse>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func getGamePlayTurn(campaignId: Swift.Int? = nil, target: Swift.String? = nil, campaignCode: Swift.String? = nil, specialTurnCode: Swift.String? = nil, customer: LoyaltySDK.ICLoyCustomer? = nil, code: Swift.String? = nil, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyGamePlayResponse>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func getListMyGift(onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyListResponse<ICheckSDK.ICRewardItem>>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func detailMyGift(id: Swift.String, onSuccess: LoyaltySDK.LoySuccessBlock<ICheckSDK.ICRewardItem>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func rejectMyGift(winnerId: Swift.String, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyWinnerResponse>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func receiveMyGift(winnerId: Swift.String, customer: LoyaltySDK.ICLoyCustomer, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyWinnerResponse>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func getListMyGames(offset: Swift.Int?, limit: Swift.Int?, onSuccess: LoyaltySDK.LoySuccessBlock<[LoyaltySDK.ICLoyGame]>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func getListMyCampaigns(offset: Swift.Int?, limit: Swift.Int?, onSuccess: LoyaltySDK.LoySuccessBlock<[LoyaltySDK.ICLoyCampaign]>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func getListMyHistoriesCode(campaignId: Swift.Int, offset: Swift.Int?, limit: Swift.Int?, onSuccess: LoyaltySDK.LoySuccessBlock<[LoyaltySDK.ICLoyCode]>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func getListScanQRHistories(campaignId: Swift.Int, offset: Swift.Int?, limit: Swift.Int?, onSuccess: LoyaltySDK.LoySuccessBlock<[LoyaltySDK.ICLoyScanQRHistory]>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func getListRewards(campaignId: Swift.Int, offset: Swift.Int?, limit: Swift.Int?, onSuccess: LoyaltySDK.LoySuccessBlock<[LoyaltySDK.ICWinnerGift]>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func exchangeCard(winnerId: Swift.String, name: Swift.String? = nil, phone: Swift.String? = nil, email: Swift.String? = nil, cityId: Swift.Int? = nil, districtId: Swift.Int? = nil, wardId: Swift.Int? = nil, address: Swift.String? = nil, cardPhone: Swift.String, cardService: Swift.Int, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICWinnerGift>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func exchangeVoucher(winnerId: Swift.String, name: Swift.String? = nil, phone: Swift.String? = nil, receiver_phone: Swift.String? = nil, email: Swift.String? = nil, cityId: Swift.Int? = nil, districtId: Swift.Int? = nil, wardId: Swift.Int? = nil, address: Swift.String? = nil, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICWinnerGift>?, onFault: LoyaltySDK.LoyFaultBlock?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum TimeStatus : Swift.String {
+  case PENDING
+  case RUNNING
+  case COMPLETED
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum ICLoyCampaignType : Swift.String {
+  case game
+  case gift
+  case point
+  case memberPoint
+  case gameQRMar
+  case giftQRMar
+  case pointQRMar
+  case memberPointQRMar
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyCampaign : ICheckCore.ICBaseModel {
+  open var id: Swift.Int?
+  @objc open var name: Swift.String?
+  @objc open var image: LoyaltySDK.ICLuckyWheelImage?
+  open var type: LoyaltySDK.ICLoyCampaignType?
+  @objc open var targetType: Swift.String?
+  @objc open var des: Swift.String?
+  open var benefit: Swift.Int?
+  @objc open var status: Swift.String?
+  open var statusTime: LoyaltySDK.TimeStatus?
+  open var creatorId: Swift.Int?
+  open var ownerId: Swift.Int?
+  @objc open var owner: LoyaltySDK.ICLoyOwner?
+  open var userCount: Swift.Int?
+  open var winnerCount: Swift.Int?
+  @objc open var publishType: Swift.String?
+  @objc open var reason: Swift.String?
+  open var hasChanceCode: Swift.Bool?
+  @objc open var startAt: Swift.String?
+  @objc open var endAt: Swift.String?
+  @objc open var publishAt: Swift.String?
+  @objc open var createdAt: Swift.String?
+  @objc open var updatedAt: Swift.String?
+  @objc open var deletedAt: Swift.String?
+  @objc open var titleButton: Swift.String?
+  @objc open var landingPage: Swift.String?
+  @objc open var schemaButton: Swift.String?
+  @objc open var box: LoyaltySDK.ICLuckyWheelBox?
+  @objc open var headerImage: LoyaltySDK.ICLuckyWheelImage?
+  @objc open var backgroundImage: LoyaltySDK.ICLuckyWheelImage?
+  @objc open var winnerPoints: [LoyaltySDK.ICLoyWinnerPoint]?
+  @objc open var gameUsers: [LoyaltySDK.ICLoyGameUser]?
+  @objc open var introductionImage: LoyaltySDK.ICLuckyWheelImage?
+  @objc open var targetValue: Swift.String?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICLoyCode : ICheckCore.ICBaseModel {
+  open var id: Swift.Int?
+  @objc open var code: Swift.String?
+  @objc open var createdAt: Swift.String?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyCustomer : ICheckCore.ICBaseModel {
+  open var icheckId: Swift.Int?
+  @objc open var name: Swift.String?
+  @objc open var avatar: Swift.String?
+  @objc open var phone: Swift.String?
+  @objc open var email: Swift.String?
+  open var cityId: Swift.Int?
+  open var districtId: Swift.Int?
+  open var wardId: Swift.Int?
+  @objc open var address: Swift.String?
+  open var id: Swift.Int?
+  @objc open var createdAt: Swift.String?
+  @objc open var updatedAt: Swift.String?
+  @objc open var deletedAt: Swift.String?
+  @objc open var note: Swift.String?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyNetworkError : ICheckCore.ICBaseModel & ICheckNetworking.ICNetworkingErrorType {
+  @objc open var error: Swift.Error?
+  @objc open var errorDescription: Swift.String?
+  @objc open var message: Swift.String?
+  @objc open var status: Swift.Int
+  @objc open var statusString: Swift.String?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICLoyGame : ICheckCore.ICBaseModel {
+  open var campaignId: Swift.Int?
+  open var id: Swift.Int?
+  open var icheckId: Swift.Int?
+  open var play: Swift.Int?
+  @objc open var createdAt: Swift.String?
+  @objc open var updatedAt: Swift.String?
+  @objc open var campaign: LoyaltySDK.ICLoyCampaign?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICLoyGamePlayResponse : ICheckCore.ICBaseModel {
+  @objc open var campaign: LoyaltySDK.ICLoyCampaign?
+  open var play: Swift.Int?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyGameUser : ICheckCore.ICBaseModel {
+  open var play: Swift.Int?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public enum ICLoyGiftType : Swift.String {
+  case voucher
+  case icoin
+  case product
+  case congratulation
+  case phoneCard
+  case receiveStore
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyGift : ICheckCore.ICBaseModel {
+  open var active: Swift.Bool?
+  @objc open var campaignCount: Swift.AnyObject?
+  @objc open var createdAt: Swift.String?
+  @objc open var expiredAt: Swift.String?
+  open var creatorId: Swift.Int?
+  @objc open var deletedAt: Swift.AnyObject?
+  @objc open var descriptionField: Swift.String?
+  open var icoin: Swift.Int?
+  open var id: Swift.Int?
+  @objc open var image: LoyaltySDK.ICLuckyWheelImage?
+  @objc open var name: Swift.String?
+  open var ownerId: Swift.Int?
+  @objc open var owner: LoyaltySDK.ICLoyOwner?
+  @objc open var sponsorType: Swift.String?
+  open var type: LoyaltySDK.ICLoyGiftType?
+  @objc open var updatedAt: Swift.String?
+  @objc open var shop_image: Swift.String?
+  @objc open var shop_name: Swift.String?
+  @objc open var voucher: LoyaltySDK.ICLoyaltyVoucher?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyGiftResponse : ICheckCore.ICBaseModel {
+  @objc open var message: Swift.String?
+  @objc open var gift: LoyaltySDK.ICLoyGift?
+  @objc open var gifts: [LoyaltySDK.ICLoyGift]?
+  @objc open var winner: LoyaltySDK.ICLoyWinner?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyInstance : ICheckNetworking.ICBaseInstance {
+  @objc public static var shared: LoyaltySDK.ICLoyInstance {
+    @objc get
+  }
+  @objc public var authorizationBlock: (() -> (Swift.String)?)?
+  @objc public var deviceBlock: (() -> (Swift.String)?)?
+  public var location: (() -> (Swift.String, Swift.String)?)?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class ICLoyListResponse<T> : ICheckCore.ICBaseModel where T : ICheckCore.ICBaseModel {
+  @objc public var count: Swift.Int
+  public var items: [T]
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public typealias LoySuccessBlock<T> = (T) -> ()
+public typealias LoyFaultBlock = ((LoyaltySDK.ICLoyNetworkError) -> Swift.Void)
+@objc @_inheritsConvenienceInitializers open class ICLoyOwner : ICheckCore.ICBaseModel {
+  open var id: Swift.Int?
+  @objc open var name: Swift.String?
+  open var icheckId: Swift.Int?
+  @objc open var type: Swift.String?
+  @objc open var email: Swift.String?
+  @objc open var phone: Swift.String?
+  @objc open var logo: LoyaltySDK.ICLuckyWheelImage?
+  @objc open var address: Swift.String?
+  open var cityId: Swift.Int?
+  open var districtId: Swift.Int?
+  open var wardId: Swift.Int?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyPointGift : ICheckCore.ICBaseModel {
+  open var id: Swift.Int?
+  open var points: Swift.Int?
+  @objc open var gift: LoyaltySDK.ICLoyGift?
+  open var totalGift: Swift.Int?
+  open var giftUsed: Swift.Int?
+  open var quota: Swift.Int?
+  @objc open var winner: LoyaltySDK.ICLoyWinner?
+  @objc open var createdAt: Swift.String?
+  @objc open var exportGiftTo: Swift.String?
+  @objc open var exportGiftFrom: Swift.String?
+  @objc open var voucher: LoyaltySDK.ICLoyaltyVoucher?
+  @objc open var boxGift: LoyaltySDK.ICLoyBoxGift?
+  @objc open var status: Swift.String?
+  @objc open var statusTitle: Swift.String?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyBoxGift : ICheckCore.ICBaseModel {
+  open var id: Swift.Int?
+  open var points: Swift.Int?
+  open var gift_used: Swift.Int?
+  open var totalGift: Swift.Int?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICLoyaltyVoucher : ICheckCore.ICBaseModel {
+  @objc open var code: Swift.String?
+  @objc open var expiredAt: Swift.String?
+  open var canUse: Swift.Bool?
+  open var canMark: Swift.Bool?
+  @objc open var checker: LoyaltySDK.ICVoucherChecker?
+  @objc open var end_at: Swift.String?
+  @objc open var released_at: Swift.String?
+  @objc open var effective_type: Swift.String?
+  open var mark_use: Swift.Bool?
+  @objc open var effective_time: Swift.String?
+  @objc open var start_at: Swift.String?
+  open var is_enable_range_time: Swift.Bool?
+  open var is_enable_effective_time: Swift.Bool?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICVoucherChecker : ICheckCore.ICBaseModel {
+  open var status: Swift.Bool?
+  @objc open var message: Swift.String?
+  @objc open var code: Swift.String?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public enum ICLoyPointHistoryType : Swift.String {
+  case gotPoint
+  case exchangeGift
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyPointHistory : ICheckCore.ICBaseModel {
+  open var id: Swift.Int?
+  open var points: Swift.Int?
+  @objc open var code: Swift.String?
+  @objc open var serial: Swift.String?
+  @objc open var giftName: Swift.String?
+  @objc open var avatar: LoyaltySDK.ICLuckyWheelImage?
+  @objc open var message: Swift.String?
+  @objc open var createdAt: Swift.String?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICLoyPointOperator : ObjectiveC.NSObject {
+  public static func getDetailGiftExchange(winnerId: Swift.Int, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyPointGift>?, onFault: LoyaltySDK.LoyFaultBlock?)
+  public static func listAvailableRewards(campaignId: Swift.Int, offset: Swift.Int? = nil, limit: Swift.Int? = nil, onSuccess: LoyaltySDK.LoySuccessBlock<[LoyaltySDK.ICLoyPointGift]>?, onFault: LoyaltySDK.LoyFaultBlock?)
+  public static func getUserPointInfo(campaignId: Swift.Int, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyWinnerPoint>?, onFault: LoyaltySDK.LoyFaultBlock?)
+  public static func gotPoint(campaignId: Swift.Int, target: Swift.String? = nil, customer: LoyaltySDK.ICLoyCustomer? = nil, code: Swift.String? = nil, campaignCode: Swift.String? = nil, giftCode: Swift.String? = nil, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyPointResponse>?, onFault: LoyaltySDK.LoyFaultBlock?)
+  public static func getListTopWinners(campaignId: Swift.Int, offset: Swift.Int?, limit: Swift.Int?, onSuccess: LoyaltySDK.LoySuccessBlock<[LoyaltySDK.ICLoyWinnerPoint]>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func getListWinners(campaignId: Swift.Int, offset: Swift.Int?, limit: Swift.Int?, onSuccess: LoyaltySDK.LoySuccessBlock<[LoyaltySDK.ICLoyWinnerPoint]>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func exchangeReward(campaignId: Swift.Int, giftId: Swift.Int, customer: LoyaltySDK.ICLoyCustomer? = nil, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyPointGift>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func exchangeCard(campaignId: Swift.Int, giftId: Swift.Int, customer: LoyaltySDK.ICLoyCustomer? = nil, cardPhone: Swift.String, cardService: Swift.Int, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLoyPointGift>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func getListRewards(campaignId: Swift.Int, offset: Swift.Int?, limit: Swift.Int?, onSuccess: LoyaltySDK.LoySuccessBlock<[LoyaltySDK.ICLoyPointGift]>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func getListPointHistories(campaignId: Swift.Int, type: LoyaltySDK.ICLoyPointHistoryType?, offset: Swift.Int?, limit: Swift.Int?, onSuccess: LoyaltySDK.LoySuccessBlock<[LoyaltySDK.ICLoyPointHistory]>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyPointResponse : ICheckCore.ICBaseModel {
+  @objc open var point: Swift.Int
+  @objc open var owner: LoyaltySDK.ICLoyOwner?
+  @objc open var campaign: LoyaltySDK.ICLoyCampaign?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyNetworkResponse : ICheckCore.ICBaseModel, ICheckNetworking.ICNetworkingResponseType {
+  @objc open var data: Any?
+  @objc open var status: Swift.Int
+  @objc open var error: Swift.Error?
+  @objc open var message: Swift.String?
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  required public init?(map: ObjectMapper.Map)
+  override open func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyScanQRHistory : ICheckCore.ICBaseModel {
+  open var id: Swift.Int?
+  @objc open var target: Swift.String?
+  @objc open var createdAt: Swift.String?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyWinner : ICheckCore.ICBaseModel {
+  @objc open var address: Swift.String?
+  @objc open var avatar: LoyaltySDK.ICLuckyWheelImage?
+  open var boxGiftId: Swift.Int?
+  open var businessOwnerId: Swift.Int?
+  @objc open var businessOwnerName: Swift.String?
+  open var campaignId: Swift.Int?
+  open var cityId: Swift.Int?
+  @objc open var cityName: Swift.String?
+  @objc open var code: Swift.String?
+  @objc open var createdAt: Swift.String?
+  @objc open var deletedAt: Swift.String?
+  @objc open var deviceId: Swift.String?
+  open var districtId: Swift.Int?
+  @objc open var districtName: Swift.String?
+  @objc open var email: Swift.String?
+  @objc open var fullAddress: Swift.String?
+  @objc open var geo: Swift.AnyObject?
+  open var icheckId: Swift.Int?
+  open var id: Swift.Int?
+  @objc open var ip: Swift.AnyObject?
+  open var isReceived: Swift.Bool?
+  @objc open var name: Swift.String?
+  @objc open var originalTarget: Swift.AnyObject?
+  @objc open var packageCodeId: Swift.AnyObject?
+  @objc open var phone: Swift.String?
+  @objc open var status: Swift.String?
+  @objc open var statusTime: Swift.String?
+  @objc open var statusTimeTitle: Swift.String?
+  @objc open var statusTitle: Swift.String?
+  @objc open var target: Swift.AnyObject?
+  @objc open var targetType: Swift.String?
+  @objc open var updatedAt: Swift.String?
+  open var wardId: Swift.Int?
+  @objc open var wardName: Swift.String?
+  @objc open var winAt: Swift.String?
+  @objc open var winnerGifts: [LoyaltySDK.ICWinnerGift]?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyWinnerPoint : ICheckCore.ICBaseModel {
+  open var id: Swift.Int?
+  open var points: Swift.Int?
+  open var totalPoints: Swift.Int?
+  @objc open var name: Swift.String?
+  @objc open var phone: Swift.String?
+  @objc open var avatar: LoyaltySDK.ICLuckyWheelImage?
+  @objc open var createdAt: Swift.String?
+  @objc open var winner: LoyaltySDK.ICLoyWinner?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLoyWinnerResponse : ICheckCore.ICBaseModel {
+  @objc open var message: Swift.String?
+  @objc open var winner: LoyaltySDK.ICLoyWinner?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLuckyWheel : ICheckCore.ICBaseModel {
+  @objc open var campaign: LoyaltySDK.ICLuckyWheelCampaign?
+  open var play: Swift.Int?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLuckyWheelBox : ICheckCore.ICBaseModel {
+  @objc open var boxGames: [LoyaltySDK.ICLuckyWheelBoxGame]?
+  open var campaignId: Swift.Int?
+  @objc open var createdAt: Swift.String?
+  open var creatorId: Swift.Int?
+  @objc open var deletedAt: Swift.String?
+  open var id: Swift.Int?
+  open var ownerId: Swift.Int?
+  @objc open var type: Swift.String?
+  @objc open var updatedAt: Swift.String?
+  @objc open var gifts: [LoyaltySDK.ICLoyGift]?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLuckyWheelBoxGame : ICheckCore.ICBaseModel {
+  open var boxId: Swift.Int?
+  open var campaignSponsorId: Swift.Int?
+  open var chance: Swift.Int?
+  @objc open var createdAt: Swift.String?
+  @objc open var deletedAt: Swift.AnyObject?
+  @objc open var gift: LoyaltySDK.ICLoyGift?
+  open var giftId: Swift.Int?
+  @objc open var giftLevel: Swift.AnyObject?
+  open var id: Swift.Int?
+  open var isAllowSponsorGift: Swift.Bool?
+  open var quota: Swift.Int?
+  @objc open var reason: Swift.String?
+  open var sponsorId: Swift.Int?
+  @objc open var updatedAt: Swift.String?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public typealias ICLuckyWheelCampaign = LoyaltySDK.ICLoyCampaign
+@objc @_inheritsConvenienceInitializers open class ICLuckyWheelCampaign1 : ICheckCore.ICBaseModel {
+  open var balance: Swift.Int?
+  open var benefit: Swift.Int?
+  @objc open var box: LoyaltySDK.ICLuckyWheelBox?
+  open var businessOwnerId: Swift.Int?
+  @objc open var createdAt: Swift.String?
+  open var creatorId: Swift.Int?
+  @objc open var deletedAt: Swift.String?
+  @objc open var descriptionField: Swift.String?
+  @objc open var endAt: Swift.String?
+  @objc open var exportGiftFrom: Swift.String?
+  @objc open var exportGiftTo: Swift.String?
+  open var gameId: Swift.Int?
+  open var hasChanceCode: Swift.Bool?
+  open var id: Swift.Int?
+  @objc open var image: LoyaltySDK.ICLuckyWheelImage?
+  @objc open var name: Swift.String?
+  open var ownerId: Swift.Int?
+  @objc open var publishAt: Swift.String?
+  @objc open var publishType: Swift.AnyObject?
+  @objc open var reason: Swift.AnyObject?
+  @objc open var startAt: Swift.String?
+  @objc open var status: Swift.String?
+  @objc open var statusTime: Swift.String?
+  @objc open var statusTimeTitle: Swift.String?
+  @objc open var statusTitle: Swift.String?
+  @objc open var targetType: Swift.String?
+  @objc open var theme: LoyaltySDK.ICLuckyWheelTheme?
+  open var themeId: Swift.Int?
+  @objc open var themeImage: Swift.AnyObject?
+  @objc open var type: Swift.String?
+  @objc open var updatedAt: Swift.String?
+  @objc open var userCount: Swift.AnyObject?
+  open var winnerCount: Swift.Int?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLuckyWheelImage : ICheckCore.ICBaseModel {
+  @objc open var id: Swift.String?
+  @objc open var medium: Swift.String?
+  @objc open var original: Swift.String?
+  @objc open var small: Swift.String?
+  @objc open var square: Swift.String?
+  @objc open var thumbnail: Swift.String?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICGameAgent : ICheckCore.ICBaseModel {
+  @objc public var name: Swift.String?
+  @objc public var phone: Swift.String?
+  @objc public var email: Swift.String?
+  @objc public var avatar: Swift.String?
+  @objc public var logo: Swift.String?
+  public var cityId: Swift.Int?
+  public var districtId: Swift.Int?
+  public var wardId: Swift.Int?
+  @objc public var address: Swift.String?
+  override public func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ICLuckyWheelOperator : ObjectiveC.NSObject {
+  public static func getLuckyWheelDetail(campaignId: Swift.Int, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLuckyWheel>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func playGame(campaignId: Swift.Int, agent: LoyaltySDK.ICGameAgent?, onSuccess: LoyaltySDK.LoySuccessBlock<LoyaltySDK.ICLuckyWheelResult>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func getListTopWinners(campaignId: Swift.Int, offset: Swift.Int?, limit: Swift.Int?, onSuccess: LoyaltySDK.LoySuccessBlock<[LoyaltySDK.ICLoyWinner]>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  public static func getListWinners(campaignId: Swift.Int, offset: Swift.Int?, limit: Swift.Int?, onSuccess: LoyaltySDK.LoySuccessBlock<[LoyaltySDK.ICLoyWinner]>?, onFault: LoyaltySDK.LoyFaultBlock? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum PlayStatus : Swift.String {
+  case SUCCESS
+  case OUT_OF_TURN
+  case OUT_OF_GIFT
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers open class ICLuckyWheelResult : ICheckCore.ICBaseModel {
+  @objc open var message: Swift.String?
+  @objc open var gifts: [LoyaltySDK.ICLoyGift]?
+  open var status: LoyaltySDK.PlayStatus?
+  open var play: Swift.Int?
+  @objc open var winner: LoyaltySDK.ICLoyWinner?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICLuckyWheelTheme : ICheckCore.ICBaseModel {
+  @objc open var avatar: LoyaltySDK.ICLuckyWheelImage?
+  @objc open var cover: LoyaltySDK.ICLuckyWheelImage?
+  @objc open var createdAt: Swift.String?
+  @objc open var deletedAt: Swift.String?
+  open var gameId: Swift.Int?
+  open var id: Swift.Int?
+  @objc open var imageGameLuckywheelButton: LoyaltySDK.ICLuckyWheelImage?
+  @objc open var imageGameLuckywheelEight: LoyaltySDK.ICLuckyWheelImage?
+  @objc open var imageGameLuckywheelSix: LoyaltySDK.ICLuckyWheelImage?
+  @objc open var imageGameLuckywheelTen: LoyaltySDK.ICLuckyWheelImage?
+  open var isPublic: Swift.Bool?
+  @objc open var name: Swift.String?
+  @objc open var updatedAt: Swift.String?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ICWinnerGift : ICheckCore.ICBaseModel {
+  @objc open var createdAt: Swift.String?
+  @objc open var deletedAt: Swift.String?
+  @objc open var gift: LoyaltySDK.ICLoyGift?
+  open var giftId: Swift.Int?
+  open var id: Swift.Int?
+  @objc open var updatedAt: Swift.String?
+  open var winnerId: Swift.Int?
+  override open func mapping(map: ObjectMapper.Map)
+  required public init?(map: ObjectMapper.Map)
+  @objc required dynamic public init()
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}

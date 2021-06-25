@@ -1,0 +1,11 @@
+framework module ICheckCore {
+  umbrella header "ICheckCore-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module ICheckCore.Swift {
+    header "ICheckCore-Swift.h"
+    requires objc
+}

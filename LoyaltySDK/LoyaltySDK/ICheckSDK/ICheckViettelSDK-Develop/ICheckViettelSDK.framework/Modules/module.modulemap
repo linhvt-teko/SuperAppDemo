@@ -1,0 +1,11 @@
+framework module ICheckViettelSDK {
+  umbrella header "ICheckViettelSDK-Develop-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module ICheckViettelSDK.Swift {
+    header "ICheckViettelSDK-Swift.h"
+    requires objc
+}

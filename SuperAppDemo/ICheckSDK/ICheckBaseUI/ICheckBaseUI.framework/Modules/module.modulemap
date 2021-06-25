@@ -1,0 +1,11 @@
+framework module ICheckBaseUI {
+  umbrella header "ICheckBaseUI-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module ICheckBaseUI.Swift {
+    header "ICheckBaseUI-Swift.h"
+    requires objc
+}

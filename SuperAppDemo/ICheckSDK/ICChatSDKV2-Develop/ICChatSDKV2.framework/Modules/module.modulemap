@@ -1,0 +1,11 @@
+framework module ICChatSDKV2 {
+  umbrella header "ICChatSDKV2-Develop-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module ICChatSDKV2.Swift {
+    header "ICChatSDKV2-Swift.h"
+    requires objc
+}

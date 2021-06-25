@@ -1,0 +1,11 @@
+framework module ICheckAuthenSDK {
+  umbrella header "ICheckAuthenSDK-Develop-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module ICheckAuthenSDK.Swift {
+    header "ICheckAuthenSDK-Swift.h"
+    requires objc
+}

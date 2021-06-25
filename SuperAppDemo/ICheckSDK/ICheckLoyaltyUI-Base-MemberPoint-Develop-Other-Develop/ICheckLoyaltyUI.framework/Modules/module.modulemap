@@ -1,0 +1,11 @@
+framework module ICheckLoyaltyUI {
+  umbrella header "ICheckLoyaltyUI-Base-MemberPoint-Develop-Other-Develop-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module ICheckLoyaltyUI.Swift {
+    header "ICheckLoyaltyUI-Swift.h"
+    requires objc
+}

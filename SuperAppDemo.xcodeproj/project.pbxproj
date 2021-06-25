@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1A1B4BC025F622BC0048BB80 /* TripiFlightLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B4BBF25F622BC0048BB80 /* TripiFlightLauncher.swift */; };
 		1A9900E925F9FA05005C23D2 /* Pods_SuperAppDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38ED2A3859E44D688AF78C1E /* Pods_SuperAppDemo.framework */; };
-		1A9900EA25F9FA05005C23D2 /* Pods_SuperAppDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38ED2A3859E44D688AF78C1E /* Pods_SuperAppDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94D52D012DFE5BB8AFD0A753 /* Pods_SuperAppDemo_SuperAppDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1302268653E63FA5CC7B607D /* Pods_SuperAppDemo_SuperAppDemoUITests.framework */; };
 		B5B1E5A46103A6B1307D215B /* Pods_SuperAppDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5425F7BCA9A50E0DDA40771 /* Pods_SuperAppDemoTests.framework */; };
 		CA7F2A7125EDF4B4001987A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2A7025EDF4B4001987A7 /* AppDelegate.swift */; };
@@ -38,6 +37,50 @@
 		CA7F2EDF25EE3ED2001987A7 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2EDE25EE3ED2001987A7 /* UIViewController+.swift */; };
 		CA7F2EE425EE3F40001987A7 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2ECB25EE3CEC001987A7 /* LoginPresenter.swift */; };
 		CA7F2EE925EE3FD8001987A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2ECC25EE3CEC001987A7 /* LoginViewController.swift */; };
+		CAB831AE26859A7700F44EAD /* vn.icheck.ios.loyalty.other.icons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CAB8319526859A7600F44EAD /* vn.icheck.ios.loyalty.other.icons.bundle */; };
+		CAB831AF26859A7700F44EAD /* vn.icheck.ios.loyalty.memberpoint.icons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CAB8319626859A7600F44EAD /* vn.icheck.ios.loyalty.memberpoint.icons.bundle */; };
+		CAB831B026859A7700F44EAD /* vn.icheck.ios.loyalty.icons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CAB8319726859A7600F44EAD /* vn.icheck.ios.loyalty.icons.bundle */; };
+		CAB831B526859A7700F44EAD /* vn.icheck.ios.icchatsdkv2.icons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CAB8319F26859A7700F44EAD /* vn.icheck.ios.icchatsdkv2.icons.bundle */; };
+		CAB831B626859A7700F44EAD /* vn.icheck.ios.baseui.icons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CAB831A126859A7700F44EAD /* vn.icheck.ios.baseui.icons.bundle */; };
+		CAB8320D2685CA9B00F44EAD /* ICChatSDKV2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB8319E26859A7600F44EAD /* ICChatSDKV2.framework */; };
+		CAB8320E2685CA9B00F44EAD /* ICChatSDKV2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAB8319E26859A7600F44EAD /* ICChatSDKV2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAB8320F2685CA9D00F44EAD /* ICheckAuthenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB831AA26859A7700F44EAD /* ICheckAuthenSDK.framework */; };
+		CAB832102685CA9D00F44EAD /* ICheckAuthenSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAB831AA26859A7700F44EAD /* ICheckAuthenSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAB832112685CA9F00F44EAD /* ICheckBaseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB831A226859A7700F44EAD /* ICheckBaseUI.framework */; };
+		CAB832122685CA9F00F44EAD /* ICheckBaseUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAB831A226859A7700F44EAD /* ICheckBaseUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAB832132685CAA000F44EAD /* ICheckCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB8319A26859A7600F44EAD /* ICheckCore.framework */; };
+		CAB832142685CAA000F44EAD /* ICheckCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAB8319A26859A7600F44EAD /* ICheckCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAB832152685CAA200F44EAD /* ICheckEVS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB8319326859A7600F44EAD /* ICheckEVS.framework */; };
+		CAB832162685CAA200F44EAD /* ICheckEVS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAB8319326859A7600F44EAD /* ICheckEVS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAB832172685CAA400F44EAD /* ICheckLoyaltyAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB831A626859A7700F44EAD /* ICheckLoyaltyAPI.framework */; };
+		CAB832182685CAA400F44EAD /* ICheckLoyaltyAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAB831A626859A7700F44EAD /* ICheckLoyaltyAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAB832192685CAA600F44EAD /* ICheckLoyaltyUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB8319826859A7600F44EAD /* ICheckLoyaltyUI.framework */; };
+		CAB8321A2685CAA600F44EAD /* ICheckLoyaltyUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAB8319826859A7600F44EAD /* ICheckLoyaltyUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAB8321B2685CAA700F44EAD /* ICheckNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB831A826859A7700F44EAD /* ICheckNetworking.framework */; };
+		CAB8321C2685CAA700F44EAD /* ICheckNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAB831A826859A7700F44EAD /* ICheckNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAB8321D2685CAA900F44EAD /* ICheckSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB8319C26859A7600F44EAD /* ICheckSDK.framework */; };
+		CAB8321E2685CAA900F44EAD /* ICheckSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAB8319C26859A7600F44EAD /* ICheckSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAB8321F2685CAAB00F44EAD /* ICheckSocialSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB8319126859A7600F44EAD /* ICheckSocialSDK.framework */; };
+		CAB832202685CAAB00F44EAD /* ICheckSocialSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAB8319126859A7600F44EAD /* ICheckSocialSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAB832212685CAAD00F44EAD /* ICheckViettelSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB831A426859A7700F44EAD /* ICheckViettelSDK.framework */; };
+		CAB832222685CAAD00F44EAD /* ICheckViettelSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAB831A426859A7700F44EAD /* ICheckViettelSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAB832482685CFD600F44EAD /* LoyaltySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB832472685CFD600F44EAD /* LoyaltySDK.framework */; };
+		CAB832492685CFD600F44EAD /* LoyaltySDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAB832472685CFD600F44EAD /* LoyaltySDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAB832E82685E3C600F44EAD /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832D92685E3C600F44EAD /* UIViewController+Extensions.swift */; };
+		CAB832E92685E3C600F44EAD /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832DA2685E3C600F44EAD /* UIButton+Extensions.swift */; };
+		CAB832EA2685E3C600F44EAD /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832DB2685E3C600F44EAD /* UIView+Extensions.swift */; };
+		CAB832EB2685E3C600F44EAD /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832DC2685E3C600F44EAD /* UIColor+Extensions.swift */; };
+		CAB832EC2685E3C600F44EAD /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832DD2685E3C600F44EAD /* UIImage+Extensions.swift */; };
+		CAB832ED2685E3C600F44EAD /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832DE2685E3C600F44EAD /* KeyboardObserving.swift */; };
+		CAB832EE2685E3C600F44EAD /* UIView+autoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832DF2685E3C600F44EAD /* UIView+autoLayout.swift */; };
+		CAB832EF2685E3C600F44EAD /* UIView+contraintToParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832E02685E3C600F44EAD /* UIView+contraintToParent.swift */; };
+		CAB832F02685E3C600F44EAD /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832E12685E3C600F44EAD /* UIAlertController+Extensions.swift */; };
+		CAB832F12685E3C600F44EAD /* WKWebView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832E22685E3C600F44EAD /* WKWebView+Extensions.swift */; };
+		CAB832F22685E3C600F44EAD /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832E32685E3C600F44EAD /* UINavigationController+Extensions.swift */; };
+		CAB832F32685E3C600F44EAD /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832E42685E3C600F44EAD /* UIView+Layout.swift */; };
+		CAB832F42685E3C600F44EAD /* KeyboardControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832E52685E3C600F44EAD /* KeyboardControllable.swift */; };
+		CAB832F52685E3C600F44EAD /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832E62685E3C600F44EAD /* UIScrollView+Extensions.swift */; };
+		CAB832F62685E3C600F44EAD /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB832E72685E3C600F44EAD /* UITextField+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,9 +107,20 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				CAB832122685CA9F00F44EAD /* ICheckBaseUI.framework in Embed Frameworks */,
 				CA7F2C5725EE26FD001987A7 /* MiniAppDemoSDK.framework in Embed Frameworks */,
-				1A9900EA25F9FA05005C23D2 /* Pods_SuperAppDemo.framework in Embed Frameworks */,
 				CA7F2DD125EE3082001987A7 /* MiniAppDemoConnectorSDK.framework in Embed Frameworks */,
+				CAB832222685CAAD00F44EAD /* ICheckViettelSDK.framework in Embed Frameworks */,
+				CAB832492685CFD600F44EAD /* LoyaltySDK.framework in Embed Frameworks */,
+				CAB832182685CAA400F44EAD /* ICheckLoyaltyAPI.framework in Embed Frameworks */,
+				CAB832162685CAA200F44EAD /* ICheckEVS.framework in Embed Frameworks */,
+				CAB832142685CAA000F44EAD /* ICheckCore.framework in Embed Frameworks */,
+				CAB832102685CA9D00F44EAD /* ICheckAuthenSDK.framework in Embed Frameworks */,
+				CAB8321E2685CAA900F44EAD /* ICheckSDK.framework in Embed Frameworks */,
+				CAB8321A2685CAA600F44EAD /* ICheckLoyaltyUI.framework in Embed Frameworks */,
+				CAB8320E2685CA9B00F44EAD /* ICChatSDKV2.framework in Embed Frameworks */,
+				CAB8321C2685CAA700F44EAD /* ICheckNetworking.framework in Embed Frameworks */,
+				CAB832202685CAAB00F44EAD /* ICheckSocialSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +175,38 @@
 		CA7F2ECE25EE3CEC001987A7 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		CA7F2EDA25EE3E36001987A7 /* JanusHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JanusHelper.swift; sourceTree = "<group>"; };
 		CA7F2EDE25EE3ED2001987A7 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		CAB8319126859A7600F44EAD /* ICheckSocialSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ICheckSocialSDK.framework; sourceTree = "<group>"; };
+		CAB8319326859A7600F44EAD /* ICheckEVS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ICheckEVS.framework; sourceTree = "<group>"; };
+		CAB8319526859A7600F44EAD /* vn.icheck.ios.loyalty.other.icons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = vn.icheck.ios.loyalty.other.icons.bundle; sourceTree = "<group>"; };
+		CAB8319626859A7600F44EAD /* vn.icheck.ios.loyalty.memberpoint.icons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = vn.icheck.ios.loyalty.memberpoint.icons.bundle; sourceTree = "<group>"; };
+		CAB8319726859A7600F44EAD /* vn.icheck.ios.loyalty.icons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = vn.icheck.ios.loyalty.icons.bundle; sourceTree = "<group>"; };
+		CAB8319826859A7600F44EAD /* ICheckLoyaltyUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ICheckLoyaltyUI.framework; sourceTree = "<group>"; };
+		CAB8319A26859A7600F44EAD /* ICheckCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ICheckCore.framework; sourceTree = "<group>"; };
+		CAB8319C26859A7600F44EAD /* ICheckSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ICheckSDK.framework; sourceTree = "<group>"; };
+		CAB8319E26859A7600F44EAD /* ICChatSDKV2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ICChatSDKV2.framework; sourceTree = "<group>"; };
+		CAB8319F26859A7700F44EAD /* vn.icheck.ios.icchatsdkv2.icons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = vn.icheck.ios.icchatsdkv2.icons.bundle; sourceTree = "<group>"; };
+		CAB831A126859A7700F44EAD /* vn.icheck.ios.baseui.icons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = vn.icheck.ios.baseui.icons.bundle; sourceTree = "<group>"; };
+		CAB831A226859A7700F44EAD /* ICheckBaseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ICheckBaseUI.framework; sourceTree = "<group>"; };
+		CAB831A426859A7700F44EAD /* ICheckViettelSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ICheckViettelSDK.framework; sourceTree = "<group>"; };
+		CAB831A626859A7700F44EAD /* ICheckLoyaltyAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ICheckLoyaltyAPI.framework; sourceTree = "<group>"; };
+		CAB831A826859A7700F44EAD /* ICheckNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ICheckNetworking.framework; sourceTree = "<group>"; };
+		CAB831AA26859A7700F44EAD /* ICheckAuthenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ICheckAuthenSDK.framework; sourceTree = "<group>"; };
+		CAB832472685CFD600F44EAD /* LoyaltySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LoyaltySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAB832D92685E3C600F44EAD /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		CAB832DA2685E3C600F44EAD /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		CAB832DB2685E3C600F44EAD /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		CAB832DC2685E3C600F44EAD /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		CAB832DD2685E3C600F44EAD /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		CAB832DE2685E3C600F44EAD /* KeyboardObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
+		CAB832DF2685E3C600F44EAD /* UIView+autoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+autoLayout.swift"; sourceTree = "<group>"; };
+		CAB832E02685E3C600F44EAD /* UIView+contraintToParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+contraintToParent.swift"; sourceTree = "<group>"; };
+		CAB832E12685E3C600F44EAD /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		CAB832E22685E3C600F44EAD /* WKWebView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WKWebView+Extensions.swift"; sourceTree = "<group>"; };
+		CAB832E32685E3C600F44EAD /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		CAB832E42685E3C600F44EAD /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		CAB832E52685E3C600F44EAD /* KeyboardControllable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardControllable.swift; sourceTree = "<group>"; };
+		CAB832E62685E3C600F44EAD /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
+		CAB832E72685E3C600F44EAD /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		E73943D773B327CD3EC6AF34 /* Pods-SuperAppDemo-SuperAppDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperAppDemo-SuperAppDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-SuperAppDemo-SuperAppDemoUITests/Pods-SuperAppDemo-SuperAppDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E7A007EAB9B055CDCE76FDC0 /* Pods-SuperAppDemo-SuperAppDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperAppDemo-SuperAppDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-SuperAppDemo-SuperAppDemoUITests/Pods-SuperAppDemo-SuperAppDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,9 +216,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAB832152685CAA200F44EAD /* ICheckEVS.framework in Frameworks */,
+				CAB8320D2685CA9B00F44EAD /* ICChatSDKV2.framework in Frameworks */,
+				CAB8321D2685CAA900F44EAD /* ICheckSDK.framework in Frameworks */,
+				CAB832172685CAA400F44EAD /* ICheckLoyaltyAPI.framework in Frameworks */,
+				CAB832212685CAAD00F44EAD /* ICheckViettelSDK.framework in Frameworks */,
+				CAB8321B2685CAA700F44EAD /* ICheckNetworking.framework in Frameworks */,
+				CAB832132685CAA000F44EAD /* ICheckCore.framework in Frameworks */,
+				CAB832482685CFD600F44EAD /* LoyaltySDK.framework in Frameworks */,
+				CAB832112685CA9F00F44EAD /* ICheckBaseUI.framework in Frameworks */,
 				CA7F2DD025EE3082001987A7 /* MiniAppDemoConnectorSDK.framework in Frameworks */,
+				CAB8320F2685CA9D00F44EAD /* ICheckAuthenSDK.framework in Frameworks */,
 				CA7F2C5625EE26FD001987A7 /* MiniAppDemoSDK.framework in Frameworks */,
+				CAB832192685CAA600F44EAD /* ICheckLoyaltyUI.framework in Frameworks */,
 				1A9900E925F9FA05005C23D2 /* Pods_SuperAppDemo.framework in Frameworks */,
+				CAB8321F2685CAAB00F44EAD /* ICheckSocialSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +271,7 @@
 		A4FB46731B48F40A2B298F2B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CAB832472685CFD600F44EAD /* LoyaltySDK.framework */,
 				CA7F2DCF25EE3082001987A7 /* MiniAppDemoConnectorSDK.framework */,
 				CA7F2D8C25EE2D52001987A7 /* MiniAppDemoConnectorSDK.framework */,
 				CA7F2C5525EE26FD001987A7 /* MiniAppDemoSDK.framework */,
@@ -208,6 +307,7 @@
 		CA7F2A6F25EDF4B4001987A7 /* SuperAppDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CAB8318F26859A7600F44EAD /* ICheckSDK */,
 				1A1B4BB925F622630048BB80 /* Tripi */,
 				CA7F2ED925EE3E27001987A7 /* Utils */,
 				CA7F2AF225EDF5E1001987A7 /* App */,
@@ -351,10 +451,152 @@
 		CA7F2ED925EE3E27001987A7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CAB832D82685E3C600F44EAD /* UIKit */,
 				CA7F2EDA25EE3E36001987A7 /* JanusHelper.swift */,
 				CA7F2EDE25EE3ED2001987A7 /* UIViewController+.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		CAB8318F26859A7600F44EAD /* ICheckSDK */ = {
+			isa = PBXGroup;
+			children = (
+				CAB8319026859A7600F44EAD /* ICheckSocialSDK-Develop */,
+				CAB8319226859A7600F44EAD /* ICheckEVS-Develop */,
+				CAB8319426859A7600F44EAD /* ICheckLoyaltyUI-Base-MemberPoint-Develop-Other-Develop */,
+				CAB8319926859A7600F44EAD /* ICheckCore */,
+				CAB8319B26859A7600F44EAD /* ICheckSDK-Develop */,
+				CAB8319D26859A7600F44EAD /* ICChatSDKV2-Develop */,
+				CAB831A026859A7700F44EAD /* ICheckBaseUI */,
+				CAB831A326859A7700F44EAD /* ICheckViettelSDK-Develop */,
+				CAB831A526859A7700F44EAD /* ICheckLoyaltyAPI-Develop */,
+				CAB831A726859A7700F44EAD /* ICheckNetworking */,
+				CAB831A926859A7700F44EAD /* ICheckAuthenSDK-Develop */,
+				CAB831AB26859A7700F44EAD /* ICheckLoyaltyUI-Base-MemberPoint-Other */,
+			);
+			path = ICheckSDK;
+			sourceTree = "<group>";
+		};
+		CAB8319026859A7600F44EAD /* ICheckSocialSDK-Develop */ = {
+			isa = PBXGroup;
+			children = (
+				CAB8319126859A7600F44EAD /* ICheckSocialSDK.framework */,
+			);
+			path = "ICheckSocialSDK-Develop";
+			sourceTree = "<group>";
+		};
+		CAB8319226859A7600F44EAD /* ICheckEVS-Develop */ = {
+			isa = PBXGroup;
+			children = (
+				CAB8319326859A7600F44EAD /* ICheckEVS.framework */,
+			);
+			path = "ICheckEVS-Develop";
+			sourceTree = "<group>";
+		};
+		CAB8319426859A7600F44EAD /* ICheckLoyaltyUI-Base-MemberPoint-Develop-Other-Develop */ = {
+			isa = PBXGroup;
+			children = (
+				CAB8319526859A7600F44EAD /* vn.icheck.ios.loyalty.other.icons.bundle */,
+				CAB8319626859A7600F44EAD /* vn.icheck.ios.loyalty.memberpoint.icons.bundle */,
+				CAB8319726859A7600F44EAD /* vn.icheck.ios.loyalty.icons.bundle */,
+				CAB8319826859A7600F44EAD /* ICheckLoyaltyUI.framework */,
+			);
+			path = "ICheckLoyaltyUI-Base-MemberPoint-Develop-Other-Develop";
+			sourceTree = "<group>";
+		};
+		CAB8319926859A7600F44EAD /* ICheckCore */ = {
+			isa = PBXGroup;
+			children = (
+				CAB8319A26859A7600F44EAD /* ICheckCore.framework */,
+			);
+			path = ICheckCore;
+			sourceTree = "<group>";
+		};
+		CAB8319B26859A7600F44EAD /* ICheckSDK-Develop */ = {
+			isa = PBXGroup;
+			children = (
+				CAB8319C26859A7600F44EAD /* ICheckSDK.framework */,
+			);
+			path = "ICheckSDK-Develop";
+			sourceTree = "<group>";
+		};
+		CAB8319D26859A7600F44EAD /* ICChatSDKV2-Develop */ = {
+			isa = PBXGroup;
+			children = (
+				CAB8319E26859A7600F44EAD /* ICChatSDKV2.framework */,
+				CAB8319F26859A7700F44EAD /* vn.icheck.ios.icchatsdkv2.icons.bundle */,
+			);
+			path = "ICChatSDKV2-Develop";
+			sourceTree = "<group>";
+		};
+		CAB831A026859A7700F44EAD /* ICheckBaseUI */ = {
+			isa = PBXGroup;
+			children = (
+				CAB831A126859A7700F44EAD /* vn.icheck.ios.baseui.icons.bundle */,
+				CAB831A226859A7700F44EAD /* ICheckBaseUI.framework */,
+			);
+			path = ICheckBaseUI;
+			sourceTree = "<group>";
+		};
+		CAB831A326859A7700F44EAD /* ICheckViettelSDK-Develop */ = {
+			isa = PBXGroup;
+			children = (
+				CAB831A426859A7700F44EAD /* ICheckViettelSDK.framework */,
+			);
+			path = "ICheckViettelSDK-Develop";
+			sourceTree = "<group>";
+		};
+		CAB831A526859A7700F44EAD /* ICheckLoyaltyAPI-Develop */ = {
+			isa = PBXGroup;
+			children = (
+				CAB831A626859A7700F44EAD /* ICheckLoyaltyAPI.framework */,
+			);
+			path = "ICheckLoyaltyAPI-Develop";
+			sourceTree = "<group>";
+		};
+		CAB831A726859A7700F44EAD /* ICheckNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				CAB831A826859A7700F44EAD /* ICheckNetworking.framework */,
+			);
+			path = ICheckNetworking;
+			sourceTree = "<group>";
+		};
+		CAB831A926859A7700F44EAD /* ICheckAuthenSDK-Develop */ = {
+			isa = PBXGroup;
+			children = (
+				CAB831AA26859A7700F44EAD /* ICheckAuthenSDK.framework */,
+			);
+			path = "ICheckAuthenSDK-Develop";
+			sourceTree = "<group>";
+		};
+		CAB831AB26859A7700F44EAD /* ICheckLoyaltyUI-Base-MemberPoint-Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "ICheckLoyaltyUI-Base-MemberPoint-Other";
+			sourceTree = "<group>";
+		};
+		CAB832D82685E3C600F44EAD /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				CAB832D92685E3C600F44EAD /* UIViewController+Extensions.swift */,
+				CAB832DA2685E3C600F44EAD /* UIButton+Extensions.swift */,
+				CAB832DB2685E3C600F44EAD /* UIView+Extensions.swift */,
+				CAB832DC2685E3C600F44EAD /* UIColor+Extensions.swift */,
+				CAB832DD2685E3C600F44EAD /* UIImage+Extensions.swift */,
+				CAB832DE2685E3C600F44EAD /* KeyboardObserving.swift */,
+				CAB832DF2685E3C600F44EAD /* UIView+autoLayout.swift */,
+				CAB832E02685E3C600F44EAD /* UIView+contraintToParent.swift */,
+				CAB832E12685E3C600F44EAD /* UIAlertController+Extensions.swift */,
+				CAB832E22685E3C600F44EAD /* WKWebView+Extensions.swift */,
+				CAB832E32685E3C600F44EAD /* UINavigationController+Extensions.swift */,
+				CAB832E42685E3C600F44EAD /* UIView+Layout.swift */,
+				CAB832E52685E3C600F44EAD /* KeyboardControllable.swift */,
+				CAB832E62685E3C600F44EAD /* UIScrollView+Extensions.swift */,
+				CAB832E72685E3C600F44EAD /* UITextField+Extension.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		D24070B72C99D1CC700EA28C /* Pods */ = {
@@ -481,10 +723,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAB831B026859A7700F44EAD /* vn.icheck.ios.loyalty.icons.bundle in Resources */,
+				CAB831AE26859A7700F44EAD /* vn.icheck.ios.loyalty.other.icons.bundle in Resources */,
 				CA7F2A7D25EDF4B5001987A7 /* LaunchScreen.storyboard in Resources */,
+				CAB831AF26859A7700F44EAD /* vn.icheck.ios.loyalty.memberpoint.icons.bundle in Resources */,
+				CAB831B526859A7700F44EAD /* vn.icheck.ios.icchatsdkv2.icons.bundle in Resources */,
 				CA7F2B8525EE17E9001987A7 /* TerraService-Info.plist in Resources */,
 				CA7F2A7A25EDF4B5001987A7 /* Assets.xcassets in Resources */,
 				CA7F2A7825EDF4B4001987A7 /* Main.storyboard in Resources */,
+				CAB831B626859A7700F44EAD /* vn.icheck.ios.baseui.icons.bundle in Resources */,
 				CA7F2B7725EE153B001987A7 /* SplashViewController.xib in Resources */,
 				CA7F2ED325EE3CED001987A7 /* LoginViewController.xib in Resources */,
 				CA7F2B7C25EE153B001987A7 /* AppListViewController.xib in Resources */,
@@ -651,18 +898,33 @@
 			files = (
 				CA7F2EE925EE3FD8001987A7 /* LoginViewController.swift in Sources */,
 				CA7F2EDF25EE3ED2001987A7 /* UIViewController+.swift in Sources */,
+				CAB832F42685E3C600F44EAD /* KeyboardControllable.swift in Sources */,
 				CA7F2B3325EE12C8001987A7 /* Application.swift in Sources */,
 				1A1B4BC025F622BC0048BB80 /* TripiFlightLauncher.swift in Sources */,
 				CA7F2EE425EE3F40001987A7 /* LoginPresenter.swift in Sources */,
 				CA7F2B7925EE153B001987A7 /* AppListViewController.swift in Sources */,
+				CAB832EA2685E3C600F44EAD /* UIView+Extensions.swift in Sources */,
+				CAB832EB2685E3C600F44EAD /* UIColor+Extensions.swift in Sources */,
 				CA7F2ECF25EE3CEC001987A7 /* LoginModule.swift in Sources */,
+				CAB832E82685E3C600F44EAD /* UIViewController+Extensions.swift in Sources */,
+				CAB832F62685E3C600F44EAD /* UITextField+Extension.swift in Sources */,
 				CA7F2B7B25EE153B001987A7 /* AppListProtocols.swift in Sources */,
+				CAB832F12685E3C600F44EAD /* WKWebView+Extensions.swift in Sources */,
+				CAB832E92685E3C600F44EAD /* UIButton+Extensions.swift in Sources */,
 				CA7F2A7125EDF4B4001987A7 /* AppDelegate.swift in Sources */,
 				CA7F2B7A25EE153B001987A7 /* AppListPresenter.swift in Sources */,
+				CAB832F02685E3C600F44EAD /* UIAlertController+Extensions.swift in Sources */,
 				CA7F2B7825EE153B001987A7 /* AppListModule.swift in Sources */,
+				CAB832EE2685E3C600F44EAD /* UIView+autoLayout.swift in Sources */,
+				CAB832F22685E3C600F44EAD /* UINavigationController+Extensions.swift in Sources */,
 				CA7F2B7625EE153B001987A7 /* SplashViewController.swift in Sources */,
+				CAB832F32685E3C600F44EAD /* UIView+Layout.swift in Sources */,
+				CAB832EC2685E3C600F44EAD /* UIImage+Extensions.swift in Sources */,
 				CA7F2ED225EE3CED001987A7 /* LoginProtocols.swift in Sources */,
+				CAB832ED2685E3C600F44EAD /* KeyboardObserving.swift in Sources */,
+				CAB832EF2685E3C600F44EAD /* UIView+contraintToParent.swift in Sources */,
 				CA7F2B8D25EE1961001987A7 /* TerraInstanceCenter.swift in Sources */,
+				CAB832F52685E3C600F44EAD /* UIScrollView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,6 +1108,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SuperAppDemo/Tripi",
 					"$(PROJECT_DIR)/SuperAppDemo/Tripi/Frameworks",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckSocialSDK-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckEVS-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckLoyaltyUI-Base-MemberPoint-Develop-Other-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckCore",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckSDK-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICChatSDKV2-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckBaseUI",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckViettelSDK-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckLoyaltyAPI-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckNetworking",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckAuthenSDK-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/LoyaltySDK-Develop",
 				);
 				INFOPLIST_FILE = SuperAppDemo/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -874,6 +1148,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SuperAppDemo/Tripi",
 					"$(PROJECT_DIR)/SuperAppDemo/Tripi/Frameworks",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckSocialSDK-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckEVS-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckLoyaltyUI-Base-MemberPoint-Develop-Other-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckCore",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckSDK-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICChatSDKV2-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckBaseUI",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckViettelSDK-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckLoyaltyAPI-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckNetworking",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/ICheckAuthenSDK-Develop",
+					"$(PROJECT_DIR)/SuperAppDemo/ICheckSDK/LoyaltySDK-Develop",
 				);
 				INFOPLIST_FILE = SuperAppDemo/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

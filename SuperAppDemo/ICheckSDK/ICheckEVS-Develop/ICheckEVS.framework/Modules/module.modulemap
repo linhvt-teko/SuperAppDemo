@@ -1,0 +1,11 @@
+framework module ICheckEVS {
+  umbrella header "ICheckEVS-Develop-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module ICheckEVS.Swift {
+    header "ICheckEVS-Swift.h"
+    requires objc
+}
