@@ -13,8 +13,18 @@ import Hestia
 import Janus
 import MiniAppDemoConnectorSDK
 import MAPaymentKit
+import SVProgressHUD
+import TripiFlightKit
 
-class AppListViewController: UIViewController {
+class AppListViewController: UIViewController, TripiFlightKitDelegate {
+    func didBookOrderWith(jsonData: Data?) {
+            
+    }
+    
+    func didBackFromSDK() {
+        
+    }
+    
     
     // MARK: - variables
     var presenter: AppListPresenterProtocol?
@@ -23,6 +33,29 @@ class AppListViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
 
     // MARK: - actions
+    @IBAction func flightButtonWasTapped(_ sender: Any) {
+        openMiniApp(code: "dinogo_flight")
+    }
+    
+    @IBAction func hotelButtonWasTapped(_ sender: Any) {
+        openMiniApp(code: "dinogo_hotel")
+    }
+    
+    private func openMiniApp(code: String) {
+        ICLoader.startLoading(fromView: self.view)
+        
+        TerraHestia.getInstance(by: terraApp)?.startApp(onViewController: self, appCode: code, delegate: self, onSuccess: {
+            ICLoader.stopLoading()
+
+            print("success")
+        }, onFailure: { error in
+            ICLoader.stopLoading()
+
+            print(error)
+        })
+        
+
+    }
     
     // MARK: - life cycle
     override func viewDidLoad() {
@@ -33,6 +66,7 @@ class AppListViewController: UIViewController {
         appList.terraAppName = terraApp.identity
         appList.delegate = self
         displayViewController(appList, in: self.containerView)
+        
     }
     
     // MARK: - setup
@@ -75,5 +109,13 @@ extension AppListViewController: MiniAppListDelegate {
         }
     }
     
+    
+}
+
+
+extension AppListViewController: HestiaDelegate {
+    func callback(data: [String : Any]) {
+        
+    }
     
 }

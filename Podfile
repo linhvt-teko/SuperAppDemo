@@ -130,6 +130,19 @@ def icheckPods
   pod 'NVActivityIndicatorView'
   pod 'SwiftMessages'
   pod 'YouTubePlayer'
+  pod 'TLPhotoPicker'
+end
+
+def icheckMainAppPods
+  pod 'CollectionNode'
+  pod 'PINCache'
+  pod 'PINOperation'
+  pod 'PINRemoteImage'
+  pod 'PromisesObjC'
+  pod 'ScanditBarcodeCapture'
+  pod 'ScanditCaptureCore'
+  pod 'SkeletonView'
+  
   
 end
 
@@ -145,6 +158,7 @@ target 'SuperAppDemo' do
   hestiaPods
   authPods
   icheckPods
+  icheckMainAppPods
   
   # pods of mini-apps
   pod 'MAPaymentKit', '~> 1.0.8', source: $TekoSpecs

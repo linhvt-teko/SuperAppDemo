@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,13 +21,32 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danh sách các mini-app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kmx-Zc-aMF">
-                    <rect key="frame" x="20" y="44" width="184" height="21"/>
+                    <rect key="frame" x="20" y="44" width="184" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zij-WH-O7p">
+                    <rect key="frame" x="151.5" y="303.5" width="72" height="70"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3H-Lo-1K5">
+                            <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                            <state key="normal" title="Tripi Flight"/>
+                            <connections>
+                                <action selector="flightButtonWasTapped:" destination="-1" eventType="touchUpInside" id="zcp-W7-fd6"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vh9-CY-VZj">
+                            <rect key="frame" x="0.0" y="40" width="72" height="30"/>
+                            <state key="normal" title="Tripi Hotel"/>
+                            <connections>
+                                <action selector="hotelButtonWasTapped:" destination="-1" eventType="touchUpInside" id="FVU-mC-ywg"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMZ-ql-8cO">
-                    <rect key="frame" x="0.0" y="89" width="375" height="180"/>
+                    <rect key="frame" x="0.0" y="88.5" width="375" height="180"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="180" id="Rif-kV-XrT"/>
@@ -39,9 +58,12 @@
             <constraints>
                 <constraint firstItem="cMZ-ql-8cO" firstAttribute="top" secondItem="Kmx-Zc-aMF" secondAttribute="bottom" constant="24" id="3WX-hJ-VLb"/>
                 <constraint firstItem="cMZ-ql-8cO" firstAttribute="leading" secondItem="VJs-oR-FgM" secondAttribute="leading" id="77Y-M0-Fh5"/>
+                <constraint firstItem="Zij-WH-O7p" firstAttribute="top" secondItem="cMZ-ql-8cO" secondAttribute="bottom" constant="35" id="7q8-SV-IIp"/>
                 <constraint firstItem="Kmx-Zc-aMF" firstAttribute="top" secondItem="VJs-oR-FgM" secondAttribute="top" constant="44" id="EyW-ki-pJV"/>
                 <constraint firstItem="Kmx-Zc-aMF" firstAttribute="leading" secondItem="VJs-oR-FgM" secondAttribute="leading" constant="20" id="Q4R-kN-Wgo"/>
+                <constraint firstItem="Zij-WH-O7p" firstAttribute="centerX" secondItem="cMZ-ql-8cO" secondAttribute="centerX" id="mdF-lo-AG7"/>
                 <constraint firstItem="VJs-oR-FgM" firstAttribute="trailing" secondItem="cMZ-ql-8cO" secondAttribute="trailing" id="v0w-yG-ER8"/>
+                <constraint firstItem="Zij-WH-O7p" firstAttribute="leading" secondItem="VJs-oR-FgM" secondAttribute="leading" constant="151.5" id="zTd-rI-OvQ"/>
             </constraints>
             <point key="canvasLocation" x="-407" y="-572"/>
         </view>

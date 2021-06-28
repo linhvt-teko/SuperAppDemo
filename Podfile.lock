@@ -238,6 +238,7 @@ PODS:
   - CallAppSDK (0.0.1)
   - CHIPageControl/Aji (0.2)
   - Codextended (0.3.0)
+  - CollectionNode (1.1.1)
   - Cosmos (18.0.1)
   - CropViewController (2.6.0)
   - CryptoSwift (1.3.8)
@@ -474,7 +475,7 @@ PODS:
   - GTMAppAuth (1.2.2):
     - AppAuth/Core (~> 1.4)
     - GTMSessionFetcher/Core (~> 1.5)
-  - GTMSessionFetcher/Core (1.5.0)
+  - GTMSessionFetcher/Core (1.6.1)
   - Hestia (2.6.3):
     - CryptoSwift (~> 1.3.8)
     - Kingfisher
@@ -506,7 +507,7 @@ PODS:
   - leveldb-library (1.22.1)
   - Logging (1.4.0)
   - lottie-ios (3.2.3)
-  - LoyaltyComponent (0.3.2):
+  - LoyaltyComponent (0.3.3):
     - Apollo
     - ApolloTheme
     - FittedSheets
@@ -534,7 +535,7 @@ PODS:
     - TekCoreService (~> 1.2.11)
     - TekoTracker (~> 0.10.11)
     - TerraInstancesManager (~> 1.2.17)
-  - MinervaUI (3.9.8):
+  - MinervaUI (3.9.9):
     - Apollo (~> 1.0.0)
     - ApolloTheme (~> 0.2.0)
     - FittedSheets
@@ -570,6 +571,8 @@ PODS:
   - PINCache/Core (3.0.3):
     - PINOperation (~> 1.2.1)
   - PINOperation (1.2.1)
+  - PINRemoteImage (3.0.3):
+    - PINRemoteImage/PINCache (= 3.0.3)
   - PINRemoteImage/Core (3.0.3):
     - PINOperation
   - PINRemoteImage/iOS (3.0.3):
@@ -601,7 +604,7 @@ PODS:
     - SDWebImage/Core (= 5.1.1)
   - SDWebImage/Core (5.1.1)
   - SideMenu (6.5.0)
-  - SkeletonView (1.18.0)
+  - SkeletonView (1.19.0)
   - SnapKit (5.0.1)
   - SVProgressHUD (2.2.5)
   - SVPullToRefresh (0.4.1)
@@ -725,6 +728,7 @@ DEPENDENCIES:
   - Apollo (~> 1.0.10)
   - BCryptSwift
   - CHIPageControl/Aji
+  - CollectionNode
   - Cosmos
   - CropViewController
   - Differentiator
@@ -758,11 +762,17 @@ DEPENDENCIES:
   - MinervaUI (~> 3.9.8)
   - NVActivityIndicatorView
   - ObjectMapper
+  - PINCache
+  - PINOperation
+  - PINRemoteImage
+  - PromisesObjC
   - RxCocoa
   - RxOptional
   - RxSwift
   - ScanditBarcodeCapture
+  - ScanditCaptureCore
   - SideMenu
+  - SkeletonView
   - SVProgressHUD
   - SVPullToRefresh
   - SwiftMessages
@@ -821,6 +831,7 @@ SPEC REPOS:
     - BoringSSL-GRPC
     - CHIPageControl
     - Codextended
+    - CollectionNode
     - Cosmos
     - CropViewController
     - CryptoSwift
@@ -923,6 +934,7 @@ SPEC CHECKSUMS:
   CallAppSDK: 06d40d483599152563251dc7c4406bbb2c28aeb7
   CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
   Codextended: f384271b8694376ad766ddbf2a011efbfdcee905
+  CollectionNode: d57a878b3c8d841e67d10aa741d68ae7064a2b35
   Cosmos: 7dfaa3f52584ca5f94ab74b5c2e264019cc9f7f5
   CropViewController: 7093b39ec3cb508531b22d35773e06cecd7378d8
   CryptoSwift: 01b0f0cba1d5c212e5a335ff6c054fb75a204f00
@@ -960,7 +972,7 @@ SPEC CHECKSUMS:
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
-  GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
   Hestia: c2f183677bccf83374f74c918306dca7822befee
   HestiaIOS: 34b9d4b76eb11d4c3101720c741767d4a37564a9
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
@@ -975,7 +987,7 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
-  LoyaltyComponent: c74e1d219819217b144b72184d82faaaa4683592
+  LoyaltyComponent: 57f5aba685f9e1f525c414a23704a681ed38f632
   LoyaltyModel: 57e31fbe01472692b2f788707526fe45b334672b
   Malert: d7ae7306ea1b7d50ec66590256e4e4fe72c09876
   Map4dMap: bed29f302e071cf47f3535ca24da58aa48490f48
@@ -983,7 +995,7 @@ SPEC CHECKSUMS:
   MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
   Material: a2a3f400a3b549d53ef89e56c58c4535b29db387
   Minerva: 95aa6e18db82ccb8ec2d4a678059974543208aee
-  MinervaUI: f0b75e7a5b66b865b82b3913f048459d4c3375b6
+  MinervaUI: 695849d10dafa9f3973610a2e14deb0dc25b75ea
   Motion: cf1e060e489f6661126374d5c60dbd2ed991605c
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
@@ -1005,7 +1017,7 @@ SPEC CHECKSUMS:
   ScanditCaptureCore: f47a9973cf7d1c9af40775684793041a2d858f0f
   SDWebImage: 96d7f03415ccb28d299d765f93557ff8a617abd8
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
-  SkeletonView: e82f42a15c931248ef3f05899aaecb2549883bea
+  SkeletonView: 2ebf2f23c341f55ef2d12072a149857eabee8218
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
@@ -1035,10 +1047,10 @@ SPEC CHECKSUMS:
   VKPinCodeView: 8d711959a080fec9e6aac165f7225d55b54a24ae
   VNPayCore: a10fd10ea772a210867d820a0708ac95b1ce2516
   VNPAYKitLib: 606b4dec63afc924aefa7630d66ca0387a018fec
-  VnpayWalletSDK: 462377fc038c7ac6860c7c25bb85e21f45fc8245
+  VnpayWalletSDK: 8e91707a201a270b21a09767e4e823869c52cb8d
   YLProgressBar: 0c0796a6e9b5e5d5040d15c8911e802b67ccb939
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: 80712c0b4beb534a652613b0de804d5f22dddb43
+PODFILE CHECKSUM: 075eef742fe9452cf7cadba61d529775f90e0bda
 
 COCOAPODS: 1.10.0
