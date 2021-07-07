@@ -213,9 +213,9 @@ PODS:
     - abseil/base/config
     - abseil/meta/type_traits
   - Alamofire (5.3.0)
-  - Apollo (1.0.10):
+  - Apollo (1.0.11):
     - Kingfisher (~> 6.0)
-  - ApolloTheme (0.2.5):
+  - ApolloTheme (0.2.6):
     - Apollo (~> 1.0.0)
     - Kingfisher (~> 6.0)
     - Logging
@@ -262,11 +262,11 @@ PODS:
     - FBSDKShareKit/Share (= 5.15.1)
   - FBSDKShareKit/Share (5.15.1):
     - FBSDKCoreKit (~> 5.0)
-  - FirebaseCore (8.1.0):
+  - FirebaseCore (8.2.0):
     - FirebaseCoreDiagnostics (~> 8.0)
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/Logger (~> 7.4)
-  - FirebaseCoreDiagnostics (8.1.0):
+  - FirebaseCoreDiagnostics (8.2.0):
     - GoogleDataTransport (~> 9.0)
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/Logger (~> 7.4)
@@ -297,9 +297,9 @@ PODS:
     - AppAuth (~> 1.2)
     - GTMAppAuth (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleUtilities/Environment (7.4.1):
+  - GoogleUtilities/Environment (7.4.3):
     - PromisesObjC (~> 1.2)
-  - GoogleUtilities/Logger (7.4.1):
+  - GoogleUtilities/Logger (7.4.3):
     - GoogleUtilities/Environment
   - "gRPC-C++ (1.28.2)":
     - "gRPC-C++/Implementation (= 1.28.2)"
@@ -355,10 +355,10 @@ PODS:
   - Kingfisher (6.3.0)
   - leveldb-library (1.22.1)
   - Logging (1.4.0)
-  - LoyaltyComponent (0.3.1):
-    - Apollo (~> 1.0.0)
-    - ApolloTheme (~> 0.2.0)
-    - FittedSheets
+  - LoyaltyComponent (0.3.3):
+    - Apollo
+    - ApolloTheme
+    - FittedSheets (~> 1.4.6)
     - Kingfisher
     - LoyaltyModel (~> 0.1.15)
     - TerraInstancesManager
@@ -369,7 +369,7 @@ PODS:
   - MarqueeLabel (3.2.1):
     - MarqueeLabel/ObjC (= 3.2.1)
   - MarqueeLabel/ObjC (3.2.1)
-  - Minerva (3.9.7):
+  - Minerva (3.9.8):
     - BerTlv
     - FirebaseFirestore (~> 8.1.0)
     - Logging
@@ -377,7 +377,7 @@ PODS:
     - TekCoreService (~> 1.2.11)
     - TekoTracker (~> 0.10.11)
     - TerraInstancesManager (~> 1.2.17)
-  - MinervaUI (3.9.7):
+  - MinervaUI (3.9.11):
     - Apollo (~> 1.0.0)
     - ApolloTheme (~> 0.2.0)
     - FittedSheets
@@ -440,7 +440,7 @@ PODS:
     - CryptoSwift (~> 1.3.2)
     - TekCoreService (~> 1.2.11)
     - TerraInstancesManager (~> 1.2.17)
-  - TerraInstancesManager (1.2.17):
+  - TerraInstancesManager (1.2.19):
     - Logging
     - TekCoreService (~> 1.2.2)
   - Toast-Swift (5.0.1)
@@ -498,19 +498,19 @@ PODS:
   - UPCarouselFlowLayout (1.1.2)
   - VNPayCore (1.0.0)
   - VNPAYKitLib (1.0.0)
-  - VnpayWalletSDK (1.0.2):
+  - VnpayWalletSDK (1.0.4):
     - VNPayCore
     - VNPAYKitLib
 
 DEPENDENCIES:
-  - Apollo (~> 1.0.10)
+  - Apollo (= 1.0.11)
   - HestiaIOS (~> 2.6.2)
   - HestiaIOS (~> 2.6.3)
   - IQKeyboardManagerSwift (= 6.5.0)
   - JanusFacebook (~> 3.2.7)
   - JanusGoogle (~> 3.2.6)
   - MAPaymentKit (~> 1.0.8)
-  - MinervaUI (~> 3.9.7)
+  - MinervaUI (~> 3.9.11)
   - SVProgressHUD
   - Terra (~> 2.5.3)
   - TripiFlightConnector (= 1.1.3)
@@ -519,15 +519,9 @@ DEPENDENCIES:
   - TripiHotelKitStage (= 1.1.1)
 
 SPEC REPOS:
-  "https://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@github.com/teko-vn/Specs-ios.git":
+  "https://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@github.com/teko-vn/Specs-ios.git":
     - Apollo
     - ApolloTheme
-    - CallAppSDK
-    - Hestia
-    - HestiaIOS
-    - Janus
-    - JanusFacebook
-    - JanusGoogle
     - LoyaltyComponent
     - LoyaltyModel
     - MAPaymentKit
@@ -538,8 +532,18 @@ SPEC REPOS:
     - TekCoreService
     - TekoSwiftGRPC
     - TekoTracker
-    - Terra
     - TerraInstancesManager
+    - VNPayCore
+    - VNPAYKitLib
+    - VnpayWalletSDK
+  "https://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@github.com/teko-vn/Specs-ios.git":
+    - CallAppSDK
+    - Hestia
+    - HestiaIOS
+    - Janus
+    - JanusFacebook
+    - JanusGoogle
+    - Terra
     - TripiCommon
     - TripiFlightConnector
     - TripiFlightKitStage
@@ -547,9 +551,6 @@ SPEC REPOS:
     - TripiHotelConnector
     - TripiHotelKitStage
     - TripiHotelPaymentKit
-    - VNPayCore
-    - VNPAYKitLib
-    - VnpayWalletSDK
   https://github.com/CocoaPods/Specs.git:
     - abseil
     - Alamofire
@@ -605,8 +606,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   Alamofire: 2c792affbdc2f18016e08fdbcacd60aebe1ba593
-  Apollo: f942143e24aecc85c39e7ac0d582519d8d062d54
-  ApolloTheme: 7a3fe3fedfb5fe925ce45e0b815cfd06ca684fb4
+  Apollo: 201ab80e6e9875b77017ee30b9d81e4181429f76
+  ApolloTheme: d6ef3abb0a6bca9254bfc6d6acbda6a5712d8543
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   BerTlv: c94b89a7b93bf8c1881691a8d105ec87a4a10759
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
@@ -621,14 +622,14 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
   FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
   FBSDKShareKit: 259737eab3cc807087374553abdf588b3096ba55
-  FirebaseCore: 389c4ce9a7cce4a7e25eb22326b4bee0050557b2
-  FirebaseCoreDiagnostics: 3e249cee3de5c5f9cfd6cc2a19997231286fec11
+  FirebaseCore: 3a83f24c3de69ec9f9a426e2598125ea51f3a2ce
+  FirebaseCoreDiagnostics: 61384f54989065b15c36b5922b65112e86811d3c
   FirebaseFirestore: c4be8314e9fa156f44b54025f7a98ecbff6971a6
   FittedSheets: 7f37fee2567d15dcde391f31eccbffb660ddebf0
   GoogleDataTransport: 04c3e9a480bbcaa2ec3f5d27f1cdeb6a92f20c8d
   GoogleMaps: eb03e327edfd70b06de1e6e321653f73712df7ad
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
-  GoogleUtilities: f8a43108b38a68eebe8b3540e1f4f2d28843ce20
+  GoogleUtilities: 45dbb24a7f351d69d0a601482b39ad6c32e30dab
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
@@ -643,12 +644,12 @@ SPEC CHECKSUMS:
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
-  LoyaltyComponent: f52f5b7f19de627752d389c56acb465d527cec21
+  LoyaltyComponent: a9b854240f2120d9aef47cf9bf9934bc9d0f9d19
   LoyaltyModel: 57e31fbe01472692b2f788707526fe45b334672b
   MAPaymentKit: d11eb14c018553d277db2266901243f11d10ba6e
   MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
-  Minerva: 95aa6e18db82ccb8ec2d4a678059974543208aee
-  MinervaUI: a45b68b1fb60a572e152b9914f99c5f9344532ec
+  Minerva: 9c1add515ae5214cc4bc4a1fb2380eff9a59bd19
+  MinervaUI: 8b55e577db5bb92dbe25a708ca0b9d9df20063b6
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
@@ -670,7 +671,7 @@ SPEC CHECKSUMS:
   TekoSwiftGRPC: 0e07633a7a1f1a8e071ca8934391a3fd425bf1a7
   TekoTracker: 3e60b858f3868ee23b3ad07fcf9c1b93b14a0fe5
   Terra: 128a11da3ac725d1e4af3b050c49df226666225b
-  TerraInstancesManager: 33f4e678c2ec0408654053100eedaa663be79114
+  TerraInstancesManager: c49bd29d4e9635e85b58d15ff872b26fa670dcd0
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   TripiCommon: 0d6265f4be376e43953518627d688e28106da77a
   TripiFlightConnector: 7f1e0e77a5dfeb71b537c7f6586feef052d2eddf
@@ -682,8 +683,8 @@ SPEC CHECKSUMS:
   UPCarouselFlowLayout: 4c7d2c43a10ebb1597bde502a53699d378341dad
   VNPayCore: a10fd10ea772a210867d820a0708ac95b1ce2516
   VNPAYKitLib: 606b4dec63afc924aefa7630d66ca0387a018fec
-  VnpayWalletSDK: 5b65cbaef8cbde8285cec618f59bd91c68fb19bf
+  VnpayWalletSDK: 8500cecfb82e31422b2d5f5d25fb014274c0f424
 
-PODFILE CHECKSUM: 02592fdfeb17a6552810b1bf23f28475b527a13c
+PODFILE CHECKSUM: d494ff655c23c2ee7bde1d2d312e521705001521
 
 COCOAPODS: 1.10.0

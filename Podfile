@@ -64,8 +64,8 @@ def terraPods
 end
 
 def paymentPods
-  pod 'Apollo', '~> 1.0.10'
-  pod 'MinervaUI', '~> 3.9.7'
+  pod 'Apollo', '1.0.11'
+  pod 'MinervaUI', '~> 3.9.11'
 end
 
 def hestiaPods

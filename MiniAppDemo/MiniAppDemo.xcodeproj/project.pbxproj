@@ -248,7 +248,6 @@
 		CA7F2AF125EDF5C7001987A7 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				CA7F2CE125EE291A001987A7 /* MiniAppSDK.swift */,
 				CA7F2C5B25EE2731001987A7 /* Application.swift */,
 				CA7F2AB525EDF570001987A7 /* AppDelegate.swift */,
 			);
@@ -258,6 +257,7 @@
 		CA7F2AF925EDF74D001987A7 /* MiniAppDemoSDK */ = {
 			isa = PBXGroup;
 			children = (
+				CA7F2CE125EE291A001987A7 /* MiniAppSDK.swift */,
 				CA7F2AFA25EDF74D001987A7 /* MiniAppDemoSDK.h */,
 				CA7F2AFB25EDF74D001987A7 /* Info.plist */,
 			);
