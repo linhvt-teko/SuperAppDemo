@@ -60,19 +60,29 @@ extension AppListViewController: AppListViewProtocol {
     
 }
 
-extension AppListViewController: MiniAppListDelegate {
+extension AppListViewController: MiniAppListDelegate, HestiaCallback {
     
-    func didSelectApp(appList: MiniAppList, appCode: String) {
+    func didSelectApp(appList: MiniAppList, app: HestiaApp) {
         guard let hestia = TerraHestia.getInstance(by: terraApp) else {
             print("Has no intances of Hestia competitive with \(terraApp.identity)")
             return
         }
         
-        hestia.startApp(onViewController: self, appCode: appCode, delegate: nil, onSuccess: {
-            print("Open app successfully")
-        }) { error in
-            self.showAlert(message: error.rawValue)
-        }
+        hestia.startApp(onViewController: self, appCode: app.productCode, appType: app.type, extraConfig: [:], callback: self)
+        
+//        hestia.startApp(onViewController: self, appCode: appCode, delegate: nil, onSuccess: {
+//            print("Open app successfully")
+//        }) { error in
+//            self.showAlert(message: error.rawValue)
+//        }
+    }
+    
+    func onSuccess() {
+        
+    }
+    
+    func onError(_ error: HestiaError) {
+        
     }
     
     

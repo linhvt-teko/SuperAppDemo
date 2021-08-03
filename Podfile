@@ -60,30 +60,33 @@ post_install do |installer|
 end
 
 def terraPods
-  pod 'Terra', '~> 2.5.3'
+  pod 'Terra', '~> 2.7.0'
 end
 
 def paymentPods
   pod 'Apollo', '1.0.11'
-  pod 'MinervaUI', '~> 3.9.11'
+  pod 'MinervaUI', '~> 3.10.0'
 end
 
 def hestiaPods
-  pod 'HestiaIOS', '~> 2.6.3'
+  pod 'HestiaIOS', '~> 2.8.4'
 end
 
 def authPods
-  pod 'JanusGoogle', '~> 3.2.6'
-  pod 'JanusFacebook', '~> 3.2.7'
+  pod 'JanusGoogle'
+  pod 'JanusFacebook'
+  pod 'Janus', '~> 3.3.5'
 end
 
 def tripiPods
-  pod 'TripiFlightKitStage', '1.1.1'
-  pod 'TripiFlightConnector', '1.1.3'
+  pod 'TripiFlightKitStage', '1.2.1'
+  pod 'TripiFlightConnector', '1.2.0'
   
-  pod 'TripiHotelKitStage', '1.1.1'
-  pod 'TripiHotelConnector', '1.1.3'
+  pod 'TripiHotelKitStage', '1.2.1'
+  pod 'TripiHotelConnector', '1.2.0'
   
+  pod 'TekIrisService'
+  pod 'TerraInstancesManager', '~> 1.2.24'
 end
 
 target 'SuperAppDemo' do
@@ -99,7 +102,7 @@ target 'SuperAppDemo' do
   authPods
   
   # pods of mini-apps
-  pod 'MAPaymentKit', '~> 1.0.8', source: $TekoSpecs
+  pod 'MAPaymentKit', '~> 1.2.0', source: $TekoSpecs
   
   # Tripi Pods
   tripiPods
@@ -121,7 +124,7 @@ target 'MiniAppDemo' do
   project 'MiniAppDemo/MiniAppDemo.xcodeproj'
 
   use_frameworks!
-  pod 'MAPaymentKit', '~> 1.0.8', source: $TekoSpecs
+  pod 'MAPaymentKit', '~> 1.2.0', source: $TekoSpecs
   pod 'SVProgressHUD'
 
 end
@@ -131,7 +134,7 @@ target 'MiniAppDemoSDK' do
 
   use_frameworks!
   pod 'SVProgressHUD'
-  pod 'MAPaymentKit', '~> 1.0.8', source: $TekoSpecs
+  pod 'MAPaymentKit', '~> 1.2.0', source: $TekoSpecs
 
 end
 
@@ -140,7 +143,7 @@ target 'MiniAppDemoConnectorSDK' do
 
   use_frameworks!
   pod 'SVProgressHUD'
-  pod 'MAPaymentKit', '~> 1.0.8', source: $TekoSpecs
-  pod 'HestiaIOS', '~> 2.6.2', source: $TekoSpecs
+  pod 'MAPaymentKit', '~> 1.2.0', source: $TekoSpecs
+  pod 'HestiaIOS'
 
 end

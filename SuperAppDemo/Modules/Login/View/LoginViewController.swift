@@ -22,11 +22,11 @@ class LoginViewController: UIViewController {
     
     // MARK: - actions
     @IBAction func facebookButtonWasTapped(_ sender: Any) {
-        TerraAuth.getInstance(by: terraApp)?.loginWithFacebook(presentViewController: self, delegate: presenter as? JanusLoginDelegate)
+        TerraAuth.getInstance(by: terraApp)?.loginWithFacebook(presentViewController: self, delegate: presenter as? LoginManagerDelegate)
     }
     
     @IBAction func googlePlusButtonWasTapped(_ sender: Any) {
-        TerraAuth.getInstance(by: terraApp)?.loginWithGoogle(presentViewController: self, delegate: presenter as? JanusLoginDelegate)
+        TerraAuth.getInstance(by: terraApp)?.loginWithGoogle(presentViewController: self, delegate: presenter as? LoginManagerDelegate)
     }
 
     // MARK: - life cycle

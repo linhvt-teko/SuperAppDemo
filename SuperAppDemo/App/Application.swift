@@ -14,6 +14,7 @@ import MinervaUI
 import Janus
 import Apollo
 import ApolloTheme
+import TekIrisService
 
 class Application {
     static var shared = Application()
@@ -49,10 +50,11 @@ extension Application {
         
         TerraInstanceCenter.shared.loadTerra { (isSuccess) in
             if isSuccess {
-                TerraHestia.configureWith(app: terraApp)
-                TerraPaymentUI.configureWith(app: terraApp)
                 TerraAuth.configureWith(app: terraApp)
                 TerraAuth.getInstance(by: terraApp)?.registerGoogle()
+                TerraHestia.configureWith(app: terraApp)
+                TerraIris.configureWith(app: terraApp)
+                TerraPaymentUI.configureWith(app: terraApp)
                 TerraTheme.configureWith(app: terraApp)
             }
             completion(isSuccess)

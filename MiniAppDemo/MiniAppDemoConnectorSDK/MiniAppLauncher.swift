@@ -20,14 +20,8 @@ public class MiniAppLauncher: IOSAppLauncherProtocol {
         dump(launcherData)
         
         var dict: [String : Any] = [:]
-        if let data = launcherData.accessToken {
+        if let data = launcherData.authResult?.idToken {
             dict["accessToken"] = data
-        }
-        if let data = launcherData.refreshToken {
-            dict["refreshToken"] = data
-        }
-        if let data = launcherData.idToken {
-            dict["idToken"] = data
         }
         
         let vc = MiniAppSDK.rootViewController(data: dict)

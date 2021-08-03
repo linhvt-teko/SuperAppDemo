@@ -23,23 +23,41 @@ class MainViewController: UIViewController {
               let amount = Double(amountTextField.text ?? "") else {
             return
         }
-        PaymentKit.shared.pay(paymentRequest: .init(orderCode: orderCode, amount: amount, merchantCode: "TRIPI", shouldShowResultPage: false)) { result in
+        let order = PaymentKit.Order(code: orderCode, amount: amount)
+        let builder = PaymentKit.PaymentRequestBuilder(order: order)
+        
+        builder.setMainMethod(.all(amount: amount, metadata: []))
+        
+        PaymentKit.shared.payWith(paymentRequest: builder.build()) { result in
             switch result {
-            case .success(let info):
+            case .succeeded(let info):
                 self.showResult(info: info)
-            case .failure(let error):
-                switch error {
-                case .timeOut:
-                    self.show(warning: "Time out")
-                case .cancelled: ()
-                //                    self.show(warning: "Cancelled")
-                case .unexpected:
-                    self.show(warning: "Unexpected error")
-                case .failure(let info):
-                    self.showResult(info: info)
-                }
+            case .failed(let error, let info):
+                print(error)
+                print(info)
+            case .cancelled:
+                print("Cancelled")
+            @unknown default:
+                ()
             }
         }
+//        PaymentKit.shared.pay(paymentRequest: .init(orderCode: orderCode, amount: amount, merchantCode: "TRIPI", shouldShowResultPage: false)) { result in
+//            switch result {
+//            case .success(let info):
+//                self.showResult(info: info)
+//            case .failure(let error):
+//                switch error {
+//                case .timeOut:
+//                    self.show(warning: "Time out")
+//                case .cancelled: ()
+//                //                    self.show(warning: "Cancelled")
+//                case .unexpected:
+//                    self.show(warning: "Unexpected error")
+//                case .failure(let info):
+//                    self.showResult(info: info)
+//                }
+//            }
+//        }
     }
     
     @IBAction func paymentQRCodeButtonWasTapped(_ sender: Any) {
@@ -47,23 +65,43 @@ class MainViewController: UIViewController {
               let amount = Double(amountTextField.text ?? "") else {
             return
         }
-        PaymentKit.shared.payWithQRCode(paymentRequest: .init(orderCode: orderCode, amount: amount, merchantCode: "TRIPI", shouldShowResultPage: false)) { result in
+        
+        let order = PaymentKit.Order(code: orderCode, amount: amount)
+        let builder = PaymentKit.PaymentRequestBuilder(order: order)
+        
+        builder.setMainMethod(.all(amount: amount, metadata: []))
+        
+        PaymentKit.shared.payWith(paymentRequest: builder.build()) { result in
             switch result {
-            case .success(let info):
+            case .succeeded(let info):
                 self.showResult(info: info)
-            case .failure(let error):
-                switch error {
-                case .timeOut:
-                    self.show(warning: "Time out")
-                case .cancelled: ()
-                //                    self.show(warning: "Cancelled")
-                case .unexpected:
-                    self.show(warning: "Unexpected error")
-                case .failure(let info):
-                    self.showResult(info: info)
-                }
+            case .failed(let error, let info):
+                print(error)
+                print(info)
+            case .cancelled:
+                print("Cancelled")
+            @unknown default:
+                ()
             }
         }
+        
+//        PaymentKit.shared.payWithQRCode(paymentRequest: .init(orderCode: orderCode, amount: amount, merchantCode: "TRIPI", shouldShowResultPage: false)) { result in
+//            switch result {
+//            case .success(let info):
+//                self.showResult(info: info)
+//            case .failure(let error):
+//                switch error {
+//                case .timeOut:
+//                    self.show(warning: "Time out")
+//                case .cancelled: ()
+//                //                    self.show(warning: "Cancelled")
+//                case .unexpected:
+//                    self.show(warning: "Unexpected error")
+//                case .failure(let info):
+//                    self.showResult(info: info)
+//                }
+//            }
+//        }
     }
 
     
@@ -72,34 +110,35 @@ class MainViewController: UIViewController {
               let amount = Double(amountTextField.text ?? "") else {
             return
         }
-        PaymentKit.shared.payWithQRReversal(paymentRequest: .init(orderCode: orderCode, amount: amount, merchantCode: "TRIPI", shouldShowResultPage: false)) { result in
+        let order = PaymentKit.Order(code: orderCode, amount: amount)
+        let builder = PaymentKit.PaymentRequestBuilder(order: order)
+        
+        builder.setMainMethod(.all(amount: amount, metadata: []))
+        
+        PaymentKit.shared.payWith(paymentRequest: builder.build()) { result in
             switch result {
-            case .success(let info):
+            case .succeeded(let info):
                 self.showResult(info: info)
-            case .failure(let error):
-                switch error {
-                case .timeOut:
-                    self.show(warning: "Time out")
-                case .cancelled: ()
-                //                    self.show(warning: "Cancelled")
-                case .unexpected:
-                    self.show(warning: "Unexpected error")
-                case .failure(let info):
-                    self.showResult(info: info)
-                }
+            case .failed(let error, let info):
+                print(error)
+                print(info)
+            case .cancelled:
+                print("Cancelled")
+            @unknown default:
+                ()
             }
         }
     }
 
     
-    func showResult(info: PaymentKit.PaymentInfo) {
-        self.show(
-            warning:"""
-Payment \(info.code == "SUCCESS" ? "successful" : "fail" ) with info:
-- requestId: \(info.paymentRequestId ?? "--")
-- transactionCode: \(info.transactionCode ?? "--")
-"""
-        )
+    func showResult(info: PaymentKit.PaymentUIResult.PaymentInfo) {
+//        self.show(
+//            warning:"""
+//Payment \(info.code == "SUCCESS" ? "successful" : "fail" ) with info:
+//- requestId: \(info.paymentRequestId ?? "--")
+//- transactionCode: \(info.transactionCode ?? "--")
+//"""
+//        )
         
     }
 

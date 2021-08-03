@@ -23,13 +23,13 @@ class LoginPresenter: LoginPresenterProtocol {
 }
 
 // MARK: - JanusLoginHelperDelegate
-extension LoginPresenter: JanusLoginDelegate {
-    func janusHasLoginFail(error: JanusError?) {
+extension LoginPresenter: LoginManagerDelegate {
+    
+    func loginManagerDidLoginFail(error: AuthError?) {
         view?.showAlert(message: error?.localizedDescription)
     }
     
-    
-    func janusHasLoginSuccess(authCredential: JanusAuthCredential) {
+    func loginManagerDidLoginSuccess(authInfo: IAuthInfo) {
         view?.openAppsList()
     }
     

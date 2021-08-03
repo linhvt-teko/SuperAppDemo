@@ -18,7 +18,7 @@ public class TripiFlightLauncher: IOSAppLauncherProtocol {
     
     public func create(launcherData: AppLauncherData, completion: @escaping (UIViewController?) -> ()) {
         var config = launcherData.extraConfig
-        config["accessToken"] = launcherData.idToken
+        config["accessToken"] = launcherData.authResult?.idToken
         print("[TripiFlightConfig]: ", config)
         
         TripiFlightPaymentSDK.shared.callFlightSDK(params: config, delegate: self) { (error, viewController) in
