@@ -1,0 +1,104 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name TripiPrepaidKit
+import CommonCrypto
+import Foundation
+import IQKeyboardManagerSwift
+import MAPaymentKit
+import Swift
+@_exported import TripiPrepaidKit
+import UIKit
+@objc @_inheritsConvenienceInitializers public class RadioButton : UIKit.UIButton {
+  @objc @IBInspectable public var deselectedColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var selectedColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var outerCircleLineWidth: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var circlePadding: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var titleText: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var titleFontType: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var titleSize: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var buttonHeight: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable public var buttonWidth: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public func prepareForInterfaceBuilder()
+  @objc override dynamic public func layoutSubviews()
+  @objc override dynamic public var isSelected: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc deinit
+}
+final public class DefaultDataTransferErrorLogger {
+  public init()
+  final public func log(error: Swift.Error)
+  @objc deinit
+}
+public class JSONResponseDecoder {
+  public init()
+  public func decode<T>(_ data: Foundation.Data) throws -> T where T : Swift.Decodable
+  @objc deinit
+}
+public class RawDataResponseDecoder {
+  public init()
+  public func decode<T>(_ data: Foundation.Data) throws -> T where T : Swift.Decodable
+  @objc deinit
+}
+public struct UserInfo : Swift.Decodable, Swift.Equatable {
+  public static func == (a: TripiPrepaidKit.UserInfo, b: TripiPrepaidKit.UserInfo) -> Swift.Bool
+  public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers public class TripiPrepaidSDK {
+  public static let shared: TripiPrepaidKit.TripiPrepaidSDK
+  public var config: TripiPrepaidKit.Config
+  public func openPrepaid(config: TripiPrepaidKit.Config, completion: @escaping (UIKit.UIViewController, Swift.Error?) -> Swift.Void)
+  @objc deinit
+}
+public struct Config {
+  public init(caId: Swift.Int? = nil, provider: Swift.String? = nil, secretKey: Swift.String? = nil, idToken: Swift.String? = nil, appId: Swift.String? = nil, terraAppName: Swift.String? = nil, userInfo: TripiPrepaidKit.UserInfo? = nil, env: TripiPrepaidKit.ENV = .production)
+}
+public enum ENV : Swift.String {
+  case production
+  case staging
+  case dev
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct Colors {
+  public static let primary: UIKit.UIColor
+  public static let onBackground: UIKit.UIColor
+  public static let button: UIKit.UIColor
+  public static let stroke: UIKit.UIColor
+}
+extension TripiPrepaidKit.ENV : Swift.Equatable {}
+extension TripiPrepaidKit.ENV : Swift.Hashable {}
+extension TripiPrepaidKit.ENV : Swift.RawRepresentable {}

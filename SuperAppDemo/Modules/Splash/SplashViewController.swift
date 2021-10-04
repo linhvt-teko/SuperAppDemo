@@ -15,29 +15,18 @@ class SplashViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
 
-        Application.shared.loadTerra { [weak self] (isSuccess) in
-            if isSuccess {
-                let window = AppDelegate.shared.window
-
-                TerraAuth.auth(app: terraApp).refreshToken { isSuccess, credential, error in
-                    guard !isSuccess else {
-                        let vc = AppListModule.build()
-                        window?.rootViewController = UINavigationController(rootViewController: vc)
-                        window?.makeKeyAndVisible()
-
-                        return
-                    }
-                    
-                    let vc = LoginModule.build()
-                    window?.rootViewController = UINavigationController(rootViewController: vc)
-                    window?.makeKeyAndVisible()
-
-                }
-                
-                
-                
-            } else {
-                
+        TerraManager.shared.loadTerra { (isSuccess) in
+            guard isSuccess else {
+                self.showAlertController(message: "Terra load failed!")
+                return
+            }
+            
+            let window = AppDelegate.shared.window
+            
+            terraAuth?.refreshToken { isSuccess, credential, error in
+                let vc = AppListModule.build()
+                window?.rootViewController = UINavigationController(rootViewController: vc)
+                window?.makeKeyAndVisible()
             }
         }
     }

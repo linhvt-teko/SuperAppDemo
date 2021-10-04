@@ -10,10 +10,7 @@ source $TekoSpecs
 project 'SuperAppDemo.xcodeproj'
 project 'MiniAppDemo/MiniAppDemo.xcodeproj'
 
-#$non_distribution_frameworks = [
-#  "TripiFlightKit",
-#  "TripiHotelKit"
-#]
+use_frameworks!
 
 # bitcode enable
 post_install do |installer|
@@ -23,7 +20,7 @@ post_install do |installer|
       # delete CODE_SIGNING_ALLOWED && CODE_SIGNING_REQUIRED
       config.build_settings.delete('CODE_SIGNING_ALLOWED')
       config.build_settings.delete('CODE_SIGNING_REQUIRED')
-
+      
       # set valid architecture
       config.build_settings['VALID_ARCHS'] = 'arm64 armv7 armv7s x86_64'
 
@@ -32,26 +29,20 @@ post_install do |installer|
 
       config.build_settings['ENABLE_BITCODE'] = 'YES'
       
-      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
-
-#      if $non_distribution_frameworks.include?(target.name)
-#        config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'NO'
-#        else
-        config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
-#      end
+      config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
 
       if config.name == 'Release'
-        config.build_settings['BITCODE_GENERATION_MODE'] = 'bitcode'
-        else # Debug
-        config.build_settings['BITCODE_GENERATION_MODE'] = 'marker'
+          config.build_settings['BITCODE_GENERATION_MODE'] = 'bitcode'
+      else # Debug
+          config.build_settings['BITCODE_GENERATION_MODE'] = 'marker'
       end
 
       cflags = config.build_settings['OTHER_CFLAGS'] || ['$(inherited)']
 
       if config.name == 'Release'
-        cflags << '-fembed-bitcode'
-        else # Debug
-        cflags << '-fembed-bitcode-marker'
+          cflags << '-fembed-bitcode'
+      else # Debug
+          cflags << '-fembed-bitcode-marker'
       end
 
       config.build_settings['OTHER_CFLAGS'] = cflags
@@ -59,72 +50,51 @@ post_install do |installer|
   end
 end
 
-def terraPods
-  pod 'Terra', '~> 2.7.0'
-end
-
-def paymentPods
-  pod 'Apollo', '1.0.11'
-  pod 'MinervaUI', '~> 3.10.0'
-end
-
 def hestiaPods
-  pod 'HestiaIOS', '~> 2.8.4'
+  pod 'HestiaIOS', '~> 2.9'
 end
 
-def authPods
-  pod 'JanusGoogle'
-  pod 'JanusFacebook'
-  pod 'Janus', '~> 3.3.5'
-end
-
-def tripiPods
-  pod 'TripiFlightKitStage', '1.2.1'
-  pod 'TripiFlightConnector', '1.2.0'
+target 'TripiPrepaidConnector' do
+  project 'TripiPrepaidConnector/TripiPrepaidConnector.xcodeproj'
   
-  pod 'TripiHotelKitStage', '1.2.1'
-  pod 'TripiHotelConnector', '1.2.0'
+  hestiaPods
+  pod 'MAPaymentKit', '~> 2.0'
+  pod 'IQKeyboardManagerSwift', '6.5.0'
+#  pod 'TripiPrepaidKit', '~> 0.1'
   
-  pod 'TekIrisService'
-  pod 'TerraInstancesManager', '~> 1.2.24'
+  
 end
 
 target 'SuperAppDemo' do
   project 'SuperAppDemo.xcodeproj'
   
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for SuperAppDemo
-  terraPods
-  paymentPods
-  hestiaPods
-  authPods
+  # host app
+  pod 'JanusUI', '~> 3.5', source: $TekoSpecs
+  pod 'MinervaUI', '~> 3.13', source: $TekoSpecs
+  pod 'LoyaltyCore', '~> 0.3', source: $TekoSpecs
+  pod 'Terra', '~> 3.1', source: $TekoSpecs
+  pod 'HestiaIOS', '~> 2.9', source: $TekoSpecs
+  pod 'Apollo', '~> 1.0', source: $TekoSpecs
+  pod 'ApolloTheme', '~> 1.0', source: $TekoSpecs
+  pod 'MAPaymentKit', '~> 2.0', source: $TekoSpecs
+  pod 'TekIrisService', '~> 1.2', source: $TekoSpecs
+  pod 'IQKeyboardManagerSwift', '~> 6.5.0'
   
-  # pods of mini-apps
-  pod 'MAPaymentKit', '~> 1.2.0', source: $TekoSpecs
+  # mini app
+  pod 'TripiPrepaidKit', '~> 0.1.0'
+  pod 'TripiFlightConnector', '~> 2.0.0'
+  pod 'TripiFlightPaymentKit', '~> 2.0.1'
+  pod 'TripiHotelConnector', '~> 2.0.0'
+  pod 'TripiHotelPaymentKit', '~> 2.0.1'
   
-  # Tripi Pods
-  tripiPods
   
-  pod 'IQKeyboardManagerSwift', '6.5.0'
-  
-  target 'SuperAppDemoTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'SuperAppDemoUITests' do
-    # Pods for testing
-  end
-
 end
 
 target 'MiniAppDemo' do
   project 'MiniAppDemo/MiniAppDemo.xcodeproj'
 
   use_frameworks!
-  pod 'MAPaymentKit', '~> 1.2.0', source: $TekoSpecs
+  pod 'MAPaymentKit', '~> 2.0', source: $TekoSpecs
   pod 'SVProgressHUD'
 
 end
@@ -134,7 +104,7 @@ target 'MiniAppDemoSDK' do
 
   use_frameworks!
   pod 'SVProgressHUD'
-  pod 'MAPaymentKit', '~> 1.2.0', source: $TekoSpecs
+  pod 'MAPaymentKit', '~> 2.0', source: $TekoSpecs
 
 end
 
@@ -143,7 +113,7 @@ target 'MiniAppDemoConnectorSDK' do
 
   use_frameworks!
   pod 'SVProgressHUD'
-  pod 'MAPaymentKit', '~> 1.2.0', source: $TekoSpecs
+  pod 'MAPaymentKit', '~> 2.0', source: $TekoSpecs
   pod 'HestiaIOS'
 
 end

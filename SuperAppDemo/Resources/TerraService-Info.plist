@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>TerraClientID</key>
-	<string>superappdemo:ios:appstore:3.0.0-tung-test</string>
+	<string>superappdemo:ios:appstore:3.0.0-prepaid</string>
 	<key>TerraEnvironment</key>
 	<string>dev</string>
 </dict>

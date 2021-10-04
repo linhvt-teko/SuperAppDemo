@@ -9,22 +9,24 @@
 //
 
 import Foundation
+import Hestia
 
 // MARK: - Builder
-protocol AppListBuilderProtocol: class {
+protocol AppListBuilderProtocol: AnyObject {
 
 }
 
 // MARK: - Presenter
-protocol AppListPresenterProtocol: class {
+protocol AppListPresenterProtocol: AnyObject {
     
 }
 
 // MARK: - View
-protocol AppListViewProtocol: class {
+protocol AppListViewProtocol: AnyObject {
     var presenter: AppListPresenterProtocol? { get }
     
     func showAlert(message: String?)
-    
+    func openLogin()
+    func openApp(_ app: HestiaApp)
 }
 

@@ -2,12 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:MiniAppDemo/MiniAppDemo.xcodeproj">
+      location = "group:TripiPrepaidConnector/TripiPrepaidConnector.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:SuperAppDemo.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MiniAppDemo/MiniAppDemo.xcodeproj">
    </FileRef>
 </Workspace>

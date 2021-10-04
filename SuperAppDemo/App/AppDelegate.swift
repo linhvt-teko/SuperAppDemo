@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        Application.shared.attachWindow(window!)
-        Application.shared.appDidFinishLaunchingWithOptions(application, didFinishLaunchingWithOptions: launchOptions)
+        App.shared.attachWindow(window!)
+        App.shared.appDidFinishLaunchingWithOptions(application, didFinishLaunchingWithOptions: launchOptions)
 
         return true
     }

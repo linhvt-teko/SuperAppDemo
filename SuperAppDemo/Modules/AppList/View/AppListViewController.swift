@@ -11,8 +11,9 @@
 import UIKit
 import Hestia
 import Janus
-import MiniAppDemoConnectorSDK
+import JanusUI
 import MAPaymentKit
+import SVProgressHUD
 
 class AppListViewController: UIViewController {
     
@@ -27,12 +28,17 @@ class AppListViewController: UIViewController {
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
 
-        let appList = MiniAppList(collectionViewLayout: UICollectionViewFlowLayout())
-        appList.terraAppName = terraApp.identity
-        appList.delegate = self
-        displayViewController(appList, in: self.containerView)
+        SVProgressHUD.show()
+        TerraManager.shared.loadTerra { isSuccess in
+            SVProgressHUD.dismiss()
+            let appList = MiniAppList(collectionViewLayout: UICollectionViewFlowLayout())
+            appList.terraAppName = terraApp.identity
+            appList.delegate = self.presenter as? MiniAppListDelegate
+            self.displayViewController(appList, in: self.containerView)
+        }
+        
     }
     
     // MARK: - setup
@@ -42,6 +48,7 @@ class AppListViewController: UIViewController {
         view.addSubview(childVC.view)
         childVC.didMove(toParent: self)
     }
+    
     func removeViewController(_ childVC: UIViewController) {
         childVC.willMove(toParent: nil)
         childVC.view.removeFromSuperview()
@@ -52,38 +59,22 @@ class AppListViewController: UIViewController {
 
 // MARK: - ViewProtocol
 extension AppListViewController: AppListViewProtocol {
-    
     func showAlert(message: String?) {
-        self.showAlertController(message: message)
+        print("AppListViewProtocol-showAlert \(String(describing: message))")
+        showAlertController(message: message)
     }
-
     
-}
-
-extension AppListViewController: MiniAppListDelegate, HestiaCallback {
-    
-    func didSelectApp(appList: MiniAppList, app: HestiaApp) {
-        guard let hestia = TerraHestia.getInstance(by: terraApp) else {
+    func openApp(_ app: HestiaApp) {
+        guard let hestia = terraHestia else {
             print("Has no intances of Hestia competitive with \(terraApp.identity)")
             return
         }
-        
-        hestia.startApp(onViewController: self, appCode: app.productCode, appType: app.type, extraConfig: [:], callback: self)
-        
-//        hestia.startApp(onViewController: self, appCode: appCode, delegate: nil, onSuccess: {
-//            print("Open app successfully")
-//        }) { error in
-//            self.showAlert(message: error.rawValue)
-//        }
+        print(app.code)
+        hestia.startApp(onViewController: self, appCode: app.productCode, appType: app.type, extraConfig: ["bundleId" : Bundle.main.bundleIdentifier ?? ""], callback: presenter as? HestiaCallback)
     }
     
-    func onSuccess() {
-        
+    func openLogin() {
+        terraAuthUI?.startLogin(self, delegate: presenter as! LoginUIDelegate, dismissable: true)
     }
-    
-    func onError(_ error: HestiaError) {
-        
-    }
-    
-    
+
 }

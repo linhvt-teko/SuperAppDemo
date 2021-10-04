@@ -1,0 +1,11 @@
+framework module TripiPrepaidKit {
+  umbrella header "TripiPrepaidKit.h"
+
+  export *
+  module * { export * }
+}
+
+module TripiPrepaidKit.Swift {
+    header "TripiPrepaidKit-Swift.h"
+    requires objc
+}

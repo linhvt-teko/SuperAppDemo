@@ -7,18 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A1B4BC025F622BC0048BB80 /* TripiFlightLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B4BBF25F622BC0048BB80 /* TripiFlightLauncher.swift */; };
 		1A9900E925F9FA05005C23D2 /* Pods_SuperAppDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38ED2A3859E44D688AF78C1E /* Pods_SuperAppDemo.framework */; };
 		1A9900EA25F9FA05005C23D2 /* Pods_SuperAppDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38ED2A3859E44D688AF78C1E /* Pods_SuperAppDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		94D52D012DFE5BB8AFD0A753 /* Pods_SuperAppDemo_SuperAppDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1302268653E63FA5CC7B607D /* Pods_SuperAppDemo_SuperAppDemoUITests.framework */; };
-		B5B1E5A46103A6B1307D215B /* Pods_SuperAppDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5425F7BCA9A50E0DDA40771 /* Pods_SuperAppDemoTests.framework */; };
 		CA7F2A7125EDF4B4001987A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2A7025EDF4B4001987A7 /* AppDelegate.swift */; };
 		CA7F2A7825EDF4B4001987A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7F2A7625EDF4B4001987A7 /* Main.storyboard */; };
 		CA7F2A7A25EDF4B5001987A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA7F2A7925EDF4B5001987A7 /* Assets.xcassets */; };
 		CA7F2A7D25EDF4B5001987A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7F2A7B25EDF4B5001987A7 /* LaunchScreen.storyboard */; };
 		CA7F2A8825EDF4B5001987A7 /* SuperAppDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2A8725EDF4B5001987A7 /* SuperAppDemoTests.swift */; };
 		CA7F2A9325EDF4B5001987A7 /* SuperAppDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2A9225EDF4B5001987A7 /* SuperAppDemoUITests.swift */; };
-		CA7F2B3325EE12C8001987A7 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2B3225EE12C8001987A7 /* Application.swift */; };
 		CA7F2B7625EE153B001987A7 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2B6E25EE153B001987A7 /* SplashViewController.swift */; };
 		CA7F2B7725EE153B001987A7 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7F2B6F25EE153B001987A7 /* SplashViewController.xib */; };
 		CA7F2B7825EE153B001987A7 /* AppListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2B7125EE153B001987A7 /* AppListModule.swift */; };
@@ -27,17 +23,12 @@
 		CA7F2B7B25EE153B001987A7 /* AppListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2B7425EE153B001987A7 /* AppListProtocols.swift */; };
 		CA7F2B7C25EE153B001987A7 /* AppListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7F2B7525EE153B001987A7 /* AppListViewController.xib */; };
 		CA7F2B8525EE17E9001987A7 /* TerraService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA7F2B8425EE17E9001987A7 /* TerraService-Info.plist */; };
-		CA7F2B8D25EE1961001987A7 /* TerraInstanceCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2B8C25EE1961001987A7 /* TerraInstanceCenter.swift */; };
-		CA7F2C5625EE26FD001987A7 /* MiniAppDemoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA7F2C5525EE26FD001987A7 /* MiniAppDemoSDK.framework */; };
-		CA7F2C5725EE26FD001987A7 /* MiniAppDemoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA7F2C5525EE26FD001987A7 /* MiniAppDemoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CA7F2DD025EE3082001987A7 /* MiniAppDemoConnectorSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA7F2DCF25EE3082001987A7 /* MiniAppDemoConnectorSDK.framework */; };
-		CA7F2DD125EE3082001987A7 /* MiniAppDemoConnectorSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA7F2DCF25EE3082001987A7 /* MiniAppDemoConnectorSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CA7F2ECF25EE3CEC001987A7 /* LoginModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2ECA25EE3CEC001987A7 /* LoginModule.swift */; };
-		CA7F2ED225EE3CED001987A7 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2ECD25EE3CEC001987A7 /* LoginProtocols.swift */; };
-		CA7F2ED325EE3CED001987A7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7F2ECE25EE3CEC001987A7 /* LoginViewController.xib */; };
 		CA7F2EDF25EE3ED2001987A7 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2EDE25EE3ED2001987A7 /* UIViewController+.swift */; };
-		CA7F2EE425EE3F40001987A7 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2ECB25EE3CEC001987A7 /* LoginPresenter.swift */; };
-		CA7F2EE925EE3FD8001987A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F2ECC25EE3CEC001987A7 /* LoginViewController.swift */; };
+		CA9B4F80270AFE120065307C /* TripiPrepaidConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9B4F7E270AFE120065307C /* TripiPrepaidConnector.framework */; };
+		CA9B4F81270AFE120065307C /* TripiPrepaidConnector.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA9B4F7E270AFE120065307C /* TripiPrepaidConnector.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA9B4F8F270B02690065307C /* TerraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9B4F8C270B02680065307C /* TerraManager.swift */; };
+		CA9B4F90270B02690065307C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9B4F8D270B02690065307C /* App.swift */; };
+		CA9B4F91270B02690065307C /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9B4F8E270B02690065307C /* AuthManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,9 +55,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CA7F2C5725EE26FD001987A7 /* MiniAppDemoSDK.framework in Embed Frameworks */,
 				1A9900EA25F9FA05005C23D2 /* Pods_SuperAppDemo.framework in Embed Frameworks */,
-				CA7F2DD125EE3082001987A7 /* MiniAppDemoConnectorSDK.framework in Embed Frameworks */,
+				CA9B4F81270AFE120065307C /* TripiPrepaidConnector.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,20 +64,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1302268653E63FA5CC7B607D /* Pods_SuperAppDemo_SuperAppDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperAppDemo_SuperAppDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		135340C999F3CF08716FDE66 /* Pods-SuperAppDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperAppDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-SuperAppDemoTests/Pods-SuperAppDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		1A1B4BBF25F622BC0048BB80 /* TripiFlightLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripiFlightLauncher.swift; sourceTree = "<group>"; };
-		1A9900DD25F9F9FF005C23D2 /* TripiFlightPaymentKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TripiFlightPaymentKit.framework; path = Frameworks/TripiFlightPaymentKit.framework; sourceTree = "<group>"; };
-		1A9900DE25F9F9FF005C23D2 /* TripiCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TripiCommon.framework; path = Frameworks/TripiCommon.framework; sourceTree = "<group>"; };
-		1A9900DF25F9F9FF005C23D2 /* TripiFlightKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TripiFlightKit.framework; path = Frameworks/TripiFlightKit.framework; sourceTree = "<group>"; };
-		1A9900E025F9F9FF005C23D2 /* CallAppSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallAppSDK.framework; path = Frameworks/CallAppSDK.framework; sourceTree = "<group>"; };
-		1AC3A2C5260858310078E8DB /* TripiHotelKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TripiHotelKit.framework; path = Frameworks/TripiHotelKit.framework; sourceTree = "<group>"; };
-		1AC3A2C7260858310078E8DB /* TripiHotelPaymentKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TripiHotelPaymentKit.framework; path = Frameworks/TripiHotelPaymentKit.framework; sourceTree = "<group>"; };
-		1AC3A3CD260871AB0078E8DB /* TripiHotelConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TripiHotelConnector.framework; sourceTree = "<group>"; };
 		38ED2A3859E44D688AF78C1E /* Pods_SuperAppDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperAppDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F62A9FB1B92A19535F5899 /* Pods-SuperAppDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperAppDemo.debug.xcconfig"; path = "Target Support Files/Pods-SuperAppDemo/Pods-SuperAppDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		964D4F3F91470907294D8EDD /* Pods-SuperAppDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperAppDemoTests.release.xcconfig"; path = "Target Support Files/Pods-SuperAppDemoTests/Pods-SuperAppDemoTests.release.xcconfig"; sourceTree = "<group>"; };
-		A5425F7BCA9A50E0DDA40771 /* Pods_SuperAppDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperAppDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B700EE770AC9F774E5F35CED /* Pods-SuperAppDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperAppDemo.release.xcconfig"; path = "Target Support Files/Pods-SuperAppDemo/Pods-SuperAppDemo.release.xcconfig"; sourceTree = "<group>"; };
 		CA7F2A6D25EDF4B4001987A7 /* SuperAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA7F2A7025EDF4B4001987A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,7 +79,6 @@
 		CA7F2A8E25EDF4B5001987A7 /* SuperAppDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperAppDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA7F2A9225EDF4B5001987A7 /* SuperAppDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperAppDemoUITests.swift; sourceTree = "<group>"; };
 		CA7F2A9425EDF4B5001987A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA7F2B3225EE12C8001987A7 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		CA7F2B6E25EE153B001987A7 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		CA7F2B6F25EE153B001987A7 /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		CA7F2B7125EE153B001987A7 /* AppListModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppListModule.swift; sourceTree = "<group>"; };
@@ -110,19 +87,15 @@
 		CA7F2B7425EE153B001987A7 /* AppListProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppListProtocols.swift; sourceTree = "<group>"; };
 		CA7F2B7525EE153B001987A7 /* AppListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppListViewController.xib; sourceTree = "<group>"; };
 		CA7F2B8425EE17E9001987A7 /* TerraService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TerraService-Info.plist"; sourceTree = "<group>"; };
-		CA7F2B8C25EE1961001987A7 /* TerraInstanceCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerraInstanceCenter.swift; sourceTree = "<group>"; };
 		CA7F2C5525EE26FD001987A7 /* MiniAppDemoSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MiniAppDemoSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA7F2D8C25EE2D52001987A7 /* MiniAppDemoConnectorSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MiniAppDemoConnectorSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA7F2DCF25EE3082001987A7 /* MiniAppDemoConnectorSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MiniAppDemoConnectorSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA7F2ECA25EE3CEC001987A7 /* LoginModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModule.swift; sourceTree = "<group>"; };
-		CA7F2ECB25EE3CEC001987A7 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
-		CA7F2ECC25EE3CEC001987A7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		CA7F2ECD25EE3CEC001987A7 /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
-		CA7F2ECE25EE3CEC001987A7 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		CA7F2EDA25EE3E36001987A7 /* JanusHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JanusHelper.swift; sourceTree = "<group>"; };
 		CA7F2EDE25EE3ED2001987A7 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
-		E73943D773B327CD3EC6AF34 /* Pods-SuperAppDemo-SuperAppDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperAppDemo-SuperAppDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-SuperAppDemo-SuperAppDemoUITests/Pods-SuperAppDemo-SuperAppDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		E7A007EAB9B055CDCE76FDC0 /* Pods-SuperAppDemo-SuperAppDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperAppDemo-SuperAppDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-SuperAppDemo-SuperAppDemoUITests/Pods-SuperAppDemo-SuperAppDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CA9B4F7E270AFE120065307C /* TripiPrepaidConnector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TripiPrepaidConnector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA9B4F7F270AFE120065307C /* TripiPrepaidKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TripiPrepaidKit.xcframework; path = TripiPrepaidConnector/TripiPrepaidConnector/TripiPrepaidKit.xcframework; sourceTree = "<group>"; };
+		CA9B4F8C270B02680065307C /* TerraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerraManager.swift; sourceTree = "<group>"; };
+		CA9B4F8D270B02690065307C /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		CA9B4F8E270B02690065307C /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,9 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA7F2DD025EE3082001987A7 /* MiniAppDemoConnectorSDK.framework in Frameworks */,
-				CA7F2C5625EE26FD001987A7 /* MiniAppDemoSDK.framework in Frameworks */,
 				1A9900E925F9FA05005C23D2 /* Pods_SuperAppDemo.framework in Frameworks */,
+				CA9B4F80270AFE120065307C /* TripiPrepaidConnector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +112,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5B1E5A46103A6B1307D215B /* Pods_SuperAppDemoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,37 +119,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94D52D012DFE5BB8AFD0A753 /* Pods_SuperAppDemo_SuperAppDemoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A1B4BB925F622630048BB80 /* Tripi */ = {
-			isa = PBXGroup;
-			children = (
-				1AC3A3CD260871AB0078E8DB /* TripiHotelConnector.framework */,
-				1AC3A2C5260858310078E8DB /* TripiHotelKit.framework */,
-				1AC3A2C7260858310078E8DB /* TripiHotelPaymentKit.framework */,
-				1A9900E025F9F9FF005C23D2 /* CallAppSDK.framework */,
-				1A9900DE25F9F9FF005C23D2 /* TripiCommon.framework */,
-				1A9900DF25F9F9FF005C23D2 /* TripiFlightKit.framework */,
-				1A9900DD25F9F9FF005C23D2 /* TripiFlightPaymentKit.framework */,
-				1A1B4BBF25F622BC0048BB80 /* TripiFlightLauncher.swift */,
-			);
-			path = Tripi;
-			sourceTree = "<group>";
-		};
 		A4FB46731B48F40A2B298F2B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA9B4F7E270AFE120065307C /* TripiPrepaidConnector.framework */,
+				CA9B4F7F270AFE120065307C /* TripiPrepaidKit.xcframework */,
 				CA7F2DCF25EE3082001987A7 /* MiniAppDemoConnectorSDK.framework */,
 				CA7F2D8C25EE2D52001987A7 /* MiniAppDemoConnectorSDK.framework */,
 				CA7F2C5525EE26FD001987A7 /* MiniAppDemoSDK.framework */,
 				38ED2A3859E44D688AF78C1E /* Pods_SuperAppDemo.framework */,
-				1302268653E63FA5CC7B607D /* Pods_SuperAppDemo_SuperAppDemoUITests.framework */,
-				A5425F7BCA9A50E0DDA40771 /* Pods_SuperAppDemoTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -208,7 +163,6 @@
 		CA7F2A6F25EDF4B4001987A7 /* SuperAppDemo */ = {
 			isa = PBXGroup;
 			children = (
-				1A1B4BB925F622630048BB80 /* Tripi */,
 				CA7F2ED925EE3E27001987A7 /* Utils */,
 				CA7F2AF225EDF5E1001987A7 /* App */,
 				CA7F2B6C25EE153B001987A7 /* Modules */,
@@ -238,9 +192,10 @@
 		CA7F2AF225EDF5E1001987A7 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				CA9B4F8D270B02690065307C /* App.swift */,
+				CA9B4F8E270B02690065307C /* AuthManager.swift */,
+				CA9B4F8C270B02680065307C /* TerraManager.swift */,
 				CA7F2A7025EDF4B4001987A7 /* AppDelegate.swift */,
-				CA7F2B3225EE12C8001987A7 /* Application.swift */,
-				CA7F2B8C25EE1961001987A7 /* TerraInstanceCenter.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -248,7 +203,6 @@
 		CA7F2B6C25EE153B001987A7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				CA7F2EC925EE3CDD001987A7 /* Login */,
 				CA7F2B6D25EE153B001987A7 /* Splash */,
 				CA7F2B7025EE153B001987A7 /* AppList */,
 			);
@@ -312,46 +266,9 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		CA7F2EC925EE3CDD001987A7 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				CA7F2ECA25EE3CEC001987A7 /* LoginModule.swift */,
-				CA7F2ED825EE3D78001987A7 /* Constract */,
-				CA7F2ED725EE3D6F001987A7 /* Presenter */,
-				CA7F2ED625EE3D65001987A7 /* View */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		CA7F2ED625EE3D65001987A7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CA7F2ECC25EE3CEC001987A7 /* LoginViewController.swift */,
-				CA7F2ECE25EE3CEC001987A7 /* LoginViewController.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		CA7F2ED725EE3D6F001987A7 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				CA7F2ECB25EE3CEC001987A7 /* LoginPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		CA7F2ED825EE3D78001987A7 /* Constract */ = {
-			isa = PBXGroup;
-			children = (
-				CA7F2ECD25EE3CEC001987A7 /* LoginProtocols.swift */,
-			);
-			path = Constract;
-			sourceTree = "<group>";
-		};
 		CA7F2ED925EE3E27001987A7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				CA7F2EDA25EE3E36001987A7 /* JanusHelper.swift */,
 				CA7F2EDE25EE3ED2001987A7 /* UIViewController+.swift */,
 			);
 			path = Utils;
@@ -362,10 +279,6 @@
 			children = (
 				67F62A9FB1B92A19535F5899 /* Pods-SuperAppDemo.debug.xcconfig */,
 				B700EE770AC9F774E5F35CED /* Pods-SuperAppDemo.release.xcconfig */,
-				E73943D773B327CD3EC6AF34 /* Pods-SuperAppDemo-SuperAppDemoUITests.debug.xcconfig */,
-				E7A007EAB9B055CDCE76FDC0 /* Pods-SuperAppDemo-SuperAppDemoUITests.release.xcconfig */,
-				135340C999F3CF08716FDE66 /* Pods-SuperAppDemoTests.debug.xcconfig */,
-				964D4F3F91470907294D8EDD /* Pods-SuperAppDemoTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -383,7 +296,7 @@
 				CA7F2A6B25EDF4B4001987A7 /* Resources */,
 				CA7F2C5825EE26FD001987A7 /* Embed Frameworks */,
 				C748E78B30B08189E1B865EB /* [CP] Embed Pods Frameworks */,
-				4A651EA0267A60F151C6654F /* [CP] Copy Pods Resources */,
+				655D9D5300E1633F8A1DFAAD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -398,7 +311,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA7F2A9A25EDF4B5001987A7 /* Build configuration list for PBXNativeTarget "SuperAppDemoTests" */;
 			buildPhases = (
-				474BEAD96FF1BC76ED2ACE6E /* [CP] Check Pods Manifest.lock */,
 				CA7F2A7F25EDF4B5001987A7 /* Sources */,
 				CA7F2A8025EDF4B5001987A7 /* Frameworks */,
 				CA7F2A8125EDF4B5001987A7 /* Resources */,
@@ -417,12 +329,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA7F2A9D25EDF4B5001987A7 /* Build configuration list for PBXNativeTarget "SuperAppDemoUITests" */;
 			buildPhases = (
-				4F3230584708AFB197362DFF /* [CP] Check Pods Manifest.lock */,
 				CA7F2A8A25EDF4B5001987A7 /* Sources */,
 				CA7F2A8B25EDF4B5001987A7 /* Frameworks */,
 				CA7F2A8C25EDF4B5001987A7 /* Resources */,
-				F646D7E56BD2061330CD3F07 /* [CP] Embed Pods Frameworks */,
-				26BC975240191452E1F9CFDE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -486,7 +395,6 @@
 				CA7F2A7A25EDF4B5001987A7 /* Assets.xcassets in Resources */,
 				CA7F2A7825EDF4B4001987A7 /* Main.storyboard in Resources */,
 				CA7F2B7725EE153B001987A7 /* SplashViewController.xib in Resources */,
-				CA7F2ED325EE3CED001987A7 /* LoginViewController.xib in Resources */,
 				CA7F2B7C25EE153B001987A7 /* AppListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,46 +416,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		26BC975240191452E1F9CFDE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SuperAppDemo-SuperAppDemoUITests/Pods-SuperAppDemo-SuperAppDemoUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SuperAppDemo-SuperAppDemoUITests/Pods-SuperAppDemo-SuperAppDemoUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SuperAppDemo-SuperAppDemoUITests/Pods-SuperAppDemo-SuperAppDemoUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		474BEAD96FF1BC76ED2ACE6E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SuperAppDemoTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4A651EA0267A60F151C6654F /* [CP] Copy Pods Resources */ = {
+		655D9D5300E1633F8A1DFAAD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -562,28 +431,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SuperAppDemo/Pods-SuperAppDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4F3230584708AFB197362DFF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SuperAppDemo-SuperAppDemoUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6EF6497CA0AD829CEA2F365D /* [CP] Check Pods Manifest.lock */ = {
@@ -625,23 +472,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SuperAppDemo/Pods-SuperAppDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F646D7E56BD2061330CD3F07 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SuperAppDemo-SuperAppDemoUITests/Pods-SuperAppDemo-SuperAppDemoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SuperAppDemo-SuperAppDemoUITests/Pods-SuperAppDemo-SuperAppDemoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SuperAppDemo-SuperAppDemoUITests/Pods-SuperAppDemo-SuperAppDemoUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -649,20 +479,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA7F2EE925EE3FD8001987A7 /* LoginViewController.swift in Sources */,
+				CA9B4F8F270B02690065307C /* TerraManager.swift in Sources */,
 				CA7F2EDF25EE3ED2001987A7 /* UIViewController+.swift in Sources */,
-				CA7F2B3325EE12C8001987A7 /* Application.swift in Sources */,
-				1A1B4BC025F622BC0048BB80 /* TripiFlightLauncher.swift in Sources */,
-				CA7F2EE425EE3F40001987A7 /* LoginPresenter.swift in Sources */,
+				CA9B4F90270B02690065307C /* App.swift in Sources */,
 				CA7F2B7925EE153B001987A7 /* AppListViewController.swift in Sources */,
-				CA7F2ECF25EE3CEC001987A7 /* LoginModule.swift in Sources */,
 				CA7F2B7B25EE153B001987A7 /* AppListProtocols.swift in Sources */,
 				CA7F2A7125EDF4B4001987A7 /* AppDelegate.swift in Sources */,
 				CA7F2B7A25EE153B001987A7 /* AppListPresenter.swift in Sources */,
 				CA7F2B7825EE153B001987A7 /* AppListModule.swift in Sources */,
+				CA9B4F91270B02690065307C /* AuthManager.swift in Sources */,
 				CA7F2B7625EE153B001987A7 /* SplashViewController.swift in Sources */,
-				CA7F2ED225EE3CED001987A7 /* LoginProtocols.swift in Sources */,
-				CA7F2B8D25EE1961001987A7 /* TerraInstanceCenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -848,7 +674,7 @@
 					"$(PROJECT_DIR)/SuperAppDemo/Tripi/Frameworks",
 				);
 				INFOPLIST_FILE = SuperAppDemo/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -876,7 +702,7 @@
 					"$(PROJECT_DIR)/SuperAppDemo/Tripi/Frameworks",
 				);
 				INFOPLIST_FILE = SuperAppDemo/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -891,7 +717,6 @@
 		};
 		CA7F2A9B25EDF4B5001987A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 135340C999F3CF08716FDE66 /* Pods-SuperAppDemoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -914,7 +739,6 @@
 		};
 		CA7F2A9C25EDF4B5001987A7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 964D4F3F91470907294D8EDD /* Pods-SuperAppDemoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -937,7 +761,6 @@
 		};
 		CA7F2A9E25EDF4B5001987A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E73943D773B327CD3EC6AF34 /* Pods-SuperAppDemo-SuperAppDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -958,7 +781,6 @@
 		};
 		CA7F2A9F25EDF4B5001987A7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7A007EAB9B055CDCE76FDC0 /* Pods-SuperAppDemo-SuperAppDemoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

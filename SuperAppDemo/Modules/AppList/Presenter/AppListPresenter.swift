@@ -10,14 +10,62 @@
 
 import Foundation
 import Hestia
+import Janus
+import JanusUI
 
 class AppListPresenter: AppListPresenterProtocol {
 
     weak private var view: AppListViewProtocol?
 
+    private var currentApp: HestiaApp?
+    
     init(view: AppListViewProtocol) {
         self.view = view
     }
     
+    func openApp(_ app: HestiaApp) {
+        currentApp = app
+        guard AuthManager.shared.isLoggedIn else {
+            view?.openLogin()
+            return
+        }
+        view?.openApp(app)
+        
+    }
+    
+}
+
+// MARK: - MiniAppListDelegate
+extension AppListPresenter: MiniAppListDelegate {
+    func didSelectApp(appList: MiniAppList, app: HestiaApp) {
+        openApp(app)
+    }
+    
+}
+
+// MARK: - HestiaCallback
+extension AppListPresenter: HestiaCallback {
+    func onSuccess() {
+        print("Open app successfully")
+    }
+    
+    func onError(_ error: HestiaError) {
+        self.view?.showAlert(message: error.rawValue)
+    }
+    
+    
+}
+
+// MARK: - LoginUIDelegate
+extension AppListPresenter: LoginUIDelegate {
+    func onLoginSuccess(authInfo: IAuthInfo) {
+        print(authInfo)
+        guard let app = currentApp else { return }
+        openApp(app)
+    }
+    
+    func onLoginCancelled() {
+        
+    }
     
 }
