@@ -17,9 +17,10 @@ public class TripiPrepaidLauncher: IOSAppLauncherProtocol {
     public required init() { }
     
     public func create(launcherData: AppLauncherData, completion: @escaping (UIViewController?) -> ()) {
-        let config = launcherData.extraConfig
-        let idToken = launcherData.authResult?.idToken
+        let config  = launcherData.extraConfig
         print("[TripiPrepaidConfig]: ", config)
+        let idToken = launcherData.authResult?.idToken
+        let env     = TripiPrepaidKit.ENV(rawEnv: launcherData.extraConfig["server"] as? String)
         
         guard let caId      = launcherData.extraConfig["caid"] as? String,
               let appToken  = launcherData.extraConfig["appToken"] as? String,
@@ -36,7 +37,7 @@ public class TripiPrepaidLauncher: IOSAppLauncherProtocol {
                 secretKey: appToken,
                 idToken: idToken,
                 appId: bundleId,
-                env: .dev
+                env: env
             )
         ) { viewController, error in
             completion(viewController)

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B5BC5F8C85725841BDBFB903 /* Pods_TripiPrepaidConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6950CDD886B8CE8A2432020 /* Pods_TripiPrepaidConnector.framework */; };
 		CA9B4F8B270B00C70065307C /* TripiPrepaidKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9B4F8A270B00C70065307C /* TripiPrepaidKit.xcframework */; };
+		CA9B4F93270B1C120065307C /* TripiPrepaidEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9B4F92270B1C120065307C /* TripiPrepaidEnv.swift */; };
 		CAD68BB42705CCE300818A17 /* TripiPrepaidLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD68BB32705CCE300818A17 /* TripiPrepaidLauncher.swift */; };
 		CADD6C9827017D4200F72805 /* TripiPrepaidConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = CADD6C9627017D4200F72805 /* TripiPrepaidConnector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -31,6 +32,7 @@
 		3B38AE0D58BC3C4366607374 /* Pods-TripiPrepaidConnector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripiPrepaidConnector.debug.xcconfig"; path = "Target Support Files/Pods-TripiPrepaidConnector/Pods-TripiPrepaidConnector.debug.xcconfig"; sourceTree = "<group>"; };
 		A6950CDD886B8CE8A2432020 /* Pods_TripiPrepaidConnector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripiPrepaidConnector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9B4F8A270B00C70065307C /* TripiPrepaidKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = TripiPrepaidKit.xcframework; sourceTree = "<group>"; };
+		CA9B4F92270B1C120065307C /* TripiPrepaidEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripiPrepaidEnv.swift; sourceTree = "<group>"; };
 		CAD68BB32705CCE300818A17 /* TripiPrepaidLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripiPrepaidLauncher.swift; sourceTree = "<group>"; };
 		CADD6C9327017D4200F72805 /* TripiPrepaidConnector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TripiPrepaidConnector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADD6C9627017D4200F72805 /* TripiPrepaidConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripiPrepaidConnector.h; sourceTree = "<group>"; };
@@ -60,6 +62,23 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		CA9B4F94270B1C1F0065307C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CAD68BB32705CCE300818A17 /* TripiPrepaidLauncher.swift */,
+				CA9B4F92270B1C120065307C /* TripiPrepaidEnv.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		CA9B4F95270B1C2C0065307C /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				CA9B4F8A270B00C70065307C /* TripiPrepaidKit.xcframework */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
 		CADD6C8927017D4200F72805 = {
 			isa = PBXGroup;
 			children = (
@@ -81,9 +100,9 @@
 		CADD6C9527017D4200F72805 /* TripiPrepaidConnector */ = {
 			isa = PBXGroup;
 			children = (
-				CA9B4F8A270B00C70065307C /* TripiPrepaidKit.xcframework */,
+				CA9B4F95270B1C2C0065307C /* Libraries */,
+				CA9B4F94270B1C1F0065307C /* Classes */,
 				CADD6C9627017D4200F72805 /* TripiPrepaidConnector.h */,
-				CAD68BB32705CCE300818A17 /* TripiPrepaidLauncher.swift */,
 				CADD6C9727017D4200F72805 /* Info.plist */,
 			);
 			path = TripiPrepaidConnector;
@@ -203,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA9B4F93270B1C120065307C /* TripiPrepaidEnv.swift in Sources */,
 				CAD68BB42705CCE300818A17 /* TripiPrepaidLauncher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
